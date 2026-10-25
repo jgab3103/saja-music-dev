@@ -1,0 +1,1633 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+<meta name="description" content="Listening Diary – Jamie Gabriel"/>
+<meta name="author" content="Jamie Gabriel"/>
+
+<title>Listening Diary | Jamie Gabriel</title>
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+<style>
+
+:root{
+    --accent:#8B2E3C;
+    --paper:#FAFAFA;
+    --panel:#F4F1EB;
+}
+
+html{
+    scroll-behavior:smooth;
+    background:var(--paper);
+}
+
+body{
+    margin:0;
+    font-family:'Nunito',sans-serif;
+    background:var(--paper);
+    color:#111;
+    line-height:1.75;
+    font-size:16.5px;
+    padding-top:80px;
+}
+
+a{
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid rgba(139,46,60,.35);
+    transition:.2s;
+}
+
+a:hover{
+    color:#111;
+    border-bottom-color:rgba(139,46,60,.75);
+}
+
+#mainNav,
+#mainNav.navbar-shrink{
+    background:var(--paper)!important;
+    border-bottom:1px solid rgba(0,0,0,.05);
+    min-height:80px;
+}
+
+#mainNav a{
+    color:#111!important;
+    text-decoration:none!important;
+    border:none!important;
+}
+
+.nav-links{
+    display:flex;
+    gap:2.5rem;
+    align-items:center;
+}
+
+.diary{
+    max-width:1100px;
+    margin:0 auto;
+    padding:60px 24px 120px;
+}
+
+.diary h1{
+    font-family:'Varela Round',sans-serif;
+    font-size:1.7rem;
+    font-weight:500;
+    text-align:center;
+    margin:0 0 18px;
+}
+
+.intro{
+    max-width:700px;
+    margin:0 auto 42px;
+    text-align:left;
+    color:#444;
+}
+
+.panel{
+    background:var(--panel);
+    padding:30px;
+    border-radius:4px;
+}
+
+.controls{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+    margin-bottom:24px;
+}
+
+.control-block{
+    min-width:0;
+}
+
+.label{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-weight:700;
+    color:rgba(0,0,0,.55);
+    margin-bottom:8px;
+}
+
+.range-description{
+    margin-bottom:8px;
+}
+
+.range-slider{
+    position:relative;
+    height:24px;
+    margin-top:4px;
+}
+
+.range-slider::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:9px;
+    height:6px;
+    background:#D8D1CA;
+    border-radius:3px;
+}
+
+.range-slider input[type=range]{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:24px;
+    margin:0;
+    padding:0;
+    background:transparent;
+    pointer-events:none;
+    appearance:none;
+    -webkit-appearance:none;
+}
+
+.range-slider input[type=range]::-webkit-slider-runnable-track{
+    height:6px;
+    background:transparent;
+    border:none;
+}
+
+.range-slider input[type=range]::-moz-range-track{
+    height:6px;
+    background:transparent;
+    border:none;
+}
+
+.range-slider input[type=range]::-webkit-slider-thumb{
+    appearance:none;
+    -webkit-appearance:none;
+    width:16px;
+    height:16px;
+    margin-top:-5px;
+    border-radius:50%;
+    border:2px solid #FAFAFA;
+    background:#8B2E3C;
+    box-shadow:0 1px 3px rgba(0,0,0,.25);
+    pointer-events:auto;
+    cursor:pointer;
+}
+
+.range-slider input[type=range]::-moz-range-thumb{
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    border:2px solid #FAFAFA;
+    background:#8B2E3C;
+    box-shadow:0 1px 3px rgba(0,0,0,.25);
+    pointer-events:auto;
+    cursor:pointer;
+}
+
+#maxYearSlider,
+#maxListenSlider{
+    z-index:2;
+}
+
+#minYearSlider,
+#minListenSlider{
+    z-index:3;
+}
+
+#minYearValue,
+#maxYearValue,
+#minListenValue,
+#maxListenValue{
+    color:var(--accent);
+    font-weight:700;
+}
+
+select,
+#searchFilter{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid rgba(0,0,0,.15);
+    background:white;
+    font-family:inherit;
+    font-size:15px;
+}
+
+.listen-selects{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+}
+
+.listen-select-label{
+    font-size:.75rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:700;
+    color:rgba(0,0,0,.55);
+    margin-bottom:5px;
+}
+
+.view-tabs{
+    display:flex;
+    gap:0;
+    margin-bottom:16px;
+    border-bottom:1px solid rgba(0,0,0,.12);
+}
+
+.view-tab{
+    border:none;
+    background:transparent;
+    padding:9px 18px;
+    font-family:'Nunito',sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:rgba(0,0,0,.55);
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+}
+
+.view-tab.active{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+}
+
+.view-tab:hover{
+    color:#111;
+}
+
+#map{
+    height:560px;
+    border-radius:3px;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,.08);
+}
+
+.table-view{
+    display:none;
+    overflow-x:auto;
+}
+
+.works-table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    background:#fff;
+}
+
+.works-table th,
+.works-table td{
+    padding:10px 12px;
+    text-align:left;
+    border-bottom:1px solid rgba(0,0,0,.08);
+    vertical-align:top;
+}
+
+.works-table th{
+    background:#F4F1EB;
+    font-weight:700;
+    color:#333;
+    white-space:nowrap;
+    cursor:pointer;
+    user-select:none;
+}
+
+.works-table th:hover{
+    color:var(--accent);
+}
+
+.works-table th.sort-asc::after{
+    content:" ↑";
+    color:var(--accent);
+}
+
+.works-table th.sort-desc::after{
+    content:" ↓";
+    color:var(--accent);
+}
+
+.works-table td:first-child{
+    font-weight:700;
+}
+
+.works-table .period-cell{
+    white-space:nowrap;
+}
+
+.works-table small{
+    color:#666;
+}
+
+.stats{
+    display:flex;
+    justify-content:space-between;
+    margin-top:16px;
+    color:#555;
+    font-size:.95rem;
+}
+
+.composer-label{
+    background:#FFFFFF;
+    border:none;
+    border-radius:3px;
+    box-shadow:0 1px 3px rgba(0,0,0,.18);
+    color:#6F202F;
+    font-family:'Nunito',sans-serif;
+    font-size:14px;
+    font-weight:700;
+    white-space:nowrap;
+    padding:2px 5px;
+}
+
+.composer-label:before{
+    display:none;
+}
+
+.leaflet-popup-content{
+    font-family:'Nunito',sans-serif;
+    min-width:190px;
+}
+
+.leaflet-popup-content h3{
+    margin:0 0 6px;
+    font-size:1rem;
+    color:var(--accent);
+}
+
+.leaflet-popup-content p{
+    margin:5px 0;
+    line-height:1.45;
+}
+
+.footer{
+    background:var(--paper);
+    border-top:1px solid rgba(0,0,0,.06);
+    padding:80px 30px;
+    text-align:center;
+    font-size:.95rem;
+    color:rgba(0,0,0,.7);
+}
+
+@media(max-width:900px){
+
+    .nav-links{
+        gap:1.5rem;
+    }
+
+    .panel{
+        padding:24px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    #map{
+        height:420px;
+    }
+
+    .nav-links{
+        gap:1rem;
+    }
+
+    .diary{
+        padding:45px 18px 90px;
+    }
+
+    .composer-label{
+        font-size:11px;
+        padding:2px 4px;
+    }
+
+    .view-tab{
+        padding:8px 14px;
+    }
+
+    .works-table{
+        font-size:13px;
+    }
+
+    .works-table th,
+    .works-table td{
+        padding:8px 10px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+
+    <div class="container px-4 px-lg-5">
+
+        <a class="navbar-brand" href="./index.html">
+            Jamie Gabriel
+        </a>
+
+        <div class="nav-links">
+
+<a href="./music.html">Music</a>
+<a href="./teaching.html">Teaching</a>
+<a href="./recordings.html">Recordings</a>
+<a href="./contact.html">Contact</a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<section class="diary">
+
+    <h1>Listening Diary</h1>
+
+    <p class="intro">
+        A growing map of music I'm listening to, studying and teaching.
+        Each pin marks the place a work was composed, with the composer,
+        year and notes. Use the timelines and search box to explore
+        music across geography, history and my own listening history.
+        Click on the dots to get details of the work.
+        <br/><br/>
+       You can also find an interactive timeline of when composers lived and how thier lives overlapped <a href="./composers.html">here</a><br/><br/>
+        <a href="#why-listening-diary">Why this is important.</a>
+    </p>
+
+    <div class="panel">
+
+        <div class="controls">
+
+            <div class="control-block">
+
+                <div class="label">Composition</div>
+
+                <div class="range-description">
+                    Show works composed from
+                    <span id="minYearValue">1600</span>
+                    to
+                    <span id="maxYearValue">2026</span>
+                </div>
+
+                <div class="range-slider">
+
+                    <input
+                        id="minYearSlider"
+                        type="range"
+                        min="1600"
+                        max="2026"
+                        value="1600"
+                    >
+
+                    <input
+                        id="maxYearSlider"
+                        type="range"
+                        min="1600"
+                        max="2026"
+                        value="2026"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="control-block">
+
+                <div class="label">Listening</div>
+
+                <div class="range-description">
+                    Show music I listened to from
+                    <span id="minListenValue">January 1991</span>
+                    to
+                    <span id="maxListenValue">September 2026</span>
+                </div>
+
+                <div class="listen-selects">
+
+                    <div>
+
+                        <div class="listen-select-label">
+                            From
+                        </div>
+
+                        <select id="minListenSelect"></select>
+
+                    </div>
+
+                    <div>
+
+                        <div class="listen-select-label">
+                            To
+                        </div>
+
+                        <select id="maxListenSelect"></select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="control-block">
+
+                <div class="label">Search anything</div>
+
+                <input
+                    id="searchFilter"
+                    type="search"
+                    placeholder="Composer, work, period, place, notes..."
+                    aria-label="Search listening diary"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="view-tabs">
+
+            <button
+                class="view-tab active"
+                data-view="map-view"
+                type="button"
+            >
+                Map
+            </button>
+
+            <button
+                class="view-tab"
+                data-view="table-view"
+                type="button"
+            >
+                Table
+            </button>
+
+        </div>
+
+        <div id="map" class="map-view"></div>
+
+        <div id="table-view" class="table-view">
+
+            <table class="works-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th data-sort="composer">
+                            Composer
+                        </th>
+
+                        <th data-sort="title">
+                            Work
+                        </th>
+
+                        <th data-sort="year">
+                            Year
+                        </th>
+
+                        <th data-sort="composedPlace">
+                            Place composed
+                        </th>
+
+                        <th data-sort="firstPerformancePlace">
+                            First performed
+                        </th>
+
+                        <th data-sort="period">
+                            Period
+                        </th>
+
+                        <th data-sort="listens">
+                            When I was <br/>listening to this
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="worksTableBody"></tbody>
+
+            </table>
+
+        </div>
+
+        <div class="stats">
+
+            <div>
+                <span id="count">0</span> works visible
+            </div>
+
+            <div>
+                1600–2026
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="diary" id="why-listening-diary">
+
+    <h2>Why keep a listening diary?</h2>
+
+    <p>
+        Listening is one of the most important parts of learning music,
+        but it is so easy for it to become something we do without really
+        noticing how much we are hearing, discovering and learning.
+        A listening diary is a great way of making that process visible
+        and keeps you exploring new things.
+    </p>
+
+    <p>
+        There are lots of ways to keep one. A simple list with basic
+        information is fine, tracking particular composers, performances
+        or works. I like the combination of geography and history.
+        Mapping music makes it possible to see composers and works in their
+        historical context, compare different composers and traditions,
+        and follow the ways musical ideas travelled and changed as composers
+        encountered different influences.
+    </p>
+
+    <p>
+        It is also a great way of tracking your own musical journey.
+        When I look back over my diary, I am fascinated to see how my
+        interests have developed, the things that I keep returning to,
+        and the connections I was not aware of. Most importantly, it
+        encourages the habit of regular, active listening
+        and continually finding new music.
+    </p>
+
+</section>
+
+<footer class="footer">
+
+    <div>
+        jamie@jamiegabriel.org
+    </div>
+
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="works.js"></script>
+
+<script>
+
+/* --------------------------------------------------
+   Map
+-------------------------------------------------- */
+
+const map = L.map("map", {
+    worldCopyJump:true
+}).setView([25,10],2);
+
+L.tileLayer(
+    "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        attribution:"&copy; OpenStreetMap contributors"
+    }
+).addTo(map);
+
+
+/* --------------------------------------------------
+   Elements
+-------------------------------------------------- */
+
+const minSlider =
+    document.getElementById("minYearSlider");
+
+const maxSlider =
+    document.getElementById("maxYearSlider");
+
+const minListenSelect =
+    document.getElementById("minListenSelect");
+
+const maxListenSelect =
+    document.getElementById("maxListenSelect");
+
+const minYearValue =
+    document.getElementById("minYearValue");
+
+const maxYearValue =
+    document.getElementById("maxYearValue");
+
+const minListenValue =
+    document.getElementById("minListenValue");
+
+const maxListenValue =
+    document.getElementById("maxListenValue");
+
+const searchFilter =
+    document.getElementById("searchFilter");
+
+const count =
+    document.getElementById("count");
+
+const markerLayer =
+    L.layerGroup().addTo(map);
+
+const tabs =
+    document.querySelectorAll(".view-tab");
+
+const mapView =
+    document.getElementById("map");
+
+const tableView =
+    document.getElementById("table-view");
+
+const tableBody =
+    document.getElementById("worksTableBody");
+
+let tableSortField = "year";
+let tableSortDirection = "asc";
+
+
+/* --------------------------------------------------
+   Listening date range
+-------------------------------------------------- */
+
+const LISTEN_START_YEAR = 1991;
+const LISTEN_START_MONTH = 1;
+
+
+/* --------------------------------------------------
+   Find earliest and latest listening dates
+   in the diary
+-------------------------------------------------- */
+
+function getListeningBounds(){
+
+    const dates = [];
+
+    works.forEach(work => {
+
+        if(
+            work.listens &&
+            Array.isArray(work.listens)
+        ){
+
+            work.listens.forEach(date => {
+
+                if(date){
+                    dates.push(String(date));
+                }
+
+            });
+
+        }
+
+    });
+
+    if(!dates.length){
+
+        return {
+            earliest:"1991-01",
+            latest:"2026-09"
+        };
+
+    }
+
+    dates.sort();
+
+    return {
+        earliest:dates[0],
+        latest:dates[dates.length - 1]
+    };
+
+}
+
+const listeningBounds =
+    getListeningBounds();
+
+
+/* --------------------------------------------------
+   Convert YYYY-MM to number
+-------------------------------------------------- */
+
+function monthToNumber(value){
+
+    const parts =
+        String(value).split("-");
+
+    const year =
+        Number(parts[0]);
+
+    const month =
+        Number(parts[1]);
+
+    return (
+        (year - LISTEN_START_YEAR) * 12 +
+        (month - LISTEN_START_MONTH)
+    );
+
+}
+
+
+/* --------------------------------------------------
+   Convert number to YYYY-MM
+-------------------------------------------------- */
+
+function numberToMonth(value){
+
+    const totalMonths =
+        Number(value);
+
+    const year =
+        LISTEN_START_YEAR +
+        Math.floor(totalMonths / 12);
+
+    const month =
+        (totalMonths % 12) + 1;
+
+    return (
+        String(year) +
+        "-" +
+        String(month).padStart(2,"0")
+    );
+
+}
+
+
+/* --------------------------------------------------
+   Format YYYY-MM for display
+-------------------------------------------------- */
+
+function formatListenDate(date){
+
+    if(!date){
+        return "—";
+    }
+
+    const parts =
+        String(date).split("-");
+
+    const year =
+        parts[0];
+
+    const month =
+        parts[1];
+
+    if(!month){
+
+        return year;
+
+    }
+
+    const dateObject =
+        new Date(
+            Number(year),
+            Number(month) - 1,
+            1
+        );
+
+    return dateObject.toLocaleDateString(
+        "en-AU",
+        {
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* --------------------------------------------------
+   Configure listening dropdowns
+-------------------------------------------------- */
+
+const earliestListenNumber =
+    monthToNumber(
+        listeningBounds.earliest
+    );
+
+const latestListenNumber =
+    monthToNumber(
+        listeningBounds.latest
+    );
+
+for(
+    let i = earliestListenNumber;
+    i <= latestListenNumber;
+    i++
+){
+
+    const date =
+        numberToMonth(i);
+
+    const label =
+        formatListenDate(date);
+
+    const minOption =
+        document.createElement("option");
+
+    minOption.value =
+        date;
+
+    minOption.textContent =
+        label;
+
+    minListenSelect.appendChild(
+        minOption
+    );
+
+    const maxOption =
+        document.createElement("option");
+
+    maxOption.value =
+        date;
+
+    maxOption.textContent =
+        label;
+
+    maxListenSelect.appendChild(
+        maxOption
+    );
+
+}
+
+minListenSelect.value =
+    listeningBounds.earliest;
+
+maxListenSelect.value =
+    listeningBounds.latest;
+
+
+/* --------------------------------------------------
+   Get most recent listen
+-------------------------------------------------- */
+
+function mostRecentListen(work){
+
+    if(
+        !work.listens ||
+        !Array.isArray(work.listens) ||
+        work.listens.length === 0
+    ){
+
+        return null;
+
+    }
+
+    return [...work.listens]
+        .sort()
+        .at(-1);
+
+}
+
+
+/* --------------------------------------------------
+   Check listening range
+-------------------------------------------------- */
+
+function wasListenedToInRange(
+    work,
+    minListen,
+    maxListen
+){
+
+    if(
+        !work.listens ||
+        !Array.isArray(work.listens) ||
+        work.listens.length === 0
+    ){
+
+        return false;
+
+    }
+
+    return work.listens.some(listen => {
+
+        return listen >= minListen &&
+               listen <= maxListen;
+
+    });
+
+}
+
+
+/* --------------------------------------------------
+   Get current filters
+-------------------------------------------------- */
+
+function getFilters(){
+
+    let minYear =
+        Number(minSlider.value);
+
+    let maxYear =
+        Number(maxSlider.value);
+
+    if(minYear > maxYear){
+
+        minYear = maxYear;
+
+    }
+
+    let minListen =
+        minListenSelect.value;
+
+    let maxListen =
+        maxListenSelect.value;
+
+    if(minListen > maxListen){
+
+        minListen = maxListen;
+
+    }
+
+    return {
+
+        minYear,
+        maxYear,
+        minListen,
+        maxListen,
+        searchQuery:searchFilter.value.trim().toLocaleLowerCase()
+
+    };
+
+}
+
+
+/* --------------------------------------------------
+   Colour by period
+-------------------------------------------------- */
+
+function colour(p){
+
+    return {
+
+        "Baroque":"#8B2E3C",
+        "Classical":"#3B5B92",
+        "Romantic":"#5F7A39",
+        "Modern":"#B36B2C",
+        "Jazz":"#222222"
+
+    }[p] || "#8B2E3C";
+
+}
+
+
+/* --------------------------------------------------
+   Filter works
+-------------------------------------------------- */
+
+function filteredWorks(){
+
+    const filters =
+        getFilters();
+
+    const searchTerms =
+        filters.searchQuery.split(/\s+/).filter(Boolean);
+
+    return works.filter(work => {
+
+        const compositionMatches =
+            work.year >= filters.minYear &&
+            work.year <= filters.maxYear;
+
+        const listeningMatches =
+            wasListenedToInRange(
+                work,
+                filters.minListen,
+                filters.maxListen
+            );
+
+        const searchableText = [
+            work.composer,
+            work.title,
+            work.year,
+            work.composedPlace,
+            work.birthplace,
+            work.firstPerformancePlace,
+            work.firstPerformanceDate,
+            work.period,
+            work.notes,
+            ...(Array.isArray(work.listens) ? work.listens : [])
+        ]
+            .filter(value => value != null)
+            .join(" ")
+            .toLocaleLowerCase();
+
+        const searchMatches =
+            searchTerms.every(term =>
+                searchableText.includes(term)
+            );
+
+        return (
+            compositionMatches &&
+            listeningMatches &&
+            searchMatches
+        );
+
+    });
+
+}
+
+
+/* --------------------------------------------------
+   Draw map
+-------------------------------------------------- */
+
+function draw(changedControl){
+
+    markerLayer.clearLayers();
+
+    let minYear =
+        Number(minSlider.value);
+
+    let maxYear =
+        Number(maxSlider.value);
+
+    if(minYear > maxYear){
+
+        if(changedControl === minSlider){
+
+            minSlider.value = maxYear;
+            minYear = maxYear;
+
+        }else{
+
+            maxSlider.value = minYear;
+            maxYear = minYear;
+
+        }
+
+    }
+
+    let minListen =
+        minListenSelect.value;
+
+    let maxListen =
+        maxListenSelect.value;
+
+    if(minListen > maxListen){
+
+        if(changedControl === minListenSelect){
+
+            minListenSelect.value = maxListen;
+            minListen = maxListen;
+
+        }else{
+
+            maxListenSelect.value = minListen;
+            maxListen = minListen;
+
+        }
+
+    }
+
+    minYearValue.textContent =
+        minYear;
+
+    maxYearValue.textContent =
+        maxYear;
+
+    minListenValue.textContent =
+        formatListenDate(minListen);
+
+    maxListenValue.textContent =
+        formatListenDate(maxListen);
+
+    const visible =
+        filteredWorks();
+
+    count.textContent =
+        visible.length;
+
+    const bounds = [];
+
+    visible.forEach(work => {
+
+        const marker =
+            L.circleMarker(
+                [work.lat, work.lng],
+                {
+                    radius:7,
+                    fillColor:colour(work.period),
+                    color:"#ffffff",
+                    weight:2,
+                    fillOpacity:1
+                }
+            );
+
+        const surname = work.composer.includes(",")
+            ? work.composer.split(",")[0].trim()
+            : work.composer.trim();
+
+        marker.bindTooltip(
+            surname,
+            {
+                permanent:true,
+                direction:"right",
+                offset:[10,0],
+                className:"composer-label"
+            }
+        );
+
+        const recentListen =
+            mostRecentListen(work);
+
+        const listeningHistory =
+            work.listens &&
+            Array.isArray(work.listens) &&
+            work.listens.length
+
+                ? [...work.listens]
+                    .sort()
+                    .map(listen =>
+                        formatListenDate(listen)
+                    )
+                    .join(", ")
+
+                : "—";
+
+        marker.bindPopup(`
+
+            <p>
+                <strong>${work.composer}</strong>
+                ${work.born}–${work.died || "present"}<br>
+                Born: ${work.birthplace}
+            </p>
+
+            <h3>${work.title}</h3>
+
+            <p>
+                <em>Music composed:</em>
+                ${work.year} · ${work.composedPlace}
+            </p>
+
+            <p>
+                <em>Place first performed:</em>
+                ${work.firstPerformancePlace || "—"}<br>
+
+                <em>Date first performed:</em>
+                ${work.firstPerformanceDate || "—"}
+            </p>
+
+            <p>
+                <em>Period:</em>
+                ${work.period}
+            </p>
+
+            ${
+                work.notes
+                ? `<p><em>Notes:</em> ${work.notes}</p>`
+                : ""
+            }
+
+            <p>
+                <em>Most recent listen:</em>
+                ${
+                    recentListen
+                        ? formatListenDate(recentListen)
+                        : "—"
+                }
+            </p>
+
+            <p>
+                <em>Listening history:</em><br>
+                ${listeningHistory}
+            </p>
+
+        `);
+
+        marker.addTo(markerLayer);
+
+        bounds.push([
+            work.lat,
+            work.lng
+        ]);
+
+    });
+
+    if(bounds.length){
+
+        map.fitBounds(
+            bounds,
+            {
+                padding:[40,40],
+                maxZoom:5
+            }
+        );
+
+    }else{
+
+        map.setView(
+            [25,10],
+            2
+        );
+
+    }
+
+    if(tableView.style.display !== "none"){
+
+        renderTable();
+
+    }
+
+}
+
+
+/* --------------------------------------------------
+   Render sortable table
+-------------------------------------------------- */
+
+function renderTable(){
+
+    let visible =
+        filteredWorks();
+
+    visible.sort((a,b) => {
+
+        let aValue;
+        let bValue;
+
+        if(tableSortField === "listens"){
+
+            aValue =
+                mostRecentListen(a) || "";
+
+            bValue =
+                mostRecentListen(b) || "";
+
+        }else{
+
+            aValue =
+                a[tableSortField];
+
+            bValue =
+                b[tableSortField];
+
+        }
+
+        if(aValue == null){
+
+            aValue = "";
+
+        }
+
+        if(bValue == null){
+
+            bValue = "";
+
+        }
+
+        if(
+            typeof aValue === "number" &&
+            typeof bValue === "number"
+        ){
+
+            return tableSortDirection === "asc"
+                ? aValue - bValue
+                : bValue - aValue;
+
+        }
+
+        return tableSortDirection === "asc"
+            ? String(aValue)
+                .localeCompare(String(bValue))
+            : String(bValue)
+                .localeCompare(String(aValue));
+
+    });
+
+    tableBody.innerHTML =
+        visible.map(work => {
+
+            const performance =
+                work.firstPerformancePlace ||
+                "—";
+
+            const performanceDate =
+                work.firstPerformanceDate
+
+                    ? `<br><small>${work.firstPerformanceDate}</small>`
+
+                    : "";
+
+            const listeningHistory =
+                work.listens &&
+                Array.isArray(work.listens) &&
+                work.listens.length
+
+                    ? [...work.listens]
+                        .sort()
+                        .map(listen =>
+                            formatListenDate(listen)
+                        )
+                        .join(", ")
+
+                    : "—";
+
+            return `
+
+                <tr>
+
+                    <td>
+                        ${work.composer}
+                    </td>
+
+                    <td>
+                        ${work.title}
+                    </td>
+
+                    <td>
+                        ${work.year}
+                    </td>
+
+                    <td>
+                        ${work.composedPlace}
+                    </td>
+
+                    <td>
+                        ${performance}
+                        ${performanceDate}
+                    </td>
+
+                    <td class="period-cell">
+                        ${work.period}
+                    </td>
+
+                    <td>
+                        ${listeningHistory}
+                    </td>
+
+                </tr>
+
+            `;
+
+        }).join("");
+
+    document
+        .querySelectorAll(".works-table th")
+        .forEach(th => {
+
+            th.classList.remove(
+                "sort-asc",
+                "sort-desc"
+            );
+
+            if(
+                th.dataset.sort ===
+                tableSortField
+            ){
+
+                th.classList.add(
+                    tableSortDirection === "asc"
+                        ? "sort-asc"
+                        : "sort-desc"
+                );
+
+            }
+
+        });
+
+}
+
+
+/* --------------------------------------------------
+   Map / Table tabs
+-------------------------------------------------- */
+
+tabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        tabs.forEach(t => {
+
+            t.classList.remove("active");
+
+        });
+
+        tab.classList.add("active");
+
+        const view =
+            tab.dataset.view;
+
+        if(view === "map-view"){
+
+            mapView.style.display =
+                "block";
+
+            tableView.style.display =
+                "none";
+
+            setTimeout(() => {
+
+                map.invalidateSize();
+
+            },50);
+
+        }else{
+
+            mapView.style.display =
+                "none";
+
+            tableView.style.display =
+                "block";
+
+            renderTable();
+
+        }
+
+    });
+
+});
+
+
+/* --------------------------------------------------
+   Table sorting
+-------------------------------------------------- */
+
+document
+    .querySelectorAll(".works-table th")
+    .forEach(th => {
+
+        th.addEventListener("click", () => {
+
+            const field =
+                th.dataset.sort;
+
+            if(tableSortField === field){
+
+                tableSortDirection =
+                    tableSortDirection === "asc"
+                        ? "desc"
+                        : "asc";
+
+            }else{
+
+                tableSortField =
+                    field;
+
+                tableSortDirection =
+                    "asc";
+
+            }
+
+            renderTable();
+
+        });
+
+    });
+
+
+/* --------------------------------------------------
+   Composition year filters
+-------------------------------------------------- */
+
+minSlider.addEventListener(
+    "input",
+    () => draw(minSlider)
+);
+
+maxSlider.addEventListener(
+    "input",
+    () => draw(maxSlider)
+);
+
+
+/* --------------------------------------------------
+   Listening dropdown filters
+-------------------------------------------------- */
+
+minListenSelect.addEventListener(
+    "change",
+    () => draw(minListenSelect)
+);
+
+maxListenSelect.addEventListener(
+    "change",
+    () => draw(maxListenSelect)
+);
+
+
+/* --------------------------------------------------
+   Search filter
+-------------------------------------------------- */
+
+searchFilter.addEventListener(
+    "input",
+    () => draw()
+);
+
+
+/* --------------------------------------------------
+   Initial draw
+-------------------------------------------------- */
+
+draw();
+
+</script>
+
+</body>
+</html>

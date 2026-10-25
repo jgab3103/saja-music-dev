@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Research – Jamie Gabriel" />
+<meta name="author" content="Jamie Gabriel" />
+<title>Research | Jamie Gabriel</title>
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+
+<link href="css/styles.css" rel="stylesheet" />
+
+<style>
+
+/* =========================
+   BASE
+   ========================= */
+
+:root{
+    --accent:#8B2E3C;
+    --paper:#FAFAFA;
+    --panel:#F4F1EB;
+}
+
+html{
+    scroll-behavior:smooth;
+    background:var(--paper);
+}
+
+body{
+    margin:0;
+    font-family:'Nunito',sans-serif;
+    background:var(--paper);
+    color:#111;
+    line-height:1.75;
+    font-size:16.5px;
+    padding-top:80px;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+a{
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid rgba(139,46,60,.35);
+    transition:.2s;
+}
+
+a:hover{
+    color:#111;
+    border-bottom-color:rgba(139,46,60,.75);
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+#mainNav,
+#mainNav.navbar-shrink{
+    background:var(--paper)!important;
+    border-bottom:1px solid rgba(0,0,0,.05);
+    min-height:80px;
+}
+
+#mainNav a{
+    color:#111!important;
+    text-decoration:none!important;
+    border:none!important;
+}
+
+.nav-links{
+    display:flex;
+    gap:2.5rem;
+    align-items:center;
+}
+
+.nav-links a{
+    border-bottom:none;
+}
+
+/* =========================
+   RESEARCH LAYOUT
+   ========================= */
+
+.research{
+    max-width:1000px;
+    margin:0 auto;
+    padding:60px 24px 120px;
+
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 280px;
+    gap:70px;
+
+    align-items:start;
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+.main-content h1{
+    font-family:'Varela Round',sans-serif;
+    font-size:1.7rem;
+    margin:0 0 30px;
+    font-weight:500;
+}
+
+.main-content h2{
+    font-family:'Varela Round',sans-serif;
+    font-size:1.3rem;
+    margin:50px 0 20px;
+    font-weight:500;
+}
+
+.main-content p{
+    max-width:65ch;
+    margin-bottom:22px;
+}
+
+/* =========================
+   RESEARCH AREAS
+   ========================= */
+
+.research-areas{
+    margin-top:35px;
+}
+
+.research-area{
+    border-top:1px solid rgba(0,0,0,.08);
+    padding:20px 0;
+}
+
+.research-area h3{
+    font-family:'Varela Round',sans-serif;
+    font-size:1.05rem;
+    margin:0 0 8px;
+    font-weight:500;
+}
+
+.research-area p{
+    margin:0;
+    color:rgba(0,0,0,.72);
+}
+
+/* =========================
+   ARTICLES
+   ========================= */
+
+.articles{
+    margin-top:25px;
+}
+
+.article-row{
+    display:grid;
+    grid-template-columns:105px 1fr;
+    gap:24px;
+
+    padding:18px 0;
+
+    border-top:1px solid rgba(0,0,0,.06);
+}
+
+.article-date{
+    font-size:.85rem;
+    color:rgba(0,0,0,.55);
+    line-height:1.4;
+}
+
+.article-title a{
+    font-family:'Varela Round',sans-serif;
+    font-size:1.02rem;
+    font-weight:500;
+}
+
+.article-desc{
+    margin-top:5px;
+    font-size:.92rem;
+    color:rgba(0,0,0,.7);
+}
+
+/* =========================
+   SIDEBAR
+   ========================= */
+
+.sidebar{
+    background:var(--panel);
+    padding:30px;
+    box-sizing:border-box;
+    border:none;
+    border-radius:4px;
+}
+
+.sidebar h2{
+    font-family:'Varela Round',sans-serif;
+    font-size:1.05rem;
+    margin:0 0 28px;
+    font-weight:500;
+}
+
+.event{
+    margin-bottom:22px;
+    line-height:1.5;
+}
+
+.event:last-child{
+    margin-bottom:0;
+}
+
+.event-year{
+    font-weight:600;
+}
+
+.event-name{
+    color:rgba(0,0,0,.72);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer{
+    background:var(--paper);
+    border-top:1px solid rgba(0,0,0,.06);
+    padding:80px 30px;
+    text-align:center;
+    font-size:.95rem;
+    color:rgba(0,0,0,.7);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media(max-width:900px){
+
+    .research{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .sidebar{
+        padding:28px;
+    }
+
+    .nav-links{
+        gap:1.5rem;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .article-row{
+        grid-template-columns:1fr;
+        gap:6px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+
+    <div class="container px-4 px-lg-5">
+
+        <a class="navbar-brand" href="./index.html">Jamie Gabriel</a>
+
+        <div class="nav-links">
+
+               <a href="./music.html">Music</a>
+        <a href="./teaching.html">Teaching</a>
+        <a href="./research.html">Research</a>
+          <a href="./contact.html">Contact</a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<section class="research">
+
+    <main class="main-content">
+
+        <h1>Research</h1>
+
+        <p>
+            I am so hopeless at finding the time for research, but sure still have a lot of questions. I have had a life long interest in topics that sit somehwere in the interestion of music, mathematics, computer science and philosophy. My PhD is in computational musicology. Right now, I try and find time for a Deep Improv project exploring technology assisted improvisation and do the occasional conference. I will ramp as find the time. 
+        </p>
+
+        <p>
+            Below are some of the things I am currently interested in, along with a smattering of research, writing and experiments
+            from recent years.
+        </p>
+
+
+        <h2>Selected Research Notes and Papers</h2>
+
+        <div class="articles">
+
+            <div class="article-row">
+
+                <div class="article-date">
+                    24 Nov<br>2025
+                </div>
+
+                <div>
+
+                    <div class="article-title">
+                        <a href="./code_notebooks/SPE7.html">
+                            Solving Higher Polynomial Equations using Catalan Structures – Part 7
+                        </a>
+                    </div>
+
+                    <div class="article-desc">
+                        Mathematical notes and Python code exploring low-computational-cost approaches to higher-order polynomial equations.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="article-row">
+
+                <div class="article-date">
+                    27 Aug<br>2025
+                </div>
+
+                <div>
+
+                    <div class="article-title">
+                        <a href="./code_notebooks/SPE6.html">
+                            Solving Higher Polynomial Equations using Catalan Structures – Part 6
+                        </a>
+                    </div>
+
+                    <div class="article-desc">
+                        Computational approaches to higher-order polynomial systems using structured combinatorics.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="article-row">
+
+                <div class="article-date">
+                    15 Feb<br>2025
+                </div>
+
+                <div>
+
+                    <div class="article-title">
+                        <a href="./code_notebooks/SPE5.html">
+                            Solving Higher Polynomial Equations – Part 5
+                        </a>
+                    </div>
+
+                    <div class="article-desc">
+                        Numerical exploration of higher-order polynomial structures.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="article-row">
+
+                <div class="article-date">
+                    27 May<br>2025
+                </div>
+
+                <div>
+
+                    <div class="article-title">
+                        <a href="./john-mclaughlin-analysis.html">
+                            John McLaughlin – Compositional Evolution
+                        </a>
+                    </div>
+
+                    <div class="article-desc">
+                        Analytical study of John McLaughlin's compositional development, prepared for the AJIRN 2025 conference at the University of Auckland.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="article-row">
+
+                <div class="article-date">
+                    1 Jul<br>2025
+                </div>
+
+                <div>
+
+                    <div class="article-title">
+                        <a href="https://www.youtube.com/watch?v=P9xebSuW9ys" target="_blank">
+                            Searching Large-Scale Music Scores
+                        </a>
+                    </div>
+
+                    <div class="article-desc">
+                        A demonstration of symbolic music search systems developed during my PhD research.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <aside class="sidebar">
+
+        <h2>Conferences &amp; Events</h2>
+
+        <div class="event">
+
+            <div class="event-year">2025</div>
+            <div class="event-name">AJIRN Conference, Auckland</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2020</div>
+            <div class="event-name">Data and Analytics in Health Conference, Melbourne</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2019</div>
+            <div class="event-name">PyCon AU, Sydney</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2017</div>
+            <div class="event-name">PyCon AU, Melbourne</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2015</div>
+            <div class="event-name">ISMIR Conference, Málaga</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2013</div>
+            <div class="event-name">Stockholm Music Acoustics Conference</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2012</div>
+            <div class="event-name">ACM Recommender Systems Conference</div>
+
+        </div>
+
+        <div class="event">
+
+            <div class="event-year">2011</div>
+            <div class="event-name">Apple WWDC, San Francisco</div>
+
+        </div>
+
+    </aside>
+
+</section>
+
+
+<footer class="footer">
+
+    <div>jamie@jamiegabriel.org</div>
+
+</footer>
+
+</body>
+</html>
+

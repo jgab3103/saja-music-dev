@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BeatMatrix – Jamie Gabriel</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg: #f8f4eb;
+    --panel: rgba(255,255,255,0.85);
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --accent: #3b5bdb;
+    --border: rgba(0,0,0,0.08);
+}
+
+/* Page background */
+body {
+    font-family: "Source Serif 4", Georgia, serif;
+    margin: 0;
+    padding: 3rem 1.5rem;
+    line-height: 1.7;
+    color: var(--ink);
+    background:
+        radial-gradient(600px 300px at 20% 10%, rgba(59,91,219,0.06), transparent 60%),
+        radial-gradient(500px 300px at 80% 25%, rgba(59,91,219,0.04), transparent 55%),
+        linear-gradient(180deg, #f8f4eb, #f3efe5);
+}
+
+/* Main container */
+.main {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.8rem 2.8rem 3.2rem;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+h1, h3 {
+    font-family: "Inter", system-ui, sans-serif;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+}
+
+h1 {
+    font-size: 2.3rem;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.3rem;
+    margin-top: 2rem;
+}
+
+/* Links */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    text-underline-offset: 3px;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+/* Back link */
+.back-link {
+    display: inline-block;
+    margin-bottom: 2.2rem;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* Table of contents */
+.toc {
+    margin: 2rem 0;
+    padding: 1.2rem 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.6);
+}
+
+.toc p {
+    margin: 0 0 0.6rem;
+    font-weight: 500;
+}
+
+.toc ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.toc li {
+    margin-bottom: 0.4rem;
+}
+
+/* Text */
+p {
+    margin-bottom: 1.3rem;
+    color: var(--ink);
+}
+
+ul {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.6rem;
+}
+
+.section {
+    margin-top: 2.5rem;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    body {
+        padding: 2rem 1rem;
+    }
+    .main {
+        padding: 2rem 1.5rem 2.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="main">
+
+    <div style="text-align: center; margin-bottom: 1.5rem;">
+    <img src="assets/img/AppIcon.png" alt="BeatMatrix App Icon" style="width: 120px; height: 120px; border-radius: 24px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);">
+</div>
+
+<h1>iOS App: BeatMatrix</h1>
+
+
+<a class="back-link" href="./index.html">← Back</a>
+
+
+<div style="text-align: center; margin-bottom: 2rem;">
+    <a href="https://apps.apple.com/au/app/beatmatrix/id6757116832" 
+       target="_blank" 
+       rel="noopener noreferrer">
+        <img src="assets/img/AppStore.png" 
+             alt="Download on the App Store" 
+             style="max-width: 180px; width: 80%; height: auto; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.12);">
+    </a>
+</div>
+
+<div id="overview" class="section">
+    <h3>Overview</h3>
+
+    <p>
+        Conventional metronomes and practice tools are often too simplistic. <strong>BeatMatrix</strong> allows you to create and customise any rhythm and time signature. You can create a grid (or bar) of up to twenty beats. Each of these can be subdivided and accents can be applied. They can also be linked together to create any complex rhythm structure. Additionally, BeatMatrix allows speed to be set over the course of the grid to model accelerando and ritardando. Beat patterns can be saved within the app.
+    </p>
+    <!-- Screenshots Grid -->
+    <div class="screenshots-grid">
+        <div class="screenshot-item">
+            <img src="assets/img/BeatMatrix_App store slides_1320x2868px-04.png" alt="BeatMatrix Screenshot 1">
+            <!-- <p class="screenshot-caption">Caption for Screenshot 1</p> -->
+        </div>
+        <div class="screenshot-item">
+            <img src="assets/img/BeatMatrix_App store slides_1320x2868px-05.png" alt="BeatMatrix Screenshot 2">
+            <!-- <p class="screenshot-caption">Caption for Screenshot 2</p> -->
+        </div>
+        <div class="screenshot-item">
+            <img src="assets/img/BeatMatrix_App store slides_1320x2868px-06.png" alt="BeatMatrix Screenshot 3">
+            <!-- <p class="screenshot-caption">Caption for Screenshot 3</p> -->
+        </div>
+        <div class="screenshot-item">
+            <img src="assets/img/BeatMatrix_App store slides_1320x2868px-07.png" alt="BeatMatrix Screenshot 4">
+            <!-- <p class="screenshot-caption">Caption for Screenshot 4</p> -->
+        </div>
+    </div>
+
+
+
+    <p>
+        BeatMatrix is highly recommended for musicians working with contemporary scores, Indian music (tāla), Balkan and Celtic additive metres, modern jazz polyrhythms, or situations where there are odd and complex time signatures.
+    </p>
+
+    <p>
+        BeatMatrix was created to let musicians construct, chain, and repeat tempo-defined rhythmic units, mirroring the way time is structured in the music itself. Musicians will find this tool useful in helping to visualise, hear and feel intricate temporal structures. An extremely useful feature is the linking of grids to create the effect of multiple metronomes and the ability to set speed changes with a customisable transition curve.
+    </p>
+
+
+    <h4>Features Summary</h4>
+    <ul>
+        <li>Customisable beat patterns</li>
+        <li>Add accents, subdivisions and repeats</li>
+        <li>Link patterns together</li>
+        <li>Reorder patterns at any time</li>
+        <li>Set speed changes</li>
+        <li>Set tempo transition curve</li>
+        <li>Save patterns</li>
+    </ul>
+
+
+
+    <style>
+    /* Screenshots Grid Styling */
+    .screenshots-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .screenshot-item {
+        flex: 1 1 calc(25% - 1.5rem); /* 4 per row on large screens */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .screenshot-item img {
+        max-width: 100%;
+        max-height: 350px; /* resize tall screenshots */
+        width: auto;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        margin-bottom: 0.5rem;
+        object-fit: cover;
+    }
+
+    .screenshot-caption {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-top: 0.2rem;
+    }
+
+    /* Medium screens: 2 per row */
+    @media (max-width: 1024px) {
+        .screenshot-item {
+            flex: 1 1 calc(50% - 1.5rem);
+        }
+    }
+
+    /* Small screens: 1 per row */
+    @media (max-width: 700px) {
+        .screenshot-item {
+            flex: 1 1 100%;
+        }
+    }
+    </style>
+</div>
+
+
+<div id="demo" class="section">
+    <h3>Demo Videos</h3>
+    <p>Watch some demos of BeatMatrix in action:</p>
+
+    <div class="demo-grid">
+
+        <!-- Demo 1 -->
+        <div class="demo-item">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/shYKwDYqdiE?si=wD6zMo3_vvbqp4dT" 
+                    title="BeatMatrix Basic Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="demo-caption">Basic Demo</p>
+        </div>
+
+        <!-- Demo 2 -->
+        <div class="demo-item">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/_HalszIQHLs?si=XoE93RkIuA9bxcjt" 
+                    title="BeatMatrix Complex Time Signatures"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="demo-caption">Complex Time Signatures</p>
+        </div>
+
+        <!-- Demo 3 -->
+        <div class="demo-item">
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/L8etksKKVRw?si=kvCMm_46g-Ru0ZPU" 
+                    title="BeatMatrix Ritardando and Accelerando"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="demo-caption">Tempo Shaping: Ritardando & Accelerando</p>
+        </div>
+
+    </div>
+
+    <style>
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .demo-item {
+            flex: 1 1 calc(33.333% - 1.5rem);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .demo-caption {
+            text-align: center;
+            font-size: 0.95rem;
+            margin-top: 0.6rem;
+            color: var(--muted);
+        }
+
+        /* Medium screens: 2 per row */
+        @media (max-width: 1024px) {
+            .demo-item {
+                flex: 1 1 calc(50% - 1.5rem);
+            }
+        }
+
+        /* Small screens: 1 per row */
+        @media (max-width: 700px) {
+            .demo-item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</div>
+
+
+
+
+
+
+<div id="change-log" class="section">
+    <h3>Privacy and Data Management</h3>
+   <p>BeatMatrix does not collect any data. The privacy policy for the app can be found   <a href="./beatmatrix-privacy.html">here</a>
+
+  
+</div>
+
+<div id="change-log" class="section">
+    <h3>Change Log</h3>
+    <ul>
+        <li><strong>v0.1.0 (September 2025):</strong> Initial beta release</li>
+        <li><strong>v0.2.0 (Decemeber 2025):</strong> Updated beta release</li>
+    </ul>
+
+  
+</div>
+
+
+<div id="change-log" class="section">
+    <h3>Credits</h3>
+    <ul>
+        This app was created by Jamie Gabriel and Sally Jamila
+    </ul>
+
+  
+</div>
+
+
+
+<div id="contact" class="section">
+    <h3>Contact</h3>
+    <div class="contact-icons">
+        <a href="mailto:jamie@jamiegabriel.org" aria-label="Email">
+            <!-- Email Icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2 4h20v16H2V4zm10 7L4 6v12h16V6l-8 5z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.facebook.com/jamie.gabriel.775451" target="_blank" aria-label="Facebook">
+            <!-- Facebook Icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M22 12a10 10 0 10-11.5 9.9v-7h-3v-3h3v-2.3c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3h-2.9v7A10 10 0 0022 12z"/>
+            </svg>
+        </a>
+
+        <a href="https://www.instagram.com/jgab2275/" target="_blank" aria-label="Instagram">
+            <!-- Instagram Icon -->
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6.5-.8a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
+            </svg>
+        </a>
+    </div>
+
+    <style>
+        .contact-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .contact-icons a {
+            color: var(--accent);
+            width: 32px;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .contact-icons a:hover {
+            transform: scale(1.15);
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        .contact-icons svg {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</div>
+
+
+
+</div>
+</body>
+</html>

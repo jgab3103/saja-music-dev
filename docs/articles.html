@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Writing– Jamie Gabriel</title>
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
+
+<link href="css/styles.css" rel="stylesheet" />
+
+<style>
+
+/* =========================
+   BASE (MATCH INDEX)
+   ========================= */
+
+:root {
+    --accent: #8B2E3C;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #FAFAFA;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: #FAFAFA;
+    color: #111;
+    line-height: 1.75;
+    font-size: 16.5px;
+    padding-top: 80px;
+}
+
+/* LINKS */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 46, 60, 0.35);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #111;
+    border-bottom-color: rgba(139, 46, 60, 0.75);
+}
+
+/* NAV (UNCHANGED) */
+#mainNav,
+#mainNav.navbar-shrink {
+    background: #FAFAFA !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    min-height: 80px;
+}
+
+#mainNav a {
+    color: #111 !important;
+    text-decoration: none !important;
+}
+
+/* =========================
+   PAGE LAYOUT
+   ========================= */
+
+.page {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 24px 140px;
+}
+
+h1 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 40px;
+    color: rgba(0,0,0,0.6);
+    font-size: 0.95rem;
+}
+
+/* =========================
+   ARTICLE LIST (clean grid)
+   ========================= */
+
+.article-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 30px;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.article-row:last-child {
+    border-bottom: none;
+}
+
+.article-date {
+    font-size: 0.9rem;
+    color: rgba(0,0,0,0.55);
+    line-height: 1.4;
+}
+
+.article-title a {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+}
+
+.article-desc {
+    margin-top: 6px;
+    font-size: 0.95rem;
+    color: rgba(0,0,0,0.7);
+    max-width: 70ch;
+}
+
+/* responsive */
+@media (max-width: 800px) {
+    .article-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+</style>
+
+</head>
+
+<body id="page-top">
+
+<!-- NAV (EXACT SAME SYSTEM) -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="./index.html">Jamie Gabriel</a>
+    </div>
+</nav>
+
+<div class="page">
+
+    <h1>Writing</h1>
+    <a class="back-link" href="./index.html">← Back</a>
+
+    <!-- ITEM -->
+
+        <div class="article-row">
+        <div class="article-date">1 Jul<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="./beatmatrix-app.html">
+                    Music Software: BeatMatrix
+                </a>
+            </div>
+            <div class="article-desc">
+                An iOS app to manage complex tempo situations in music practice.
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">16 Mar<br>2026</div>
+        <div>
+            <div class="article-title">
+                <a href="./heidegger.html">
+                    Philosophy: Heidegger on Technology
+                </a>
+            </div>
+            <div class="article-desc">
+               An somewhat random essay on Heidegger's take on philosophy and technology.
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">12 Mar<br>2026</div>
+        <div>
+            <div class="article-title">
+                <a href="./assets/pdf-files/Ten_Keith_Jarrett_Solos.pdf">
+                    Music Transcription: 10 Keith Jarrett Solos
+                </a>
+            </div>
+            <div class="article-desc">
+                A growing archive of transcriptions collected over many years, now being organised into a structured set.
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">24 Nov<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="./code_notebooks/SPE7.html">
+                    Math: Solving Higher Polynomial Equations using Catalan Structures – Part 7
+                </a>
+            </div>
+            <div class="article-desc">
+                Notes and Python code exploring low-computational-cost approaches to higher-order polynomial equations.
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">22 Nov<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="https://github.com/jgab3103/Jamie-Gabriel/blob/main/docs/assets/pdf-files/Follow%20Me.pdf">
+                    Music Transcription: Follow Me (Pat Metheny)
+                </a>
+            </div>
+            <div class="article-desc">
+                From the Pat Metheny Group album <i>Imaginary Day</i> (1997).
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">27 Aug<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="./code_notebooks/SPE6.html">
+                    Math: Solving Higher Polynomial Equations using Catalan Structures – Part 6
+                </a>
+            </div>
+            <div class="article-desc">
+                Computational approaches to higher-order polynomial systems using structured combinatorics.
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">10 Jul<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="https://github.com/jgab3103/Jamie-Gabriel/blob/main/docs/assets/pdf-files/Waltz%20for%20Agnes.pdf">
+                    Music Transcription: Waltz for Agnes (Marek Dykta)
+                </a>
+            </div>
+            <div class="article-desc">
+                From <i>Cradle of Light</i> (John Abercrombie & Marek Dykta, 2007).
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">1 Jul<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="https://www.youtube.com/watch?v=P9xebSuW9ys">
+                    Music Software: Searching large scale music scores
+                </a>
+            </div>
+            <div class="article-desc">
+                A demonstration of symbolic music search systems developed during my PhD research.
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">27 May<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="./john-mclaughlin-analysis.html">
+                    Music/Research: John McLaughlin – Compositional Evolution
+                </a>
+            </div>
+            <div class="article-desc">
+                Analytical study prepared for AJIRN 2025 (University of Auckland).
+            </div>
+        </div>
+    </div>
+
+    <div class="article-row">
+        <div class="article-date">15 Feb<br>2025</div>
+        <div>
+            <div class="article-title">
+                <a href="./code_notebooks/SPE5.html">
+                    Math: Solving Higher Polynomial Equations – Part 5
+                </a>
+            </div>
+            <div class="article-desc">
+                Numerical exploration of higher-order polynomial structures.
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

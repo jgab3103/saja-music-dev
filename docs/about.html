@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Jamie Gabriel</title>
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
+
+<link href="css/styles.css" rel="stylesheet" />
+
+<style>
+
+/* =========================
+   BASE
+   ========================= */
+
+:root {
+    --accent: #8B2E3C;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #FAFAFA;
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background: #FAFAFA;
+    color: #111;
+    line-height: 1.75;
+    font-size: 16.5px;
+    padding-top: 80px;
+}
+
+/* =========================
+   LINKS
+   ========================= */
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(139, 46, 60, 0.35);
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: #111;
+    border-bottom-color: rgba(139, 46, 60, 0.75);
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+#mainNav,
+#mainNav.navbar-shrink {
+    background: #FAFAFA !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    min-height: 80px;
+}
+
+#mainNav a {
+    color: #111 !important;
+    text-decoration: none !important;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    border-bottom: none;
+}
+
+/* =========================
+   ABOUT
+   ========================= */
+
+.about-section {
+    background: #FAFAFA;
+    padding: 60px 0 120px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 90px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 0 24px;
+    align-items: start;
+}
+
+.about-text h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.7rem;
+    margin-bottom: 22px;
+}
+
+.about-text p {
+    margin-bottom: 18px;
+    max-width: 65ch;
+}
+
+/* =========================
+   SIDEBAR COLUMN
+   ========================= */
+
+.sidebar-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.about-sidebar {
+    background: #F4F1EB;
+    padding: 28px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+}
+
+.about-image {
+    margin-bottom: 28px;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    opacity: 0.92;
+}
+
+.cv-links {
+    font-size: 0.95rem;
+}
+
+.cv-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-links li {
+    margin-bottom: 10px;
+}
+
+/* =========================
+   CONFERENCES & EVENTS
+   ========================= */
+
+.events-sidebar h2 {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1.15rem;
+    margin: 0 0 22px;
+    color: #111;
+}
+
+.event {
+    margin-bottom: 18px;
+}
+
+.event:last-child {
+    margin-bottom: 0;
+}
+
+.event-year {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+}
+
+.event-name {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: #222;
+}
+
+/* =========================
+   CREDENTIALS
+   ========================= */
+
+.credentials {
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.credentials div {
+    margin-bottom: 8px;
+}
+
+/* =========================
+   SOCIAL LINKS
+   ========================= */
+
+.social-links {
+    display: flex;
+    gap: 18px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.social-links a {
+    color: #111;
+    border: none;
+    font-size: 1.15rem;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    background: #FAFAFA;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding: 80px 30px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgba(0,0,0,0.7);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .sidebar-column {
+        order: -1;
+    }
+
+    .about-image img {
+        max-width: 200px;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+    }
+}
+
+</style>
+
+</head>
+
+<body id="page-top">
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="./index.html">Jamie Gabriel</a>
+
+        <div class="nav-links">
+            <a href="./music.html">Music</a>
+            <a href="./teaching.html">Teaching</a>
+            <a href="./recordings.html">Recordings</a>
+            <a href="./contact.html">Contact</a>
+        </div>
+
+    </div>
+</nav>
+
+<section class="about-section" id="about">
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <h2>About</h2>
+
+            <p>
+                I started out a little undecided as to whether to pursue music or computer science. I ended up going with music first, studying first at Australian Institute of Music and the Sydney Conservatorium of Music, before completing
+                postgraduate studies at Macquarie University and the University of Technology Sydney.
+            </p>
+
+            <p>
+                I hold a PhD in computational musicology focused on machine learning approaches to music analysis.
+            </p>
+
+            <p>
+                I spent a number of years teaching in tertiary settings, on subjects like musicology, harmony, improvisation, music history, ensemble practice, and composition. I also became increasingly involved in computer science and math and over the past two decades I have developed all kinds of software in languages like C, C++, Java, R, Haskell, and Python, which included a large scale digital humanities project for the search and anlaysis of large XML orchestral datasets.
+            </p>
+
+            <p>
+                In 2012 I made the move out of academia into more pure data science and machine learning roles. I worked primarily in health analytics and developed deep learning systems and data security solutions across a range of corporate and government roles.
+            </p>
+
+            <p>
+                This culminated
+                in my appointment as Chief Data Officer at the Cancer Institute NSW, a role I held from 2018 until 2025. It was
+                a pretty amazing time, giving me the opportunity to lead data and analytics strategy at scale, manage large data science
+                and technology teams, contribute to data and analytics architecture in the health space, and participate in AI
+                strategy at the state and federal level.
+            </p>
+
+            <p>
+                In 2025, I decided to step back from data and technology to find time for music and teaching again. I started working with a
+                number of different ensembles, and started carving out time for composition once again. It has been a crazy ride. I also returned to teaching, this time focusing on both primary and secondary education.
+            </p>
+
+            <p>
+                As a performing musician, I am currently working across solo and ensemble contexts that span jazz fusion, experimental
+                improvisation, and electronic ambient music. When playing live, I like to mix it all up, acoustic and soundscape, looping and samples and a committment to an improvisation-first approach.
+            </p>
+
+            <p>
+                I have also recently released a first album,
+                <a href="https://sajaproject.com/">SAJA Project 01</a>
+                with Aotearoa based artist
+                <a href="https://sallyjamila.com/">Sally Jamila</a>. It has been amazing to make this recording with my partner in music and in life, and we are looking forward to recording more music soon.
+            </p>
+
+            <p>
+                I think that is about it. I have two beautiful children and try and get to the water every day. Sometimes I think I should get a dog and do (at least some) yoga.
+            </p>
+
+        </div>
+
+        <!-- RIGHT COLUMN: TWO SEPARATE SIDEBARS -->
+
+        <div class="sidebar-column">
+
+            <!-- FIRST SIDEBAR: PHOTO, CV AND SOCIAL -->
+
+            <aside class="about-sidebar">
+
+                <div class="about-image">
+                    <img src="assets/img/JamieFaceEdited_5357.jpeg" alt="Jamie Gabriel">
+                </div>
+
+                <div class="cv-links">
+
+                    <div>
+                        Having moved between two careers, I have found it is simpler to have two different CV's.
+                        One outlines my experience in software development, enterprise technologies, data science and executive roles.
+                        <br><br>
+                        The other is focused on my music, teaching and research.
+                    </div>
+
+                    <br/>
+
+                    <ul>
+                        <li>
+                            <a href="./assets/pdf-files/Resume_Teaching_JamieGabriel.pdf">
+                                Music, Teaching and Research CV
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="./assets/pdf-files/ResumeIT.pdf">
+                                Data &amp; Technology CV
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="social-links">
+
+                    <a href="https://www.instagram.com/jgab2275/" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/jamie.gabriel.775451" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/jamie-gabriel-b41a0059/" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+
+                </div>
+
+            </aside>
+
+            <!-- SECOND SIDEBAR: CONFERENCES & EVENTS -->
+
+            <aside class="about-sidebar events-sidebar">
+
+                <h2>Conferences &amp; Events</h2>
+
+                <div class="event">
+                    <div class="event-year">2025</div>
+                    <div class="event-name">AJIRN Conference, Auckland</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2020</div>
+                    <div class="event-name">Data and Analytics in Health Conference, Melbourne</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2019</div>
+                    <div class="event-name">PyCon AU, Sydney</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2017</div>
+                    <div class="event-name">PyCon AU, Melbourne</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2015</div>
+                    <div class="event-name">ISMIR Conference, Málaga</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2013</div>
+                    <div class="event-name">Stockholm Music Acoustics Conference</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2012</div>
+                    <div class="event-name">ACM Recommender Systems Conference</div>
+                </div>
+
+                <div class="event">
+                    <div class="event-year">2011</div>
+                    <div class="event-name">Apple WWDC, San Francisco</div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="footer" id="contact">
+    <div>jamie@jamiegabriel.org</div>
+</footer>
+
+</body>
+</html>
