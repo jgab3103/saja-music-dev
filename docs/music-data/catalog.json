@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "works": [
+    {
+      "id": "BWV_0868",
+      "title": "Prelude in B major, BWV 868",
+      "composer": "J. S. Bach",
+      "collection": "The Well-Tempered Clavier, Book I",
+      "file": "./music-data/bwv-0868.json",
+      "measures": 53,
+      "voices": 4
+    },
+    {
+      "id": "BWV_0869_PRELUDE",
+      "title": "Prelude in B minor, BWV 869",
+      "composer": "J. S. Bach",
+      "collection": "The Well-Tempered Clavier, Book I",
+      "file": "./music-data/bwv-0869-prelude.json",
+      "measures": 47,
+      "voices": 4
+    },
+    {
+      "id": "BWV_0869_FUGUE",
+      "title": "Fugue in B minor, BWV 869",
+      "composer": "J. S. Bach",
+      "collection": "The Well-Tempered Clavier, Book I",
+      "file": "./music-data/bwv-0869-fugue.json",
+      "measures": 76,
+      "voices": 4
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Third Species Counterpoint | SAJA Music</title><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&amp;family=Varela+Round&amp;display=swap" rel="stylesheet"/><link href="css/styles.css" rel="stylesheet"/><style>
+:root{--accent:#8B2E3C;--paper:#fafafa;--panel:#f4f1eb;--ink:#211c15;--line:#ded8d0}*{box-sizing:border-box}body{margin:0;padding-top:80px;background:var(--paper);color:var(--ink);font-family:Nunito,sans-serif}main{max-width:1100px;margin:0 auto;padding:48px 20px 80px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);font-weight:800}h1{font-family:'Varela Round';font-weight:400;font-size:clamp(30px,5vw,48px);margin:8px 0 12px}h2{font-family:'Varela Round';font-size:21px;font-weight:400;margin:0 0 14px}.intro{max-width:780px;line-height:1.75;color:#5a514c;margin-bottom:34px}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:24px;margin:20px 0;box-shadow:0 4px 20px #211c1508}.controls{display:flex;flex-wrap:wrap;gap:16px;align-items:end}.field{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:800;color:#5b514b}select,button,input{font:inherit}select,input[type=number]{background:#fff;border:1px solid #cfc5bc;border-radius:8px;padding:10px 12px;min-height:44px}button{border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:8px;padding:10px 15px;min-height:44px;cursor:pointer;font-weight:800}button.secondary{background:white;color:var(--accent)}button:focus-visible,select:focus-visible{outline:3px solid #bd8d98;outline-offset:2px}.scorewrap{overflow-x:auto;overflow-y:hidden;touch-action:pan-x;border-radius:10px;background:#fff}.score{min-width:730px;position:relative}.hint{color:#675d56;font-size:14px;line-height:1.65}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}.status{padding:12px 15px;background:var(--panel);border-radius:8px;font-size:14px}.results{display:grid;gap:8px;margin-top:14px}.issue{border-left:3px solid var(--accent);background:#fbf5f3;padding:10px 13px;border-radius:4px;line-height:1.5}.good{border-left-color:#487c57;background:#f0f8f1}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.player{width:100%;margin-top:10px}footer{padding:24px;text-align:center;color:#776d66;font-size:13px}@media(max-width:700px){main{padding:28px 14px 60px}.panel{padding:16px}.two{grid-template-columns:1fr}.controls{gap:12px}.field{flex:1 1 130px}}
+
+
+/* Navigation matched to supplied SAJA About page */
+/* Isolate navigation from inherited theme / Bootstrap dark navbar rules. */
+html body nav#mainNav.navbar,html body nav#mainNav.navbar.navbar-shrink{background-color:#FAFAFA!important;background-image:none!important;color:#111!important;box-shadow:none!important;}
+html body nav#mainNav .site-nav-inner,html body nav#mainNav .nav-links{background:transparent!important;background-image:none!important;}
+html body nav#mainNav a,html body nav#mainNav a:link,html body nav#mainNav a:visited{color:#111!important;opacity:1!important;text-shadow:none!important;}
+
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);min-height:80px}
+#mainNav{display:flex;align-items:center;width:100%;left:0;right:0;top:0;z-index:1030;position:fixed;padding:0}
+#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:80px}
+#mainNav .navbar-brand{display:inline-block;margin:0;padding:0;white-space:nowrap;letter-spacing:.19em;font-size:1.18rem}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){body{padding-top:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
+
+/* First-species instructions: scoped additions; existing page styling unchanged. */
+.rule-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 26px;margin:18px 0}
+.rule-grid>div{padding:16px 18px;background:var(--panel);border-radius:9px}
+.rule-grid h3{font-family:'Varela Round',sans-serif;font-size:16px;font-weight:400;margin:0 0 8px}
+.rule-grid p{font-size:14px;line-height:1.7;color:#514b46;margin:0}
+.rules-note{font-size:13px;line-height:1.7;color:#655c55;border-top:1px solid var(--line);padding-top:14px;margin:12px 0 0}
+@media(max-width:700px){.rule-grid{grid-template-columns:1fr;gap:10px}}
+
+.rules-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}.rule{padding:17px 19px;background:var(--panel);border-radius:9px}.rule strong{display:block;color:var(--accent);font-size:14px}.rule p{margin:8px 0 0;color:#554d47;line-height:1.65;font-size:14px}@media(max-width:700px){.rules-grid{grid-template-columns:1fr}}
+</style></head><body><nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a aria-current="page" href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a href="./about.html">About</a></div></div></nav><main><div class="eyebrow">Composition · Counterpoint</div><h1>Third Species Counterpoint</h1><p class="intro">Compose four quarter notes against each whole note of a cantus firmus. Explore flowing melodic lines, passing tones and neighbour notes while preserving clear consonances on strong beats. Tap the staff, listen to both voices and check your work.</p>
+<section aria-labelledby="rules-title" class="panel"><h2>How to write third-species counterpoint</h2><p class="hint">In Fux’s third species, write <strong>four quarter notes against each whole note</strong> of the cantus firmus. This creates a continuous melodic line. The guidelines below introduce the core conventions of strict species counterpoint; some historical exceptions are more subtle than an automated checker can assess.</p><div class="rules-grid"><div class="rule"><strong>01 · Four against one</strong><p>Write four quarter notes per cantus note, making one complete 4/4 measure. Aim for a coherent melodic line rather than four unrelated notes.</p></div><div class="rule"><strong>02 · The first beat</strong><p>Beat 1 of each measure must be consonant with the cantus: a third, fifth, sixth, octave or permitted unison (including compound consonances).</p></div><div class="rule"><strong>03 · Dissonances in motion</strong><p>Dissonances on beats 2, 3 or 4 may be used as <em>passing tones</em>, approached and left by step in the same direction. A <em>neighbour tone</em> leaves a consonance by step and returns by step. Their exact placement and treatment depend on the strict tradition being taught.</p></div><div class="rule"><strong>04 · Melodic shape</strong><p>Prefer predominantly stepwise motion, with occasional carefully controlled leaps. Avoid awkward outlines, excessive repetition and leaps larger than an octave.</p></div><div class="rule"><strong>05 · Independence of voices</strong><p>Avoid parallel perfect fifths and octaves between successive cantus downbeats. Prefer contrary or oblique motion, and avoid crossing the cantus firmus.</p></div><div class="rule"><strong>06 · Beginning and cadence</strong><p>Start with a perfect consonance and aim for a stepwise approach to a final unison or octave. Traditional exercises often use a special closing measure rather than four quarters in the last bar; this introductory editor retains four slots throughout.</p></div></div></section>
+<section class="panel"><h2>Set up your exercise</h2><div class="controls"><label class="field">Cantus firmus<select id="cantus"><option value="0">Cantus I · C major</option><option value="1">Cantus II · G major</option><option value="2">Cantus III · F major</option></select></label><label class="field">Counterpoint position<select id="position"><option value="above">Above the cantus</option><option value="below">Below the cantus</option></select></label><label class="field">Tempo (BPM)<input id="tempo" max="160" min="40" step="4" type="number" value="76"/></label><button class="secondary" id="reset">Clear my notes</button></div></section>
+<section class="panel"><h2>Compose your counterpoint</h2><p class="hint">Tap or click the counterpoint staff to enter a quarter note. Each cantus note has four counterpoint positions (beats 1–4). On mobile, scroll horizontally to reach later measures. Use the pitch controls to adjust the selected note.</p><div class="scorewrap"><div aria-label="Interactive two-staff counterpoint score" class="score" id="score"></div></div><div class="toolbar"><button class="secondary" id="prev">← Previous note</button><button class="secondary" id="down">↓ Lower pitch</button><button class="secondary" id="up">↑ Raise pitch</button><button class="secondary" id="next">Next note →</button><button class="secondary" id="erase">Remove note</button></div><div aria-live="polite" class="status" id="status">Select a note position on the counterpoint staff.</div></section>
+<div class="two"><section class="panel"><h2>Listen</h2><p class="hint">Audio is rendered as a WAV file and played through your device's native audio player, including iPhone and iPad.</p><div class="controls"><label class="field">Voices<select id="voices"><option value="both">Both voices</option><option value="cantus">Cantus firmus only</option><option value="counterpoint">Counterpoint only</option></select></label><button id="render">Prepare WAV audio</button></div><audio class="player" controls="" id="audio" preload="none"></audio><p class="hint" id="audioStatus">Select “Prepare WAV audio” to listen.</p></section><section class="panel"><h2>Check your work</h2><p class="hint">The checker tests downbeat consonance, passing and neighbour dissonances on other beats, parallels between downbeats, melodic leaps, voice crossing, and the opening and cadence. It offers guidance, not a complete verdict on musical quality.</p><button id="check">Check counterpoint</button><div aria-live="polite" class="results" id="results"></div></section></div>
+<section class="panel"><h2>Third species: the essentials</h2><p class="hint">Four quarter notes against each cantus whole note. Beat 1 must be consonant; dissonances on beats 2–4 require carefully controlled stepwise movement. Avoid parallel perfect fifths and octaves between successive downbeats. Shape an independent melody and end with a convincing cadence. The automated checks implement a practical subset of these rules.</p></section></main><footer>SAJA Music · Free music education resources</footer>
+<script src="https://cdn.jsdelivr.net/npm/vexflow@4.2.3/build/cjs/vexflow.js"></script><script>(()=>{'use strict';
+const $=id=>document.getElementById(id),vf=window.Vex&&window.Vex.Flow;
+if(!vf){$('score').textContent='VexFlow could not load. Please check your internet connection.';return;}
+const {Renderer,Stave,StaveNote,Voice,Formatter,Accidental}=vf;
+const CF=[{name:'C',notes:[60,62,64,65,67,65,62,60]},{name:'G',notes:[67,69,71,72,74,72,69,67]},{name:'F',notes:[65,67,69,70,72,69,67,65]}];
+const NAMES=['C','C♯','D','E♭','E','F','F♯','G','A♭','A','B♭','B'];
+const natural=[0,2,4,5,7,9,11],stepNames=['c','d','e','f','g','a','b'];
+let answers=[],selected=0,audioURL=null;
+const midiName=n=>NAMES[((n%12)+12)%12]+(Math.floor(n/12)-1);
+const isNatural=n=>natural.includes(((n%12)+12)%12);
+const nearestNatural=n=>{while(!isNatural(n))n--;return n};
+const diatonic=n=>{let m=nearestNatural(n);return 7*(Math.floor(m/12)-1)+natural.indexOf(m%12)};
+const fromDiatonic=i=>12*(Math.floor(i/7)+1)+natural[((i%7)+7)%7];
+const move=(n,d)=>fromDiatonic(diatonic(n)+d);
+function noteKey(n){let octave=Math.floor(n/12)-1,sem=n%12,ix=natural.indexOf(sem);if(ix>=0)return stepNames[ix]+'/'+octave;return noteKey(nearestNatural(n))}
+function makeNote(n,clef,duration,ghost=false){let o=new StaveNote({clef,keys:[noteKey(n===null?60:n)],duration,...(ghost?{style:{fillStyle:'#c7c2bc',strokeStyle:'#c7c2bc'}}:{})});if(n!==null&&!isNatural(n))o.addModifier(new Accidental('#'),0);return o}
+const current=()=>CF[+$('cantus').value].notes;
+function invalidateAudio(){if(audioURL){URL.revokeObjectURL(audioURL);audioURL=null}const a=$('audio');a.pause();a.removeAttribute('src');a.load();$('audioStatus').textContent='Prepare WAV audio after editing notes.'}
+function init(){answers=Array(current().length*4).fill(null);selected=0;$('results').replaceChildren();draw();invalidateAudio()}
+function draw(){const cf=current(),above=$('position').value==='above',width=Math.max(920,cf.length*290+140),score=$('score');score.replaceChildren();score.style.width=width+'px';const renderer=new Renderer(score,Renderer.Backends.SVG);renderer.resize(width,350);const context=renderer.getContext();const top=new Stave(25,35,width-50),bottom=new Stave(25,190,width-50);top.addClef('treble').addTimeSignature('4/4');bottom.addClef(above?'treble':'bass').addTimeSignature('4/4');top.setContext(context).draw();bottom.setContext(context).draw();const cpStave=above?top:bottom,cfStave=above?bottom:top,cpClef=above?'treble':'bass';
+const cpNotes=answers.map(n=>makeNote(n,cpClef,'q',n===null)),cfNotes=cf.map(n=>makeNote(n,'treble','w'));
+const v1=new Voice({num_beats:cf.length*4,beat_value:4}).setStrict(false).addTickables(cpNotes),v2=new Voice({num_beats:cf.length*4,beat_value:4}).setStrict(false).addTickables(cfNotes);
+new Formatter().joinVoices([v1]).joinVoices([v2]).format([v1,v2],width-175);v1.draw(context,cpStave);v2.draw(context,cfStave);
+const coords=cpNotes.map(n=>n.getAbsoluteX()),svg=score.querySelector('svg');if(!svg)return;const ns='http://www.w3.org/2000/svg';
+// Visual guides: light quarter-note divisions, stronger 4/4 measure boundaries.
+// Draw after the notes but before the transparent note-entry targets.
+for(let i=1;i<coords.length;i++){
+ const x=(coords[i-1]+coords[i])/2;
+ const measureStart=(i%4===0);
+ const guide=document.createElementNS(ns,'line');
+ guide.setAttribute('x1',x);guide.setAttribute('x2',x);
+ guide.setAttribute('y1',top.getYForLine(0));guide.setAttribute('y2',bottom.getYForLine(4));
+ guide.setAttribute('stroke',measureStart?'#655b55':'#d5cec8');
+ guide.setAttribute('stroke-width',measureStart?'2.8':'1');
+ guide.setAttribute('stroke-opacity',measureStart?'.9':'.85');
+ guide.setAttribute('pointer-events','none');svg.appendChild(guide);
+}
+coords.forEach((x,i)=>{const prev=i?coords[i-1]:x-75,next=i<coords.length-1?coords[i+1]:x+75;const left=(prev+x)/2,right=(x+next)/2;const rect=document.createElementNS(ns,'rect');rect.setAttribute('x',left);rect.setAttribute('y',cpStave.getYForLine(0)-85);rect.setAttribute('width',Math.max(30,right-left));rect.setAttribute('height','205');rect.setAttribute('fill',i===selected?'#8b2e3c':'transparent');rect.setAttribute('fill-opacity',i===selected?'.075':'0');rect.style.cursor='crosshair';rect.setAttribute('aria-label','Counterpoint note '+(i+1));rect.addEventListener('click',e=>{const pt=svg.createSVGPoint();pt.x=e.clientX;pt.y=e.clientY;const local=pt.matrixTransform(svg.getScreenCTM().inverse());const bottomY=cpStave.getYForLine(4),steps=Math.round((bottomY-local.y)/5),base=above?64:43;let val=fromDiatonic(diatonic(base)+steps);val=Math.max(above?60:36,Math.min(above?88:67,val));answers[i]=val;selected=i;draw();invalidateAudio()});svg.appendChild(rect)});
+const beat='beat '+(selected%4+1)+(selected%4===0?' (downbeat)':'');$('status').textContent='Cantus note '+(Math.floor(selected/4)+1)+' of '+cf.length+' · '+beat+' · '+(answers[selected]===null?'Not entered':midiName(answers[selected]))+' · '+(above?'Above':'Below')+' the cantus.'}
+function edit(delta){if(answers[selected]===null)answers[selected]=nearestNatural(current()[Math.floor(selected/4)]+($('position').value==='above'?12:-12));answers[selected]=move(answers[selected],delta);draw();invalidateAudio()}
+$('cantus').addEventListener('change',init);$('position').addEventListener('change',init);$('reset').onclick=init;
+$('prev').onclick=()=>{selected=Math.max(0,selected-1);draw()};$('next').onclick=()=>{selected=Math.min(answers.length-1,selected+1);draw()};
+$('up').onclick=()=>edit(1);$('down').onclick=()=>edit(-1);$('erase').onclick=()=>{answers[selected]=null;draw();invalidateAudio()};
+$('tempo').addEventListener('change',invalidateAudio);$('voices').addEventListener('change',invalidateAudio);
+function wav(){const sr=22050,bpm=Math.max(40,Math.min(160,+$('tempo').value||76)),quarterSec=60/bpm,frames=Math.ceil((answers.length*quarterSec+.4)*sr),pcm=new Int16Array(frames),cf=current(),which=$('voices').value,events=[];
+for(let i=0;i<cf.length;i++){if(which!=='counterpoint')events.push([cf[i],i*4*quarterSec,4*quarterSec*.94,.28]);for(let j=0;j<4;j++){const n=answers[i*4+j];if(which!=='cantus'&&n!==null)events.push([n,(i*4+j)*quarterSec,quarterSec*.90,.29])}}
+for(const [m,start,dur,amp] of events){const freq=440*Math.pow(2,(m-69)/12),s=Math.floor(start*sr),count=Math.floor(dur*sr);for(let j=0;j<count&&s+j<frames;j++){const t=j/sr,env=Math.min(1,t/.018)*Math.min(1,(dur-t)/.10)*Math.exp(-t*.35),v=amp*env*(Math.sin(2*Math.PI*freq*t)+.22*Math.sin(2*Math.PI*2*freq*t)+.07*Math.sin(2*Math.PI*3*freq*t)),k=s+j;pcm[k]=Math.max(-32767,Math.min(32767,pcm[k]+Math.round(v*20000)))}}
+const buf=new ArrayBuffer(44+pcm.length*2),view=new DataView(buf),str=(offset,s)=>{for(let i=0;i<s.length;i++)view.setUint8(offset+i,s.charCodeAt(i))};str(0,'RIFF');view.setUint32(4,36+pcm.length*2,true);str(8,'WAVE');str(12,'fmt ');view.setUint32(16,16,true);view.setUint16(20,1,true);view.setUint16(22,1,true);view.setUint32(24,sr,true);view.setUint32(28,sr*2,true);view.setUint16(32,2,true);view.setUint16(34,16,true);str(36,'data');view.setUint32(40,pcm.length*2,true);for(let i=0;i<pcm.length;i++)view.setInt16(44+i*2,pcm[i],true);return new Blob([buf],{type:'audio/wav'})}
+$('render').onclick=()=>{if(audioURL)URL.revokeObjectURL(audioURL);audioURL=URL.createObjectURL(wav());$('audio').src=audioURL;$('audio').load();$('audioStatus').textContent='WAV ready — press play in the native audio player.'};
+function check(){
+const cf=current(),issues=[],n=answers.length,above=$('position').value==='above';
+const add=(msg,good=false)=>issues.push({msg,good});
+const pc=x=>((x%12)+12)%12;
+const interval=i=>answers[i]===null?null:Math.abs(answers[i]-cf[Math.floor(i/4)]);
+const consonant=x=>[0,3,4,7,8,9].includes(pc(x));
+const perfect=x=>[0,7].includes(pc(x));
+if(answers.some(x=>x===null))add('Complete all '+n+' quarter notes before a full assessment.');
+for(let i=0;i<n;i++){
+ const pitch=answers[i],iv=interval(i);if(pitch===null)continue;
+ const cantus=cf[Math.floor(i/4)],beat=i%4+1;
+ if(above&&pitch<cantus)add('Note '+(i+1)+': the upper counterpoint crosses below the cantus.');
+ if(!above&&pitch>cantus)add('Note '+(i+1)+': the lower counterpoint crosses above the cantus.');
+ if(beat===1&&!consonant(iv))add('Measure '+(Math.floor(i/4)+1)+', beat 1: '+midiName(pitch)+' against '+midiName(cantus)+' is dissonant. Downbeats must be consonant.');
+ if(beat!==1&&!consonant(iv)){
+  const prev=answers[i-1],next=answers[i+1];
+  if(prev===null||next===undefined||next===null){add('Note '+(i+1)+' (beat '+beat+'): dissonance requires surrounding notes to assess its treatment.');}
+  else{
+   const d1=diatonic(pitch)-diatonic(prev),d2=diatonic(next)-diatonic(pitch);
+   const passing=Math.abs(d1)===1&&Math.abs(d2)===1&&d1===d2;
+   const neighbour=Math.abs(d1)===1&&d2===-d1&&prev===next&&consonant(Math.abs(prev-cantus))&&consonant(Math.abs(next-cf[Math.floor((i+1)/4)]));
+   if(!passing&&!neighbour)add('Note '+(i+1)+' (beat '+beat+'): dissonance is not a simple passing or neighbour tone. Use stepwise preparation and resolution.');
+  }
+ }
+ if(i>0&&answers[i-1]!==null){const leap=Math.abs(diatonic(pitch)-diatonic(answers[i-1]));if(leap>7)add('Notes '+i+'–'+(i+1)+': melodic leap exceeds an octave.');if(pitch===answers[i-1])add('Notes '+i+'–'+(i+1)+': repeated pitch; aim for a flowing third-species melody.');}
+}
+for(let i=4;i<n;i+=4){
+ if(answers[i]===null||answers[i-4]===null)continue;
+ const a=answers[i]-answers[i-4],b=cf[i/4]-cf[i/4-1],v=interval(i),p=interval(i-4);
+ if(perfect(v)&&perfect(p)&&pc(v)===pc(p)&&a*b>0)add('Measures '+(i/4)+'–'+(i/4+1)+': parallel perfect fifths or octaves between downbeats.');
+ if(perfect(v)&&a*b>0&&Math.abs(a)>2)add('Measures '+(i/4)+'–'+(i/4+1)+': similar motion into a perfect consonance with a leap in the counterpoint.');
+}
+if(answers[0]!==null&&!perfect(interval(0)))add('Opening: begin on a perfect consonance (unison, fifth or octave).');
+if(answers[n-1]!==null&&pc(interval(n-1))!==0)add('Ending: finish on a unison or octave.');
+if(answers[n-1]!==null&&answers[n-2]!==null&&Math.abs(diatonic(answers[n-1])-diatonic(answers[n-2]))!==1)add('Ending: approach the final pitch by step.');
+if(answers.every(x=>x!==null)&&!issues.length)add('Well done: no issues detected by the introductory third-species checks. Listen for a flowing, independent melody.',true);
+$('results').replaceChildren();for(const it of issues){const d=document.createElement('div');d.className='issue'+(it.good?' good':'');d.textContent=it.msg;$('results').appendChild(d)}if(!issues.length)$('results').textContent='Enter some notes to begin.';
+}
+$('check').onclick=check;window.addEventListener('pagehide',()=>{if(audioURL)URL.revokeObjectURL(audioURL)});init();
+})();</script></body></html>
