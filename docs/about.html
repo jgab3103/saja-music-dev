@@ -48,20 +48,50 @@ h1{font-size:clamp(2.1rem,3.6vw,3.1rem);margin:0 0 20px}h2{font-size:1.65rem;mar
 @media(max-width:900px){.two-col{gap:30px}.principles{grid-template-columns:1fr 1fr}.contact-panel{grid-template-columns:1fr}.actions{justify-content:flex-start}}
 @media(max-width:650px){.shell{padding:0 22px}.hero{margin-top:22px;padding:32px 26px}.two-col{grid-template-columns:1fr}.principles{grid-template-columns:1fr}.section{padding:22px 2px 38px}.contact-panel{padding:28px 26px;margin-bottom:65px}.actions{flex-direction:column}.button{width:100%}}
 
-/* About-page photograph and introduction */
-.about-hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:42px;align-items:center}
-.about-hero-copy{min-width:0}
-.about-hero-photo{margin:0;align-self:stretch;min-height:310px;border-radius:6px;overflow:hidden;background:#e6dfd8}
-.about-hero-photo img{display:block;width:100%;height:100%;min-height:310px;object-fit:cover;object-position:center}
-@media(max-width:850px){.about-hero{grid-template-columns:1fr;gap:28px}.about-hero-photo,.about-hero-photo img{min-height:0}.about-hero-photo img{height:auto;aspect-ratio:16/10;object-fit:cover}}
+/* About Us profiles */
+.about-hero{display:block}
+.about-hero-copy{max-width:850px}
+.team-intro{max-width:850px;color:#49443f;margin:0 0 28px}
+.team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin:30px 0 12px}
+.team-card{display:grid;grid-template-columns:125px minmax(0,1fr);gap:24px;align-items:start;background:#fff;border:1px solid #e9e2dc;border-radius:7px;padding:25px}
+.team-photo{width:125px;height:155px;object-fit:cover;border-radius:5px;background:#eee8e3;display:block}
+.team-card h3{font-size:1.24rem;margin:0 0 4px}
+.team-role{font-size:.82rem;letter-spacing:.025em;font-weight:800;color:var(--accent);margin:0 0 12px}
+.team-card p:not(.team-role){color:#514b46;font-size:.95rem;line-height:1.65;margin:0}
+.team-project{color:#49443f;max-width:850px;margin:22px 0 0}
+@media(max-width:900px){.team-card{grid-template-columns:100px minmax(0,1fr);gap:18px;padding:20px}.team-photo{width:100px;height:130px}}
+@media(max-width:700px){.team-grid{grid-template-columns:1fr}.team-card{grid-template-columns:110px minmax(0,1fr)}.team-photo{width:110px;height:140px}}
+@media(max-width:420px){.team-card{grid-template-columns:1fr}.team-photo{width:125px;height:155px}}
 </style></head><body>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a aria-current="page" href="./about.html">About</a></div></div></nav>
 <main class="shell">
 <section class="hero about-hero"><div class="about-hero-copy"><div class="eyebrow">SAJA MUSIC / ABOUT</div><h1>Music education, open to everyone.</h1>
 <p>SAJA Music brings together music education, creative practice and research. We develop interactive tools, practical exercises and learning resources for students, teachers and curious musicians.</p>
-<p>We believe that high-quality educational resources should be easy to find, enjoyable to use and freely available. That's why our resources are open to everyone, without advertising or paywalls.</p></div><figure class="about-hero-photo"><img alt="Sally Jamila and Jamie Gabriel of SAJA Music" decoding="async" loading="eager" src="./assets/img/hsaja-about.jpeg"/></figure></section>
+<p>We believe that high-quality educational resources should be easy to find, enjoyable to use and freely available. That's why our resources are open to everyone, without advertising or paywalls.</p></div></section>
 <section aria-labelledby="philosophy" class="section"><h2 id="philosophy">Our philosophy</h2><div class="two-col"><div class="prose"><p>Learning music is not a single, linear journey. Some people begin with an instrument, others with listening, technology, improvisation or the music they love. We want to support all of those starting points.</p><p>Our resource library is designed for exploration. Learning Pathways offer a suggested sequence for those who want more structure, while every activity remains accessible on its own.</p></div><div class="prose"><p>We draw on a tradition of open learning and knowledge sharing. Teachers should be able to find useful materials without navigating advertisements or subscriptions; learners should be able to return to an exercise as often as they like.</p><p>We are continually developing and refining the collection, informed by teaching, music-making and research.</p></div></div>
 <div class="principles"><article class="principle"><h3>Open by design</h3><p>Resources are free to use, without advertising, paywalls or compulsory accounts.</p></article><article class="principle"><h3>Learn your own way</h3><p>Browse individual activities or follow a suggested pathway, at your own pace.</p></article><article class="principle"><h3>Made for real learning</h3><p>Interactive exercises, downloadable materials and clear explanations designed for practice and teaching.</p></article></div></section>
-<section aria-labelledby="people" class="section"><h2 id="people">The people behind SAJA Music</h2><div class="two-col"><div class="prose"><p>SAJA Music is a collaboration between Sally Jamila and Jamie Gabriel. We are musicians, educators and performers who share a love of music and a commitment to making learning accessible.</p><p>Sally has many years of music teaching experience and holds a Bachelor of Music from the University of Auckland. Jamie holds a PhD in Music from the University of Technology Sydney, with a research focus on computational musicology, and has a background in computer science, software development and educational technology.</p><p>We also perform and record together as SAJA Project. Our music brings together modern jazz, electronic music, improvisation and experimental soundscapes, often combining acoustic instruments, synthesisers, live looping and sampling.</p></div><div class="credentials"><div class="credential"><strong>Sally Jamila · Music and teaching</strong><span>Bachelor of Music, University of Auckland; extensive experience teaching music.</span></div><div class="credential"><strong>Jamie Gabriel · Research and technology</strong><span>PhD in Music, University of Technology Sydney; computational musicology, computer science and software development.</span></div><div class="credential"><strong>SAJA Project · Performance and recording</strong><span>A collaborative music project exploring jazz, electronic music, improvisation and atmospheric soundscapes.</span></div></div></div></section>
+<section aria-labelledby="people" class="section">
+<h2 id="people">About Us</h2>
+<p class="team-intro">SAJA Music was founded by Sally Jamila and Jamie Gabriel. Between us, we bring many years of experience teaching, composing, recording and performing music. We share a commitment to creating thoughtful, practical learning resources that are freely available to everyone.</p>
+<div class="team-grid">
+  <article class="team-card">
+    <img class="team-photo" src="./assets/img/JamieFaceEdited_5357.jpeg" alt="Jamie Gabriel" loading="lazy" />
+    <div>
+      <h3>Jamie Gabriel</h3>
+      <p class="team-role">Co-Founder · Education &amp; Technology</p>
+      <p>Jamie is a multi-instrumentalist, composer and educator with a PhD in computational musicology. He brings extensive experience in music teaching, software development and educational technology, combining these interests to create interactive resources for music learning.</p>
+    </div>
+  </article>
+  <article class="team-card">
+    <img class="team-photo" src="./assets/img/sally-profile.jpg" alt="Sally Jamila" loading="lazy" />
+    <div>
+      <h3>Sally Jamila</h3>
+      <p class="team-role">Co-Founder · Music &amp; Education</p>
+      <p>Sally is a composer, vocalist, performer and educator with a Bachelor of Music from the University of Auckland. She brings many years of experience teaching and making music, with a focus on creativity, composition and performance.</p>
+    </div>
+  </article>
+</div>
+<p class="team-project">Together we also perform and record as <a href="https://sajaproject.com/">SAJA Project</a>, exploring modern jazz, electronic music, improvisation and experimental soundscapes.</p>
+</section>
 <section aria-labelledby="lessons" class="contact-panel"><div><div class="eyebrow">GET IN TOUCH</div><h2 id="lessons">Lessons and enquiries</h2><p>Interested in piano, guitar, improvisation, music theory or composition lessons? We'd love to hear what you're hoping to learn.</p><p>We also welcome questions, feedback and suggestions about the free learning resources.</p></div><div class="actions"><a class="button primary" href="mailto:jamie@jamiegabriel.org?subject=SAJA%20Music%20%E2%80%93%20Lesson%20enquiry">Enquire about lessons →</a><a class="button secondary" href="mailto:jamie@jamiegabriel.org?subject=SAJA%20Music%20%E2%80%93%20General%20enquiry">General enquiry →</a></div></section>
 </main><footer class="footer">SAJA Music · Free music education resources</footer></body></html>
