@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A historical introduction to counterpoint: Renaissance polyphony, Fux's five species, Bach, canon, fugue and important counterpoint treatises.">
+<title>Counterpoint: History and Ideas | SAJA Music</title>
+<link rel="icon" href="assets/favicon.ico">
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<style>
+
+
+:root{--accent:#8B2E3C;--paper:#FAFAFA;--panel:#F4F1EB}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;padding-top:80px;background:var(--paper);color:#111;font:16.5px/1.7 Nunito,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);min-height:80px}
+#mainNav{display:flex;align-items:center;width:100%;left:0;right:0;top:0;z-index:1030;position:fixed;padding:0}
+#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:80px}
+#mainNav .navbar-brand{display:inline-block;margin:0;padding:0;white-space:nowrap;letter-spacing:.19em;font-size:1.18rem}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){body{padding-top:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
+
+
+/* Keep the shared SAJA navigation independent of page components. */
+body{margin:0;padding-top:80px;background:#FAFAFA;color:#111;font:16.5px/1.7 Nunito,sans-serif}
+a{color:#8B2E3C;text-decoration:none}a:hover{text-decoration:underline}
+main.page{width:100%;max-width:1160px;margin:auto;padding:0 32px 90px}
+.hero{margin:40px 0 44px;padding:58px 60px 62px;background:#F4F1EB;border-radius:8px}
+.eyebrow{font-size:.78rem;letter-spacing:.24em;color:#716964;margin:0 0 14px;font-weight:800;text-transform:uppercase}
+h1,h2,h3{font-family:'Varela Round',sans-serif;font-weight:500;line-height:1.32}
+h1{font-size:clamp(2.1rem,3.6vw,3.1rem);margin:0 0 20px}
+h2{font-size:1.7rem;margin:0 0 22px}h3{font-size:1.08rem;margin:0 0 10px}
+p{margin:0 0 17px}.hero p{max-width:780px;color:#393532;font-size:1.07rem}
+.section{padding:36px 4px 48px;border-bottom:1px solid #e8e2dd;scroll-margin-top:105px}
+.prose{max-width:840px;color:#49443f}.prose p{max-width:75ch}
+.lead{font-size:1.1rem;color:#393532}
+.contents{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.contents a{font-size:.88rem;padding:7px 13px;background:#fff;border:1px solid #e5ddd7;border-radius:5px;color:#453c37;font-weight:700}
+.contents a:hover{border-color:#8B2E3C;text-decoration:none}
+.timeline{border-left:2px solid #e4d9d2;margin:28px 0 0 10px;padding:0 0 0 27px;display:grid;gap:25px}
+.era{position:relative}.era:before{content:"";position:absolute;left:-35px;top:7px;width:12px;height:12px;border-radius:50%;background:#8B2E3C;border:3px solid #FAFAFA}
+.era .date{font-weight:800;color:#8B2E3C;font-size:.84rem;letter-spacing:.05em}.era h3{margin:4px 0 8px}.era p{max-width:77ch;color:#514b46}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px}
+.card{background:white;border:1px solid #e9e2dc;border-radius:6px;padding:25px 26px}
+.card p{font-size:.95rem;color:#5e5651;margin:0}.card .small{font-size:.79rem;font-weight:800;color:#8B2E3C;letter-spacing:.1em;margin-bottom:7px;text-transform:uppercase}
+.species{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:24px 0}
+.species article{background:#fff;border:1px solid #e9e2dc;border-radius:6px;padding:20px 17px}
+.species .number{color:#8B2E3C;font:1.8rem 'Varela Round',sans-serif;margin-bottom:10px}
+.species h3{font-size:.98rem}.species p{font-size:.86rem;line-height:1.6;color:#5e5651;margin:0}
+.note{background:#F4F1EB;border-left:3px solid #8B2E3C;padding:19px 23px;border-radius:0 5px 5px 0;margin:25px 0;color:#49443f}
+.booklist{display:grid;gap:0;margin:20px 0}.book{padding:19px 0;border-bottom:1px solid #e8e2dd}.book:last-child{border-bottom:0}.book strong{display:block;color:#28231f}.book .details{font-size:.9rem;color:#786d67}.book p{margin:6px 0 0;color:#514b46;max-width:78ch}
+.next{background:#F4F1EB;border-radius:8px;padding:35px 39px;margin-top:48px}.next p{max-width:75ch;color:#514b46}.button{display:inline-block;background:#8B2E3C;color:white!important;padding:11px 18px;border-radius:5px;font-weight:800;font-size:.92rem}.button:hover{filter:brightness(.92);text-decoration:none}
+.footer{border-top:1px solid rgba(0,0,0,.06);padding:65px 24px;text-align:center;color:#666;font-size:.95rem}
+@media(max-width:950px){.species{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){main.page{padding:0 22px 65px}.hero{margin:22px 0 25px;padding:33px 27px}.cards{grid-template-columns:1fr}.species{grid-template-columns:repeat(2,1fr)}.section{padding:28px 2px 38px}.next{padding:26px 25px}}
+@media(max-width:400px){.species{grid-template-columns:1fr}}
+</style></head><body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a href="./about.html">About</a></div></div></nav>
+<main class="page">
+<header class="hero"><div class="eyebrow">SAJA MUSIC / MUSIC THEORY &amp; HISTORY</div><h1>Counterpoint: the art of independent voices</h1>
+<p>Counterpoint is the art of combining distinct melodic lines so that each retains its own identity while contributing to a coherent musical whole. Its history connects medieval song, Renaissance sacred music, Baroque fugue and modern composition.</p>
+<p>This introduction explores the ideas behind counterpoint before moving to practical study of the five species associated with Johann Joseph Fux.</p>
+<nav class="contents" aria-label="On this page"><a href="#origins">Origins</a><a href="#fux">Fux</a><a href="#bach">Bach</a><a href="#forms">Canon &amp; fugue</a><a href="#books">Important texts</a><a href="#species">Five species</a></nav></header>
+<section class="section" id="origins"><div class="eyebrow">01 / THE LONG HISTORY</div><h2>From polyphony to counterpoint</h2>
+<div class="prose"><p class="lead">Counterpoint was not invented by a single composer or theorist. It emerged over centuries as musicians explored how several voices could move together without losing their independence.</p>
+<p>Early European polyphony grew from practices of adding voices to chant. By the later Middle Ages, composers were writing increasingly elaborate combinations of melodic lines. Renaissance composers developed a sophisticated art of vocal polyphony in which imitation, carefully controlled dissonance and the shaping of individual lines became central.</p></div>
+<div class="timeline">
+<div class="era"><div class="date">9TH–13TH CENTURIES</div><h3>Early polyphony and organum</h3><p>Written sources document experiments with multiple voices, from relatively simple parallel motion to the elaborate organum associated with Notre-Dame composers such as Léonin and Pérotin.</p></div>
+<div class="era"><div class="date">14TH–15TH CENTURIES</div><h3>Increasing rhythmic and melodic independence</h3><p>Late medieval and early Renaissance music develops intricate rhythmic relationships and imitative techniques. Composers such as Guillaume de Machaut and Johannes Ockeghem reveal different possibilities for combining voices.</p></div>
+<div class="era"><div class="date">16TH CENTURY</div><h3>Renaissance imitative polyphony</h3><p>Josquin des Prez, Giovanni Pierluigi da Palestrina and others develop fluid vocal textures in which melodic lines enter, answer and overlap. This tradition becomes a major reference point for later teaching of strict counterpoint.</p></div>
+<div class="era"><div class="date">17TH–18TH CENTURIES</div><h3>Counterpoint in a tonal world</h3><p>As tonal harmony becomes increasingly influential, composers combine linear independence with harmonic direction. The fugue becomes an especially important vehicle for contrapuntal invention.</p></div>
+<div class="era"><div class="date">19TH–20TH CENTURIES</div><h3>Counterpoint as craft, study and reinvention</h3><p>Composers and theorists revisit earlier styles while adapting contrapuntal thinking to chromatic harmony, new tonal languages and eventually atonal music.</p></div>
+</div></section>
+<section class="section" id="fux"><div class="eyebrow">02 / JOHANN JOSEPH FUX</div><h2>Fux and <em>Gradus ad Parnassum</em></h2>
+<div class="prose"><p><strong>Johann Joseph Fux (1660–1741)</strong> was an Austrian composer and theorist. His <em>Gradus ad Parnassum</em> (1725), written in Latin, became one of the most influential counterpoint textbooks in Western music education.</p>
+<p>Presented as a dialogue between teacher and student, the treatise teaches contrapuntal writing in carefully ordered stages. Its model is an idealised form of the older vocal style often associated with Palestrina. It does not describe every feature of Renaissance composition, nor does it provide a complete account of Bach's tonal practice.</p>
+<p>The enduring pedagogical idea is simple: learn to control a small number of musical relationships before attempting more complex textures. Students begin with a fixed melody, the <em>cantus firmus</em>, and compose another voice against it.</p></div>
+<aside class="note"><strong>A useful distinction:</strong> “Fuxian counterpoint” is a teaching method based on a stylised version of earlier polyphony. It is not the only kind of counterpoint, and its rules should not be mistaken for universal laws of composition.</aside>
+</section>
+<section class="section" id="bach"><div class="eyebrow">03 / J. S. BACH</div><h2>Bach: counterpoint as musical architecture</h2>
+<div class="prose"><p><strong>Johann Sebastian Bach (1685–1750)</strong> brought contrapuntal techniques to extraordinary levels of complexity and expressive range. His works combine independent melodic lines with a powerful sense of tonal harmony, rhythm and large-scale structure.</p>
+<p>The <em>Well-Tempered Clavier</em> contains preludes and fugues in all major and minor keys across two books. The <em>Inventions and Sinfonias</em> offer especially clear examples of two- and three-part writing. In <em>The Art of Fugue</em>, Bach explores the possibilities of transforming and combining a single musical subject.</p>
+<p>Bach and Fux were contemporaries. It would be misleading to describe Bach's counterpoint as an evolution <em>from</em> Fux's textbook: the two represent overlapping but distinct strands of the European contrapuntal tradition. Fux codified a pedagogical approach to strict counterpoint; Bach's music offers a rich model of tonal and motivic counterpoint.</p></div>
+</section>
+<section class="section" id="forms"><div class="eyebrow">04 / CONTRAPUNTAL FORMS &amp; TECHNIQUES</div><h2>Canon, fugue and imitation</h2>
+<div class="cards">
+<article class="card"><div class="small">Technique &amp; form</div><h3>Canon</h3><p>A melody is imitated by another voice according to a defined rule, often after a time delay. The familiar round is a simple canon. More elaborate canons may use inversion, augmentation or other transformations.</p></article>
+<article class="card"><div class="small">Contrapuntal form</div><h3>Fugue</h3><p>A composition built around a recurring subject, typically introduced successively in different voices. Episodes, further entries, stretto and other devices can develop the musical argument. A fugue is not simply a canon: its voices are freer after their entries.</p></article>
+<article class="card"><div class="small">Technique</div><h3>Imitation</h3><p>One voice takes up a melodic idea heard in another. The imitation may be exact or varied. It is fundamental to much Renaissance polyphony and Baroque contrapuntal writing.</p></article>
+<article class="card"><div class="small">Technique</div><h3>Invertible counterpoint</h3><p>Two or more lines are written so they can exchange their relative positions—for example, an upper voice becoming a lower voice—while preserving acceptable harmonic relationships.</p></article>
+</div>
+<div class="prose" style="margin-top:24px"><p>Counterpoint is also a way of thinking rather than a single form. It appears in motets, masses, inventions, chorale preludes, fugues, string quartets and countless other kinds of music.</p></div></section>
+<section class="section" id="books"><div class="eyebrow">05 / BOOKS THAT SHAPED THE DISCIPLINE</div><h2>Important texts on counterpoint</h2>
+<div class="booklist">
+<div class="book"><strong>Gioseffo Zarlino — <em>Le istitutioni harmoniche</em></strong><span class="details">1558</span><p>A major Renaissance theoretical work addressing consonance, dissonance, modes and the practice of combining voices.</p></div>
+<div class="book"><strong>Johann Joseph Fux — <em>Gradus ad Parnassum</em></strong><span class="details">1725</span><p>The classic systematic presentation of species counterpoint. Its staged exercises influenced generations of composers and teachers.</p></div>
+<div class="book"><strong>Luigi Cherubini — <em>Cours de contrepoint et de fugue</em></strong><span class="details">1835</span><p>An influential nineteenth-century treatment of counterpoint and fugue in the conservatoire tradition.</p></div>
+<div class="book"><strong>Arnold Schoenberg — <em>Preliminary Exercises in Counterpoint</em></strong><span class="details">Published posthumously, 1963; edited by Leonard Stein</span><p>Schoenberg's teaching approaches contrapuntal discipline through exercises in melodic independence and voice combination. Although Schoenberg is associated with atonality and twelve-tone composition, this book begins with foundational contrapuntal craft.</p></div>
+<div class="book"><strong>Kent Kennan — <em>Counterpoint</em></strong><span class="details">First published 1959</span><p>A widely used modern textbook focused on eighteenth-century tonal counterpoint, complementing rather than duplicating Fux's older-style species approach.</p></div>
+<div class="book"><strong>Knud Jeppesen — <em>Counterpoint: The Polyphonic Vocal Style of the Sixteenth Century</em></strong><span class="details">English edition, 1939</span><p>A historically oriented study of sixteenth-century vocal polyphony, particularly the style associated with Palestrina.</p></div>
+</div>
+<aside class="note"><strong>Two traditions worth distinguishing:</strong> species counterpoint trains the handling of melodic intervals and dissonance in a controlled setting; tonal counterpoint adds the harmonic and formal priorities characteristic of much eighteenth-century music.</aside></section>
+<section class="section" id="species"><div class="eyebrow">06 / LEARNING BY COMPOSING</div><h2>The five species of Fux</h2>
+<div class="prose"><p>Fux's method builds complexity gradually. Each species introduces a new rhythmic relationship to the cantus firmus, and with it new questions about consonance, dissonance and melodic continuity.</p></div>
+<div class="species">
+<article><div class="number">I</div><h3>Note against note</h3><p>One note in the added voice for every cantus note. Focus on consonance and independence.</p></article>
+<article><div class="number">II</div><h3>Two against one</h3><p>Two notes against each cantus note. Introduces carefully controlled weak-beat dissonance.</p></article>
+<article><div class="number">III</div><h3>Four against one</h3><p>Four notes against each cantus note. Develops melodic motion and passing figures.</p></article>
+<article><div class="number">IV</div><h3>Syncopation</h3><p>Tied notes create suspensions, with attention to preparation and resolution.</p></article>
+<article><div class="number">V</div><h3>Florid counterpoint</h3><p>Combines rhythmic patterns and techniques from the preceding species.</p></article>
+</div>
+<div class="prose"><p>In our SAJA Music series, each species will have its own page, allowing you to concentrate on one set of ideas at a time. The historical overview is separate from the composition exercises.</p></div>
+</section>
+<section class="next"><div class="eyebrow">CONTINUE LEARNING</div><h2>Begin with first species</h2><p>Start with the simplest contrapuntal relationship: one note against one note. Work with a cantus firmus and explore how two melodies can remain independent while sounding together.</p><a class="button" href="./counterpoint-2.html">First Species — Note Against Note →</a></section>
+</main><footer class="footer">SAJA Music · Free music education resources</footer>
+</body></html>
