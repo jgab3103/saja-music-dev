@@ -352,6 +352,23 @@ h1{
         padding:0;
     }
 }
+
+/* SAJA Music shared navigation */
+#mainNav,#mainNav.navbar-shrink{position:fixed!important;top:0;left:0;right:0;width:100%;min-height:80px;padding:0!important;margin:0;background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;z-index:1030;box-sizing:border-box}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;min-height:80px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box}
+#mainNav .navbar-brand{display:inline-block;margin:0!important;padding:0!important;font-family:'Nunito',sans-serif;font-size:1.18rem;letter-spacing:.19em;line-height:1.4;white-space:nowrap}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+#mainNav .nav-links a{font-family:'Nunito',sans-serif;font-size:inherit;line-height:1.4;white-space:nowrap}
+#mainNav a,#mainNav a:link,#mainNav a:visited{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .nav-links a:hover{color:var(--accent)!important}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){body{padding-top:74px}#mainNav,#mainNav.navbar-shrink{min-height:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
+@media(max-width:370px){#mainNav .site-nav-inner{padding:0 10px}#mainNav .nav-links{gap:8px;font-size:.7rem}#mainNav .navbar-brand{font-size:.83rem}}
+
 </style>
 </head>
 
@@ -360,19 +377,13 @@ h1{
 <!-- Navigation -->
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container px-4 px-lg-5">
-
-        <a class="navbar-brand" href="./index.html">
-            Jamie Gabriel
-        </a>
-
+    <div class="site-nav-inner">
+        <a class="navbar-brand" href="./index.html">SAJA MUSIC</a>
         <div class="nav-links">
-            <a href="./music.html">Music</a>
-            <a href="./teaching.html">Teaching</a>
-            <a href="./recordings.html">Recordings</a>
-            <a href="./contact.html">Contact</a>
+            <a href="./teaching.html">Resources</a>
+            <a href="./pathways.html">Pathways</a>
+            <a href="./about.html">About</a>
         </div>
-
     </div>
 </nav>
 
