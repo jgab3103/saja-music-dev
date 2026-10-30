@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Filter and memorise transposing instruments with an interactive reference and self-test." />
+<meta name="author" content="Jamie Gabriel" />
+<title>Transposing Instruments: Reference & Memory Test | SAJA Music</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+:root{--accent:#8B2E3C;--paper:#FAFAFA;--panel:#F4F1EB;--ink:#292522;--muted:#6b6560;--line:#e6e0da}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;padding-top:80px;background:var(--paper);font:16.5px/1.8 Nunito,sans-serif;color:var(--ink)}a{color:var(--accent);text-decoration:none;border-bottom:1px solid #bda3a8}a:hover{color:#111;border-color:#111}
+#mainNav,#mainNav.navbar-shrink{position:fixed!important;top:0;left:0;right:0;width:100%;min-height:80px;padding:0!important;background:var(--paper)!important;border-bottom:1px solid var(--line);display:flex;align-items:center;z-index:1030}#mainNav .site-nav-inner{width:100%;max-width:1140px;min-height:80px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}#mainNav .navbar-brand{font:700 1.18rem Nunito,sans-serif;letter-spacing:.19em;white-space:nowrap}#mainNav .nav-links{display:flex;gap:2.5rem;align-items:center}#mainNav a{color:#111!important;border:0!important;text-decoration:none!important;white-space:nowrap}#mainNav .nav-links a:hover{color:var(--accent)!important}
+.page{max-width:1030px;padding:74px 28px 110px;margin:auto}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}h1,h2,h3{font-family:'Varela Round',sans-serif;font-weight:500;line-height:1.35}h1{font-size:clamp(2.1rem,4vw,3.1rem);margin:14px 0 22px}h2{font-size:1.48rem;margin:56px 0 16px}h3{font-size:1.08rem;margin:0 0 10px}.lead{font-size:1.16rem;line-height:1.8;max-width:780px;color:#49433f}.article{max-width:790px}.article p{margin:0 0 20px}.article ul{padding-left:24px}.article li{margin:9px 0}.callout{background:var(--panel);border-left:4px solid var(--accent);padding:24px 28px;margin:30px 0;border-radius:4px}.callout p:last-child{margin-bottom:0}.comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:30px 0}.card{border:1px solid var(--line);border-radius:6px;background:#fff;padding:20px}.card .small{font-size:.76rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}.card .big{font-family:'Varela Round',sans-serif;font-size:1.55rem;color:var(--accent);margin:6px 0}.card p{font-size:.9rem;line-height:1.65;margin:0}.divider{height:1px;background:var(--line);margin:52px 0}.question{background:white;border:1px solid var(--line);border-radius:6px;padding:22px 26px;margin:24px 0}.question summary{font-weight:800;cursor:pointer;color:var(--accent)}.question p{margin:15px 0 0}.next{margin-top:55px;background:var(--panel);padding:28px 32px;border-radius:6px}.next h2{margin:0 0 10px}.next p{margin:0 0 16px}.next .muted{color:var(--muted);font-size:.9rem}.footer{border-top:1px solid var(--line);padding:55px 20px;text-align:center;color:var(--muted);font-size:.9rem}
+@media(max-width:700px){#mainNav,#mainNav.navbar-shrink,#mainNav .site-nav-inner{min-height:74px}#mainNav .site-nav-inner{padding:0 14px;gap:10px}#mainNav .navbar-brand{font-size:.9rem;letter-spacing:.1em}#mainNav .nav-links{gap:12px;font-size:.75rem}.page{padding:48px 20px 80px}.comparison{grid-template-columns:1fr}.callout{padding:20px}.next{padding:23px}}@media(max-width:370px){#mainNav .navbar-brand{font-size:.8rem}#mainNav .nav-links{gap:8px;font-size:.69rem}}
+
+/* Instrument reference and memorisation practice */
+.instrument-reference{margin:56px 0 20px}.instrument-reference h2{margin:0 0 12px}.reference-intro{max-width:790px;color:#514b46;margin:0 0 22px}.reference-controls{display:flex;gap:12px;flex-wrap:wrap;align-items:end;margin:20px 0}.reference-controls label{display:flex;flex-direction:column;gap:5px;font-size:.76rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}.reference-controls select,.reference-controls input{font:inherit;font-size:.94rem;background:white;border:1px solid #d8d0c9;border-radius:5px;padding:10px 12px;min-height:44px}.reference-controls input{min-width:210px}.study-toggle{min-height:44px;padding:10px 16px;border:1px solid var(--accent);border-radius:5px;background:white;color:var(--accent);font:700 .9rem Nunito,sans-serif;cursor:pointer}.study-toggle[aria-pressed=true]{background:var(--accent);color:white}.reference-count{font-size:.85rem;color:var(--muted);margin:12px 0}.reference-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.instrument-card{background:white;border:1px solid var(--line);border-radius:7px;padding:20px;min-width:0}.instrument-top{display:flex;align-items:start;justify-content:space-between;gap:12px}.instrument-name{font-weight:800;font-size:1.03rem}.instrument-family{font-size:.76rem;color:var(--muted)}.instrument-key{font-size:.76rem;font-weight:800;color:var(--accent);background:var(--panel);border-radius:3px;padding:3px 8px;white-space:nowrap}.pitch-visual{display:flex;align-items:center;gap:12px;margin:16px 0 9px;flex-wrap:wrap}.pitch-node{border:1px solid #e7ded8;border-radius:5px;background:#faf9f7;padding:9px 12px;min-width:90px}.pitch-node small{display:block;font-size:.69rem;color:var(--muted);font-weight:700;text-transform:uppercase}.pitch-node strong{font-family:'Varela Round',sans-serif;font-size:1.3rem;font-weight:500}.pitch-arrow{color:var(--accent);font-size:1.5rem}.instrument-rule{font-size:.86rem;color:#625c56}.instrument-answer[hidden]{display:none}.reveal-answer{border:1px solid var(--accent);background:white;color:var(--accent);border-radius:4px;padding:7px 12px;font:700 .84rem Nunito,sans-serif;cursor:pointer}.study-hint{color:var(--muted);font-size:.84rem;margin-top:8px}.reference-note{font-size:.85rem;color:var(--muted);margin:20px 0}.empty-reference{padding:24px;background:var(--panel);grid-column:1/-1}@media(max-width:700px){.reference-grid{grid-template-columns:1fr}.reference-controls label,.reference-controls input{width:100%}.reference-controls{align-items:stretch}.pitch-node{min-width:80px}}
+
+/* Refined reference: quiet, readable rows rather than nested cards. */
+.reference-controls{padding:18px 0 22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);gap:16px 20px}
+.reference-controls label{letter-spacing:0;text-transform:none;font-size:.84rem;color:var(--ink)}
+.reference-controls select,.reference-controls input{border-radius:2px;background:var(--paper);border:1px solid #ccc5be;box-shadow:none}
+.study-toggle{border-radius:2px}
+.reference-count{margin:22px 0 10px}
+.reference-grid{display:block;border-top:1px solid var(--line)}
+.instrument-card{display:grid;grid-template-columns:minmax(170px,1fr) minmax(0,1.5fr);gap:18px 28px;align-items:center;padding:21px 4px;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent}
+.instrument-top{align-items:center;gap:12px}
+.instrument-name{font-size:1.02rem;line-height:1.45}
+.instrument-family{margin-top:3px}
+.instrument-key{background:transparent;border:1px solid #d9c6c9;border-radius:2px;font-size:.72rem;padding:2px 7px}
+.pitch-visual{margin:0;gap:14px;flex-wrap:nowrap;min-width:0}
+.pitch-node{background:transparent;border:0;border-radius:0;padding:0;min-width:65px}
+.pitch-node small{font-size:.67rem;letter-spacing:.035em}
+.pitch-node strong{font-size:1.23rem}
+.pitch-arrow{font-size:1.2rem;flex-shrink:0}
+.instrument-answer{display:flex;align-items:center;gap:16px;min-width:0}
+.instrument-answer[hidden]{display:none}
+.instrument-rule{font-size:.8rem;line-height:1.5;max-width:205px}
+.reveal-answer{border-radius:2px;font-size:.8rem;padding:6px 10px}
+@media(max-width:700px){.instrument-card{grid-template-columns:1fr;gap:11px;padding:18px 0}.instrument-top{justify-content:flex-start}.pitch-visual{flex-wrap:wrap}.instrument-answer{flex-wrap:wrap;gap:10px}.reference-controls label{flex:1 1 100%}}
+</style>
+<style>.instrument-reference{margin:0}.instrument-reference h2{margin:0 0 12px;font-size:clamp(1.8rem,3vw,2.45rem)}.resource-back{display:inline-block;margin-bottom:26px;font-size:.9rem;font-weight:700}.page{padding-top:58px}.resource-eyebrow{margin-bottom:12px}</style></head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a href="./about.html">About</a></div></div></nav>
+<main class="page"><a class="resource-back" href="./transposing-1.html">← Why do we have transposing instruments?</a><div class="eyebrow resource-eyebrow">Score reading · Instrument reference · Practice</div><section class="instrument-reference" aria-labelledby="reference-heading">
+
+<h2 id="reference-heading">Transposing Instruments: Reference & Memory Test</h2>
+<p class="reference-intro">Learn the transpositions you need for reading scores. Filter the list, then select <strong>Test my memory</strong> to practise. Every example starts with a <strong>written C4 (middle C)</strong>.</p>
+<div class="reference-controls">
+<label>Instrument family<select id="instrument-family"><option value="all">All families</option><option value="Woodwind">Woodwind</option><option value="Brass">Brass</option><option value="Octave">Octave-transposing</option></select></label>
+<label>Instrument key<select id="instrument-key"><option value="all">All keys</option><option value="Bb">B♭</option><option value="Eb">E♭</option><option value="F">F</option><option value="A">A</option><option value="C">C / octave</option></select></label>
+<label>Find an instrument<input id="instrument-search" type="search" placeholder="e.g. clarinet, horn, sax" autocomplete="off"></label>
+<button type="button" class="study-toggle" id="study-toggle" aria-pressed="false">Test my memory</button>
+</div>
+<div id="instrument-count" class="reference-count" aria-live="polite"></div>
+<div id="instrument-grid" class="reference-grid"></div>
+<p class="reference-note"><strong>Remember:</strong> the key in an instrument's name tells you what a written C sounds as (ignoring octaves). For example, an instrument in B♭ sounds B♭ when it reads C. Octave displacement matters when reading the exact register of a score.</p>
+</section></main><footer class="footer">SAJA Music · Free and open music education</footer>
+<script>
+// Written middle C (C4) as a reference for memorising common score transpositions.
+const instrumentList=[
+{name:'B♭ clarinet',family:'Woodwind',key:'Bb',pitch:'B♭3',rule:'Sounds a major second lower.'},
+{name:'A clarinet',family:'Woodwind',key:'A',pitch:'A3',rule:'Sounds a minor third lower.'},
+{name:'E♭ clarinet',family:'Woodwind',key:'Eb',pitch:'E♭4',rule:'Sounds a minor third higher.'},
+{name:'Bass clarinet in B♭',family:'Woodwind',key:'Bb',pitch:'B♭2',rule:'Sounds a major ninth lower (standard treble-clef notation).'},
+{name:'Alto saxophone in E♭',family:'Woodwind',key:'Eb',pitch:'E♭3',rule:'Sounds a major sixth lower.'},
+{name:'Tenor saxophone in B♭',family:'Woodwind',key:'Bb',pitch:'B♭2',rule:'Sounds a major ninth lower.'},
+{name:'Baritone saxophone in E♭',family:'Woodwind',key:'Eb',pitch:'E♭2',rule:'Sounds a major thirteenth lower.'},
+{name:'Soprano saxophone in B♭',family:'Woodwind',key:'Bb',pitch:'B♭3',rule:'Sounds a major second lower.'},
+{name:'B♭ trumpet',family:'Brass',key:'Bb',pitch:'B♭3',rule:'Sounds a major second lower.'},
+{name:'C trumpet',family:'Brass',key:'C',pitch:'C4',rule:'Sounds at written pitch.'},
+{name:'Horn in F',family:'Brass',key:'F',pitch:'F3',rule:'Sounds a perfect fifth lower.'},
+{name:'English horn (cor anglais) in F',family:'Woodwind',key:'F',pitch:'F3',rule:'Sounds a perfect fifth lower.'},
+{name:'Piccolo',family:'Octave',key:'C',pitch:'C5',rule:'Sounds one octave higher.'},
+{name:'Double bass',family:'Octave',key:'C',pitch:'C3',rule:'Sounds one octave lower.'},
+{name:'Contrabassoon',family:'Octave',key:'C',pitch:'C3',rule:'Sounds one octave lower.'}
+];
+const grid=document.getElementById('instrument-grid');
+const familyFilter=document.getElementById('instrument-family');
+const keyFilter=document.getElementById('instrument-key');
+const searchFilter=document.getElementById('instrument-search');
+const studyButton=document.getElementById('study-toggle');
+let studyMode=false;
+function renderInstruments(){
+  const search=searchFilter.value.trim().toLocaleLowerCase();
+  const shown=instrumentList.filter(i=>(familyFilter.value==='all'||i.family===familyFilter.value)&&(keyFilter.value==='all'||i.key===keyFilter.value)&&i.name.toLocaleLowerCase().includes(search));
+  document.getElementById('instrument-count').textContent=shown.length+' of '+instrumentList.length+' instruments';
+  grid.replaceChildren();
+  if(!shown.length){const empty=document.createElement('p');empty.className='empty-reference';empty.textContent='No instruments match these filters.';grid.append(empty);return;}
+  for(const i of shown){
+    const card=document.createElement('article');card.className='instrument-card';
+    const top=document.createElement('div');top.className='instrument-top';
+    const heading=document.createElement('div');const name=document.createElement('div');name.className='instrument-name';name.textContent=i.name;const family=document.createElement('div');family.className='instrument-family';family.textContent=i.family;heading.append(name,family);
+    const key=document.createElement('span');key.className='instrument-key';key.textContent=i.key==='Bb'?'In B♭':i.key==='Eb'?'In E♭':i.key==='C'?'In C / octave':'In '+i.key;top.append(heading,key);
+    const visual=document.createElement('div');visual.className='pitch-visual';
+    const written=document.createElement('div');written.className='pitch-node';const wl=document.createElement('small');wl.textContent='Written';const wp=document.createElement('strong');wp.textContent='C4';written.append(wl,wp);
+    const arrow=document.createElement('span');arrow.className='pitch-arrow';arrow.textContent='→';arrow.setAttribute('aria-hidden','true');
+    const answer=document.createElement('div');answer.className='instrument-answer';answer.hidden=studyMode;
+    const sounding=document.createElement('div');sounding.className='pitch-node';const sl=document.createElement('small');sl.textContent='Sounds';const sp=document.createElement('strong');sp.textContent=i.pitch;sounding.append(sl,sp);
+    const rule=document.createElement('div');rule.className='instrument-rule';rule.textContent=i.rule;answer.append(sounding,rule);
+    visual.append(written,arrow,answer);
+    card.append(top,visual);
+    if(studyMode){const reveal=document.createElement('button');reveal.type='button';reveal.className='reveal-answer';reveal.textContent='Reveal sounding pitch';reveal.setAttribute('aria-expanded','false');reveal.addEventListener('click',()=>{answer.hidden=!answer.hidden;reveal.textContent=answer.hidden?'Reveal sounding pitch':'Hide answer';reveal.setAttribute('aria-expanded',String(!answer.hidden));});card.append(reveal);}
+    grid.append(card);
+  }
+}
+familyFilter.addEventListener('change',renderInstruments);keyFilter.addEventListener('change',renderInstruments);searchFilter.addEventListener('input',renderInstruments);
+studyButton.addEventListener('click',()=>{studyMode=!studyMode;studyButton.setAttribute('aria-pressed',String(studyMode));studyButton.textContent=studyMode?'Show all answers':'Test my memory';renderInstruments();});
+renderInstruments();
+</script>
+</body>
+</html>
