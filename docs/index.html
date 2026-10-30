@@ -2,22 +2,16 @@
 
 <html lang="en">
 <head>
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Jamie Gabriel</title>
-
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
-
-<link href="css/styles.css" rel="stylesheet" />
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<meta content="SAJA Music creates freely accessible music education resources, interactive tools and learning materials for students, teachers and musicians." name="description"/>
+<meta content="SAJA Music" name="author"/>
+<title>SAJA Music | Free Music Education Resources</title>
+<link href="assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<script crossorigin="anonymous" src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/>
 <style>
 
 /* =========================
@@ -98,12 +92,12 @@ a:hover {
 }
 
 .about-grid {
-    max-width: 1000px;
+    max-width: 1310px;
     margin: auto;
-    padding: 48px;
+    padding: 44px 48px;
 
     display: grid;
-    grid-template-columns: 340px 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
     gap: 56px;
     align-items: center;
 
@@ -119,7 +113,7 @@ a:hover {
 
 .about-image img {
     width: 100%;
-    height: 440px;
+    height: 385px;
     object-fit: cover;
     display: block;
 
@@ -135,12 +129,15 @@ a:hover {
     max-width: 34rem;
 }
 
+.hero-eyebrow { font-size: 0.78rem; letter-spacing: 0.26em; margin-bottom: 18px; color: #555; }
+.about-text h1 { font-size: clamp(1.6rem, 2.5vw, 2.15rem) !important; }
+.about-text p { margin: 0 0 15px; max-width: none; line-height: 1.65; }
 /* =========================
    LATEST
    ========================= */
 
 .latest {
-    max-width: 1000px;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 20px 24px 120px;
 }
@@ -323,238 +320,128 @@ a:hover {
 
 }
 
+
+/* Shared SAJA Music navigation — matched to Resources page */
+#mainNav, #mainNav.navbar-shrink {position:fixed!important;top:0;left:0;right:0;width:100%;min-height:80px;padding:0!important;margin:0;background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;z-index:1030;box-sizing:border-box}
+#mainNav .site-nav-inner {flex:1;width:100%;max-width:1320px;min-height:80px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box}
+#mainNav .navbar-brand {display:inline-block;margin:0!important;padding:0!important;font-family:'Nunito',sans-serif;font-size:1.18rem;letter-spacing:.19em;line-height:1.4;white-space:nowrap}
+#mainNav .nav-links {margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+#mainNav .nav-links a {font-family:'Nunito',sans-serif;font-size:inherit;line-height:1.4;white-space:nowrap}
+#mainNav a {color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .nav-links a:hover {color:var(--accent)!important}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){#mainNav,#mainNav.navbar-shrink{min-height:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
+@media(max-width:370px){#mainNav .site-nav-inner{padding:0 10px}#mainNav .nav-links{gap:8px;font-size:.7rem}#mainNav .navbar-brand{font-size:.83rem}}
+
 </style>
-
 </head>
-
 <body id="page-top">
-
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container px-4 px-lg-5">
-
-
-    <a class="navbar-brand" href="#page-top">
-        Jamie Gabriel
-    </a>
-
-    <div class="nav-links">
- <a href="./music.html">Music</a>
-<a href="./teaching.html">Teaching</a>
-<a href="./recordings.html">Recordings</a>
-<a href="./contact.html">Contact</a>
-    </div>
-
-</div>
-
-
-</nav>
-
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a href="./about.html">About</a></div></div></nav>
 <!-- =========================
      ABOUT
      ========================= -->
-
 <section class="about-section" id="about">
-
-
 <div class="about-grid">
-
-    <div class="about-image">
-        <img src="assets/img/piano1.png" alt="portrait">
-    </div>
-
-    <div class="about-text">
-
-        I am a multi-instrumentalist, teacher, composer and music tech developer living on Lake Macquarie, just north of Sydney, Australia.
-        I have a PhD in computational musicology and am interested in things that range between
-        music, computer science and philosophy. I am also a passionate educator with extensive experience teaching students of all ages and backgrounds.<br/><br/>
-
-        I currently play both in solo settings, and in a number of different groups which range in style from jazz to electronic and experimental music. My group <a href="https://sajaproject.com/">SAJA Project</a>
-        with <a href="https://sallyjamila.com/">Sally Jamila</a> has just released an album which you can check out <a href="#">here</a>. <br/><br/>
-
-        <a href="./about.html">More about me</a>
-
-    </div>
-
+<div class="about-image">
+<img alt="Black and white photograph looking along a piano keyboard" src="assets/img/saja-piano-grayscale.png"/>
 </div>
-
-
+<div class="about-text"><div class="hero-eyebrow">SAJA MUSIC</div><h1 style="font-family:'Varela Round',sans-serif;font-size:1.75rem;font-weight:500;line-height:1.35;margin:0 0 22px">Music education, open to everyone.</h1>
+<p>SAJA Music develops comprehensive, high-quality resources for music education, bringing together practical musicianship, creative exploration and contemporary technology.</p>
+<p>Our growing collection includes interactive learning tools, exercises and teaching materials covering music theory, aural skills, rhythm, composition, improvisation, music history, performance and sound synthesis.</p>
+<p>We believe that excellent educational resources should be accessible to everyone. Our materials are freely available to students, teachers and curious musicians, with no paywalls or advertising.</p>
+<p><a href="./teaching.html">Explore Teaching Resources →</a></p></div>
+</div>
 </section>
-
 <!-- =========================
      LATEST
      ========================= -->
-
 <section class="latest" id="latest">
-
-
 <h2>LATEST</h2>
-
-
-
 <div class="latest-item">
-
-    <span class="latest-date">19 October 2026</span>
-
-    <a href="melody-transcription.html">Interactive Melodic Dictation</a>
-
-    <p>
+<span class="latest-date">19 October 2026</span>
+<a href="melody-transcription.html">Interactive Melodic Dictation</a>
+<p>
         How much fun does this sound! Melodic Dictation can get more difficult as the melody gets longer, or depending on the intervals in the melody. I created this resourse so students can carefully build these skills one step at a time.
     </p>
-
 </div>
-
-
 <div class="latest-item">
-
-    <span class="latest-date">15 October 2026</span>
-
-    <a href="./composers.html">Interactive Composer Timeline!</a>
-
-    <p>
+<span class="latest-date">15 October 2026</span>
+<a href="./composers.html">Interactive Composer Timeline!</a>
+<p>
         I have been reworking some of my old code from my digital humanities music project (many years ago, before you could do fast things with web dev!). The aim is an aid to help explore historical context of classical composers. I know, how exciting! Will try and find time to refactor more of it and release it. 
     </p>
-
 </div>
-
-
 <div class="latest-item">
-
-    <span class="latest-date">25 September 2026</span>
-
-    <a href="./konnakol-1.html">New Konnakol Lesson</a>
-
-    <p>
+<span class="latest-date">25 September 2026</span>
+<a href="./konnakol-1.html">New Konnakol Lesson</a>
+<p>
         Such a great way to approach rhythm.
     </p>
-
 </div>
-
-
-
 <div class="latest-item">
-
-    <span class="latest-date">23 September 2026</span>
-
-    <a href="./listening-diary.html">Listening Diary</a>
-
-    <p>
+<span class="latest-date">23 September 2026</span>
+<a href="./listening-diary.html">Listening Diary</a>
+<p>
         I have wanted to code this up for ages and finally got around to it. A way to track my listening and explore new music.
     </p>
-
 </div>
-
-
 <div class="latest-item">
-
-    <span class="latest-date">21 September 2026</span>
-
-    <a href="./assets/pdf-files/ScoreAnalysisTemplate.pdf">New Orchestration Template</a>
-
-    <p>
+<span class="latest-date">21 September 2026</span>
+<a href="./assets/pdf-files/ScoreAnalysisTemplate.pdf">New Orchestration Template</a>
+<p>
         Exploring ways to simplify analysis of scores. There must be a simlper way! Here is my updated template for orchestration analysis. Will post a video on this.
     </p>
-
 </div>
-
-
 <div class="latest-item">
-
-    <span class="latest-date">12 September 2026</span>
-
-    <a href="https://sajaproject.com/sunday-girl.html">New Music</a>
-
-    <p>
+<span class="latest-date">12 September 2026</span>
+<a href="https://sajaproject.com/sunday-girl.html">New Music</a>
+<p>
         Our new single from SAJA Project out now. Check it out!
     </p>
-
 </div>
-
-
 <div class="latest-item">
-
-    <span class="latest-date">4 September 2026</span>
-
-    <a href="./lessons-in-fennel.html">Fennell Bay Studio & Lessons</a>
-
-    <p>
+<span class="latest-date">4 September 2026</span>
+<a href="./lessons-in-fennel.html">Fennell Bay Studio &amp; Lessons</a>
+<p>
         After a crazy few months, we have finally finished moving. To Fennell Bay on Lake Macquarie. It is lovely here! A room filled with boxes is set to become the new studio! Excited to say it should be set up for teaching in Term 4.
     </p>
-
 </div>
-
-
 <div class="latest-item">
-
-    <span class="latest-date">July 2026</span>
-
-    <a href="./assets/pdf-files/Ten_Keith_Jarrett_Solos.pdf">Keith Jarrett Transcriptions</a>
-
-    <p>
+<span class="latest-date">July 2026</span>
+<a href="./assets/pdf-files/Ten_Keith_Jarrett_Solos.pdf">Keith Jarrett Transcriptions</a>
+<p>
         My book of Keith Jarrett Transcriptions. Great for practice and music analysis!
     </p>
-
 </div>
-
-
-
-
 <div class="latest-item">
-
-    <span class="latest-date">April 2026</span>
-
-    <a href="#">Finding Notes And Keys </a>
-
-    <p>
+<span class="latest-date">April 2026</span>
+<a href="#">Finding Notes And Keys </a>
+<p>
         Some new interactive resources for students starting out, to learn the <a href="find-piano-key.html">different keys</a> on the piano, and the <a href="./find-note.html">different notes</a> on the clefs.   
     </p>
-
 </div>
-
-
-
-
-
 <div class="latest-item">
-
-    <span class="latest-date">March 2026</span>
-
-    <a href="./follow-me-transcription.html">Pat Metheny's Follow Me</a>
-
-    <p>
+<span class="latest-date">March 2026</span>
+<a href="./follow-me-transcription.html">Pat Metheny's Follow Me</a>
+<p>
         Transcription from Imaginary Day Album. I love this piece. Full of energy and joy, and so much fun to play. 
     </p>
-
 </div>
-
-
-
 <div class="latest-item">
-
-    <span class="latest-date">January 2026</span>
-
-    <a href="./waltz-for-agnes-transcription.html">Marek Dykta's Waltz for Agnes </a>
-
-    <p>
+<span class="latest-date">January 2026</span>
+<a href="./waltz-for-agnes-transcription.html">Marek Dykta's Waltz for Agnes </a>
+<p>
         For ages I thought this piece was written by John Abercrombie. So his vibe, but turns out he was only playing on it. But the harmony here. So beautiful.  
     </p>
-
 </div>
-
-
-
 </section>
-
 <!-- =========================
      FOOTER
      ========================= -->
-
-<footer class="footer" id="contact">
-
-
-<div>jamie@jamiegabriel.org</div>
-
-
-</footer>
-
+<footer class="footer" id="contact"><div>Questions, suggestions or feedback? <a href="./about.html">About SAJA Music</a></div></footer>
 </body>
 </html>

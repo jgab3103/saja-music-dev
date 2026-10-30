@@ -1,467 +1,67 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
 
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Jamie Gabriel</title>
-
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
-<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
-
-<link href="css/styles.css" rel="stylesheet" />
-
-<style>
-
-/* =========================
-   BASE
-   ========================= */
-
-:root {
-    --accent: #8B2E3C;
-}
-
-html {
-    scroll-behavior: smooth;
-    background: #FAFAFA;
-}
-
-body {
-    margin: 0;
-    font-family: 'Nunito', sans-serif;
-    background: #FAFAFA;
-    color: #111;
-    line-height: 1.75;
-    font-size: 16.5px;
-    padding-top: 80px;
-}
-
-/* =========================
-   LINKS
-   ========================= */
-
-a {
-    color: var(--accent);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(139, 46, 60, 0.35);
-    transition: all 0.2s ease;
-}
-
-a:hover {
-    color: #111;
-    border-bottom-color: rgba(139, 46, 60, 0.75);
-}
-
-/* =========================
-   NAV
-   ========================= */
-
-#mainNav,
-#mainNav.navbar-shrink {
-    background: #FAFAFA !important;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    min-height: 80px;
-}
-
-#mainNav a {
-    color: #111 !important;
-    text-decoration: none !important;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-}
-
-.nav-links a {
-    border-bottom: none;
-}
-
-/* =========================
-   ABOUT
-   ========================= */
-
-.about-section {
-    background: #FAFAFA;
-    padding: 60px 0 120px;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 90px;
-    max-width: 1000px;
-    margin: auto;
-    padding: 0 24px;
-    align-items: start;
-}
-
-.about-text h2 {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1.7rem;
-    margin-bottom: 22px;
-}
-
-.about-text p {
-    margin-bottom: 18px;
-    max-width: 65ch;
-}
-
-/* =========================
-   SIDEBAR COLUMN
-   ========================= */
-
-.sidebar-column {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
-.about-sidebar {
-    background: #F4F1EB;
-    padding: 28px;
-    box-sizing: border-box;
-    border: none;
-    border-radius: 4px;
-}
-
-.about-image {
-    margin-bottom: 28px;
-}
-
-.about-image img {
-    width: 100%;
-    max-width: 220px;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    opacity: 0.92;
-}
-
-.cv-links {
-    font-size: 0.95rem;
-}
-
-.cv-links ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.cv-links li {
-    margin-bottom: 10px;
-}
-
-/* =========================
-   CONFERENCES & EVENTS
-   ========================= */
-
-.events-sidebar h2 {
-    font-family: 'Varela Round', sans-serif;
-    font-size: 1.15rem;
-    margin: 0 0 22px;
-    color: #111;
-}
-
-.event {
-    margin-bottom: 18px;
-}
-
-.event:last-child {
-    margin-bottom: 0;
-}
-
-.event-year {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    margin-bottom: 2px;
-}
-
-.event-name {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: #222;
-}
-
-/* =========================
-   CREDENTIALS
-   ========================= */
-
-.credentials {
-    margin-top: 28px;
-    padding-top: 22px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-.credentials div {
-    margin-bottom: 8px;
-}
-
-/* =========================
-   SOCIAL LINKS
-   ========================= */
-
-.social-links {
-    display: flex;
-    gap: 18px;
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-.social-links a {
-    color: #111;
-    border: none;
-    font-size: 1.15rem;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-
-.footer {
-    background: #FAFAFA;
-    border-top: 1px solid rgba(0,0,0,0.06);
-    padding: 80px 30px;
-    text-align: center;
-    font-size: 0.95rem;
-    color: rgba(0,0,0,0.7);
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-
-@media (max-width: 900px) {
-
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .sidebar-column {
-        order: -1;
-    }
-
-    .about-image img {
-        max-width: 200px;
-    }
-
-    .nav-links {
-        gap: 1.5rem;
-    }
-}
-
-</style>
-
-</head>
-
-<body id="page-top">
-
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="./index.html">Jamie Gabriel</a>
-
-        <div class="nav-links">
-            <a href="./music.html">Music</a>
-            <a href="./teaching.html">Teaching</a>
-            <a href="./recordings.html">Recordings</a>
-            <a href="./contact.html">Contact</a>
-        </div>
-
-    </div>
-</nav>
-
-<section class="about-section" id="about">
-
-    <div class="about-grid">
-
-        <div class="about-text">
-
-            <h2>About</h2>
-
-      <p>
-    I started out a little undecided about whether to pursue music or computer science. Music won out initially, and I studied at the Australian Institute of Music and the Sydney Conservatorium of Music, before completing postgraduate studies at Macquarie University and the University of Technology Sydney. As it turns out, I have never really had to choose between the two.
-</p>
-
-<p>
-    I hold a PhD in computational musicology, where my research has focused on applying mathematical models to music analysis. I've always been interested in the connections between music, mathematics, computing, and learning, and much of my professional life has involved exploring these relationships.
-</p>
-
-<p>
-    I spent a number of years teaching in universities, covering subjects including musicology, harmony, improvisation, music history, ensemble performance and composition. Alongside this, I became increasingly involved in computer science, mathematics and software development. Over the past two decades, I've developed software in languages including C, C++, Java, R, Haskell and Python, working on everything from music analysis and digital humanities research to large-scale data systems and advanced math.
-</p>
-
-<p>
-    In 2012, I moved out of the university sector into data science and machine learning roles, working primarily in health analytics, artificial intelligence and information technology. This eventually led to my appointment as Chief Data Officer at the Cancer Institute NSW, a position I held from 2018 to 2025. It was a fascinating period, giving me the opportunity to lead large multidisciplinary teams, develop data and analytics capabilities, and contribute to AI and data strategy at both state and national levels.
-</p>
-
-<p>
-    In 2025, I decided it was time for a change. After many years working in senior tech roles, I wanted to spend more time doing the things that had originally drawn me into music and computing: creating software, exploring ideas, performing music with others, teaching and helping people learn new things.
-</p>
-
-<p>
-    I've since returned to teaching, undertaking formal teacher education at the University of Newcastle, with a focus on primary and secondary education. I particularly enjoy working with students who are discovering something for the first time, whether that's playing their first notes on a piano, understanding a mathematical concept or exploring how music and technology fit together.
-</p>
-
-<p>
-    An increasingly important part of my work has been designing and developing educational software and interactive learning resources. I like to combine my skills and experience in software engineering, music, mathematics and teaching to create tools that make learning more engaging, accessible and enjoyable. These include applications for ear training, music notation, harmony, improvisation, rhythm and composition, as well as resources exploring the mathematics of sound and electronic music synthesis.
-</p>
-
-<p>
-    I'm particularly interested in how technology can support independent learning, encourage curiosity and help students develop a deeper understanding of ideas. Having been part of the Open Source community for a long time, I am also really committed to the idea that high-quality educational resources should be accessible to everyone, which is why I develop many freely available resources through this website. 
-</p>
-
-<p>
-    Music has always remained a big part of my life. As a performing musician, I work across solo and ensemble settings spanning jazz fusion, experimental improvisation and electronic ambient music. When playing live, I like to mix things up, combining acoustic instruments, synthesis, looping and sampling, with improvisation at the centre of it all.
-</p>
-
-<p>
-    I've also recently released an album,
-    <a href="https://sajaproject.com/">SAJA Project 01</a>,
-    with Aotearoa-based artist
-    <a href="https://sallyjamila.com/">Sally Jamila</a>.
-    It's been wonderful making music with my partner in music and in life, and we're looking forward to recording and performing more together.
-</p>
-
-<p>
-    These days, I'm enjoying bringing together the different strands of my career: music, education, computing and creative technology. I'm still learning new things every day, and I hope to keep developing resources, making music and sharing what I've learned along the way.
-</p>
-
-<p>
-    Outside of all that, I have two beautiful children and try to get to the water every day. Sometimes I think I should get a dog and do (at least some) yoga.
-</p>
-
-        </div>
-
-        <!-- RIGHT COLUMN: TWO SEPARATE SIDEBARS -->
-
-        <div class="sidebar-column">
-
-            <!-- FIRST SIDEBAR: PHOTO, CV AND SOCIAL -->
-
-            <aside class="about-sidebar">
-
-                <div class="about-image">
-                    <img src="assets/img/JamieFaceEdited_5357.jpeg" alt="Jamie Gabriel">
-                </div>
-
-                <div class="cv-links">
-
-                    <div>
-                        Having moved between two careers, I have found it is simpler to have two different CV's.
-                        One outlines my experience in software development, enterprise technologies, data science and executive roles.
-                        <br><br>
-                        The other is focused on my music, teaching and research.
-                    </div>
-
-                    <br/>
-
-                    <ul>
-                        <li>
-                            <a href="./assets/pdf-files/Resume_Teaching_JamieGabriel.pdf">
-                                Music, Teaching and Research CV
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="./assets/pdf-files/ResumeIT.pdf">
-                                Data &amp; Technology CV
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-
-                <div class="social-links">
-
-                    <a href="https://www.instagram.com/jgab2275/" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-
-                    <a href="https://www.facebook.com/jamie.gabriel.775451" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/jamie-gabriel-b41a0059/" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-
-                </div>
-
-            </aside>
-
-            <!-- SECOND SIDEBAR: CONFERENCES & EVENTS -->
-
-            <aside class="about-sidebar events-sidebar">
-
-                <h2>Conferences &amp; Events</h2>
-
-                <div class="event">
-                    <div class="event-year">2025</div>
-                    <div class="event-name">AJIRN Conference, Auckland</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2020</div>
-                    <div class="event-name">Data and Analytics in Health Conference, Melbourne</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2019</div>
-                    <div class="event-name">PyCon AU, Sydney</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2017</div>
-                    <div class="event-name">PyCon AU, Melbourne</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2015</div>
-                    <div class="event-name">ISMIR Conference, Málaga</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2013</div>
-                    <div class="event-name">Stockholm Music Acoustics Conference</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2012</div>
-                    <div class="event-name">ACM Recommender Systems Conference</div>
-                </div>
-
-                <div class="event">
-                    <div class="event-year">2011</div>
-                    <div class="event-name">Apple WWDC, San Francisco</div>
-                </div>
-
-            </aside>
-
-        </div>
-
-    </div>
-
-</section>
-
-<footer class="footer" id="contact">
-    <div>jamie@jamiegabriel.org</div>
-</footer>
-
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Learn about SAJA Music's philosophy of open music education, our teaching and research background, and enquiries for music lessons." name="description"/>
+<title>About | SAJA Music</title><link href="assets/favicon.ico" rel="icon"/>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet"/>
+<link href="css/styles.css" rel="stylesheet"/><style>
+
+:root{--accent:#8B2E3C;--paper:#FAFAFA;--panel:#F4F1EB}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;padding-top:80px;background:var(--paper);color:#111;font:16.5px/1.7 Nunito,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);min-height:80px}
+#mainNav{display:flex;align-items:center;width:100%;left:0;right:0;top:0;z-index:1030;position:fixed;padding:0}
+#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:80px}
+#mainNav .navbar-brand{display:inline-block;margin:0;padding:0;white-space:nowrap;letter-spacing:.19em;font-size:1.18rem}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){body{padding-top:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
+
+.shell{width:100%;max-width:1160px;margin:auto;padding:0 32px}
+.hero{margin:40px auto 44px;padding:58px 60px 62px;background:var(--panel);border-radius:8px}
+.eyebrow{font-size:.78rem;letter-spacing:.24em;color:#716964;margin:0 0 14px;font-weight:700}
+h1,h2,h3{font-family:'Varela Round',sans-serif;font-weight:500;line-height:1.3}
+h1{font-size:clamp(2.1rem,3.6vw,3.1rem);margin:0 0 20px}h2{font-size:1.65rem;margin:0 0 22px}
+.hero p{max-width:790px;margin:0 0 15px;color:#393532;font-size:1.06rem}.hero p:last-child{margin-bottom:0}
+.section{padding:30px 4px 52px;border-bottom:1px solid #e8e2dd}
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:76px}
+.prose p{margin:0 0 18px;color:#49443f;max-width:65ch}
+.principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0 0}
+.principle{background:#fff;border:1px solid #e9e2dc;border-radius:6px;padding:24px 25px}
+.principle h3{font-size:1.05rem;margin:0 0 12px}.principle p{font-size:.94rem;line-height:1.7;color:#5e5651;margin:0}
+.credential{padding:0 0 18px;margin:0 0 18px;border-bottom:1px solid #eee7e1}.credential:last-child{border:0}
+.credential strong{display:block;font-size:1rem;color:#28231f;margin-bottom:4px}.credential span{color:#655d58;font-size:.95rem}
+.contact-panel{background:var(--panel);border-radius:8px;padding:38px 44px;margin:48px 0 100px;display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}
+.contact-panel h2{margin:0 0 14px}.contact-panel p{color:#514b46;margin:0 0 10px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end}
+.button{display:inline-block;padding:12px 20px;border:1px solid var(--accent);border-radius:5px;font-weight:800;font-size:.91rem;text-align:center}
+.button.primary{background:var(--accent);color:white}.button.secondary{color:var(--accent);background:transparent}
+.button:hover{filter:brightness(.9);text-decoration:none}
+.footer{border-top:1px solid rgba(0,0,0,.06);padding:65px 24px;text-align:center;color:#666;font-size:.95rem}
+@media(max-width:900px){.two-col{gap:30px}.principles{grid-template-columns:1fr 1fr}.contact-panel{grid-template-columns:1fr}.actions{justify-content:flex-start}}
+@media(max-width:650px){.shell{padding:0 22px}.hero{margin-top:22px;padding:32px 26px}.two-col{grid-template-columns:1fr}.principles{grid-template-columns:1fr}.section{padding:22px 2px 38px}.contact-panel{padding:28px 26px;margin-bottom:65px}.actions{flex-direction:column}.button{width:100%}}
+
+/* About-page photograph and introduction */
+.about-hero{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:42px;align-items:center}
+.about-hero-copy{min-width:0}
+.about-hero-photo{margin:0;align-self:stretch;min-height:310px;border-radius:6px;overflow:hidden;background:#e6dfd8}
+.about-hero-photo img{display:block;width:100%;height:100%;min-height:310px;object-fit:cover;object-position:center}
+@media(max-width:850px){.about-hero{grid-template-columns:1fr;gap:28px}.about-hero-photo,.about-hero-photo img{min-height:0}.about-hero-photo img{height:auto;aspect-ratio:16/10;object-fit:cover}}
+</style></head><body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a aria-current="page" href="./about.html">About</a></div></div></nav>
+<main class="shell">
+<section class="hero about-hero"><div class="about-hero-copy"><div class="eyebrow">SAJA MUSIC / ABOUT</div><h1>Music education, open to everyone.</h1>
+<p>SAJA Music brings together music education, creative practice and research. We develop interactive tools, practical exercises and learning resources for students, teachers and curious musicians.</p>
+<p>We believe that high-quality educational resources should be easy to find, enjoyable to use and freely available. That's why our resources are open to everyone, without advertising or paywalls.</p></div><figure class="about-hero-photo"><img alt="Sally Jamila and Jamie Gabriel of SAJA Music" decoding="async" loading="eager" src="./assets/img/hsaja-about.jpeg"/></figure></section>
+<section aria-labelledby="philosophy" class="section"><h2 id="philosophy">Our philosophy</h2><div class="two-col"><div class="prose"><p>Learning music is not a single, linear journey. Some people begin with an instrument, others with listening, technology, improvisation or the music they love. We want to support all of those starting points.</p><p>Our resource library is designed for exploration. Learning Pathways offer a suggested sequence for those who want more structure, while every activity remains accessible on its own.</p></div><div class="prose"><p>We draw on a tradition of open learning and knowledge sharing. Teachers should be able to find useful materials without navigating advertisements or subscriptions; learners should be able to return to an exercise as often as they like.</p><p>We are continually developing and refining the collection, informed by teaching, music-making and research.</p></div></div>
+<div class="principles"><article class="principle"><h3>Open by design</h3><p>Resources are free to use, without advertising, paywalls or compulsory accounts.</p></article><article class="principle"><h3>Learn your own way</h3><p>Browse individual activities or follow a suggested pathway, at your own pace.</p></article><article class="principle"><h3>Made for real learning</h3><p>Interactive exercises, downloadable materials and clear explanations designed for practice and teaching.</p></article></div></section>
+<section aria-labelledby="people" class="section"><h2 id="people">The people behind SAJA Music</h2><div class="two-col"><div class="prose"><p>SAJA Music is a collaboration between Sally Jamila and Jamie Gabriel. We are musicians, educators and performers who share a love of music and a commitment to making learning accessible.</p><p>Sally has many years of music teaching experience and holds a Bachelor of Music from the University of Auckland. Jamie holds a PhD in Music from the University of Technology Sydney, with a research focus on computational musicology, and has a background in computer science, software development and educational technology.</p><p>We also perform and record together as SAJA Project. Our music brings together modern jazz, electronic music, improvisation and experimental soundscapes, often combining acoustic instruments, synthesisers, live looping and sampling.</p></div><div class="credentials"><div class="credential"><strong>Sally Jamila · Music and teaching</strong><span>Bachelor of Music, University of Auckland; extensive experience teaching music.</span></div><div class="credential"><strong>Jamie Gabriel · Research and technology</strong><span>PhD in Music, University of Technology Sydney; computational musicology, computer science and software development.</span></div><div class="credential"><strong>SAJA Project · Performance and recording</strong><span>A collaborative music project exploring jazz, electronic music, improvisation and atmospheric soundscapes.</span></div></div></div></section>
+<section aria-labelledby="lessons" class="contact-panel"><div><div class="eyebrow">GET IN TOUCH</div><h2 id="lessons">Lessons and enquiries</h2><p>Interested in piano, guitar, improvisation, music theory or composition lessons? We'd love to hear what you're hoping to learn.</p><p>We also welcome questions, feedback and suggestions about the free learning resources.</p></div><div class="actions"><a class="button primary" href="mailto:jamie@jamiegabriel.org?subject=SAJA%20Music%20%E2%80%93%20Lesson%20enquiry">Enquire about lessons →</a><a class="button secondary" href="mailto:jamie@jamiegabriel.org?subject=SAJA%20Music%20%E2%80%93%20General%20enquiry">General enquiry →</a></div></section>
+</main><footer class="footer">SAJA Music · Free music education resources</footer></body></html>
