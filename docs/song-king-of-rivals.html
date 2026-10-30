@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="Jamie Gabriel">
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-<meta name="description" content="King of Rivals — a beginner piano exercise with electric piano playback | Jamie Gabriel">
-<title>King of Rivals | Jamie Gabriel</title>
+<meta name="description" content="King of Rivals — a beginner piano exercise | SAJA Music">
+<title>King of Rivals | SAJA Music</title>
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -21,18 +21,27 @@ main.article{max-width:720px;margin:0 auto;padding:60px 24px 120px}.eyebrow{font
 @media(max-width:550px){.notes{gap:5px}.note{padding:10px 2px;min-height:95px}.pitch{font-size:25px}.finger{font-size:13px}.part{padding:18px 13px}.notes .note small{font-size:10px}}
 
 .play-along{background:var(--panel);border-radius:4px;padding:26px;margin-top:30px}.play-along h2{margin-bottom:10px}.play-along p{margin:0 0 18px}.play-along .btn{margin-right:10px}.play-along .status{display:inline-block;margin-top:10px}
-/* Jamie Gabriel site navigation and footer */
-#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.05);min-height:80px}
-#mainNav a{color:#111!important;text-decoration:none!important;border:none!important}
-.nav-links{display:flex;gap:2.5rem;align-items:center}
+/* SAJA Music navigation and footer */
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);min-height:80px}
+#mainNav{display:flex;align-items:center;width:100%;left:0;right:0;top:0;z-index:1030;position:fixed;padding:0}
+#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:80px}
+#mainNav .navbar-brand{display:inline-block;margin:0;padding:0;white-space:nowrap;letter-spacing:.19em;font-size:1.18rem;font-family:'Varela Round',sans-serif}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
 .back-link{display:inline-block;margin-bottom:24px;font-size:.95rem;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,46,60,.35)}
-.footer{background:var(--paper);border-top:1px solid rgba(0,0,0,.06);padding:80px 30px;text-align:center;font-size:.95rem;color:rgba(0,0,0,.7);margin-top:0}
-@media(max-width:700px){.nav-links{gap:1.4rem;font-size:.95rem}h1{font-size:1.55rem}}
+.footer{background:var(--paper);border-top:1px solid rgba(0,0,0,.06);padding:65px 24px;text-align:center;font-size:.95rem;color:#666;margin-top:0}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){body{padding-top:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
+@media(max-width:700px){h1{font-size:1.55rem}}
 @media print{@page{size:A4;margin:15mm}body{background:#fff!important;color:#000!important}#mainNav,.back-link,.toolbar,.play-part,.footnote,.play-along{display:none!important}main.article{padding:0;max-width:none}.eyebrow,.part-number,.finger,.instruction strong{color:#000!important}.lead{margin-bottom:15px}.part{border:1.5px solid #000;border-radius:8px;padding:18px;margin-bottom:15px}.note{border:1.5px solid #000;border-radius:5px;min-height:100px}.note.active{background:white!important;border-color:black!important}.finger{border-top:1px solid #000}.checks{margin-top:14px}.footer{color:#000}h1{font-size:31px}}
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="container px-4 px-lg-5"><a class="navbar-brand" href="./index.html">Jamie Gabriel</a><div class="nav-links"><a href="./music.html">Music</a><a href="./teaching.html">Teaching</a><a href="./recordings.html">Recordings</a><a href="./contact.html">Contact</a></div></div></nav>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Resources</a><a href="./pathways.html">Pathways</a><a href="./about.html">About</a></div></div></nav>
 <main class="article">
 <a class="back-link" href="./teaching.html">← Teaching resources</a>
 <div class="eyebrow">Piano learning · Beginner</div>
@@ -78,10 +87,10 @@ main.article{max-width:720px;margin:0 auto;padding:60px 24px 120px}.eyebrow{font
 <button type="button" class="btn secondary" id="stopAlong">■ Stop</button>
 <div class="status" id="alongStatus" aria-live="polite">Ready when you are!</div>
 </section>
-<p class="footnote">Tip: In Part 1, both A notes are quarter notes; the rest are eighth notes. In Part 2, the first F is a quarter note and the rest are eighth notes. The sound is made right in your browser—no audio file needed.</p>
+<p class="footnote">Tip: In Part 1, both A notes are quarter notes; the rest are eighth notes. In Part 2, the first F is a quarter note and the rest are eighth notes. Use the playback controls to listen and practise at your own pace.</p>
 
 </main>
-<footer class="footer"><div>jamie@jamiegabriel.org</div></footer>
+<footer class="footer">SAJA Music · Free music education resources</footer>
 <script>
 (()=>{
 'use strict';
