@@ -17,7 +17,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 #mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);min-height:80px}#mainNav{display:flex;align-items:center;width:100%;left:0;right:0;top:0;z-index:1030;position:fixed;padding:0}#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;margin:auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:80px}#mainNav .navbar-brand{display:inline-block;margin:0;padding:0;white-space:nowrap;letter-spacing:.19em;font-size:1.18rem;font-family:'Varela Round',sans-serif}#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
 @media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}@media(max-width:600px){body{padding-top:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
 .main{max-width:1100px;margin:0 auto;padding:36px 32px 90px}.hero{background:var(--panel);border-radius:8px;padding:46px 52px;margin:12px 0 38px}.hero h1{margin:0 0 12px;font-size:clamp(2.1rem,3.5vw,3rem)}h1,h2,h3,h4{font-family:'Varela Round',sans-serif;font-weight:500;line-height:1.35}h3{font-size:1.55rem;margin:0 0 18px}h4{font-size:1.13rem;margin:25px 0 12px}p{margin:0 0 18px}.back-link{display:inline-block;margin-bottom:20px;font-size:.94rem}.section{padding:28px 4px 44px;border-bottom:1px solid #e8e2dd}.section:last-child{border-bottom:0}ul{padding-left:24px}li{margin-bottom:8px}
-.hero-icon{text-align:center;margin-bottom:22px}.hero-icon img{width:108px;height:108px;object-fit:cover;border-radius:22px;box-shadow:0 6px 18px rgba(0,0,0,.12)}.store-link{display:inline-block;margin-top:8px}.store-link img{max-width:180px;width:100%;height:auto;border-radius:10px}.screenshots-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:25px 0}.screenshot-item img{display:block;width:100%;height:auto;max-height:410px;object-fit:contain;border-radius:9px;box-shadow:0 5px 18px rgba(0,0,0,.1)}.screenshot-caption,.demo-caption{font-size:.92rem;color:var(--muted);margin-top:9px}.demo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:22px}.video-wrapper{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#151515}.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.demo-caption{text-align:center}.contact-icons{display:flex;gap:24px;align-items:center;margin-top:15px}.contact-icons a{width:30px;height:30px;display:inline-flex;color:var(--accent)}.contact-icons svg{width:100%;height:100%}.footer{border-top:1px solid rgba(0,0,0,.06);padding:45px 24px;text-align:center;color:#666;font-size:.95rem}
+.beatmatrix-banner{margin:12px 0 32px;text-align:center}.beatmatrix-banner img{display:block;width:100%;max-width:100%;height:auto;object-fit:contain;border-radius:8px}.hero-icon{text-align:center;margin-bottom:22px}.hero-icon img{width:108px;height:108px;object-fit:cover;border-radius:22px;box-shadow:0 6px 18px rgba(0,0,0,.12)}.store-link{display:inline-block;margin-top:8px}.store-link img{max-width:180px;width:100%;height:auto;border-radius:10px}.screenshots-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:25px 0}.screenshot-item img{display:block;width:100%;height:auto;max-height:410px;object-fit:contain;border-radius:9px;box-shadow:0 5px 18px rgba(0,0,0,.1)}.screenshot-caption,.demo-caption{font-size:.92rem;color:var(--muted);margin-top:9px}.demo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:22px}.video-wrapper{position:relative;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#151515}.video-wrapper iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.demo-caption{text-align:center}.contact-icons{display:flex;gap:24px;align-items:center;margin-top:15px}.contact-icons a{width:30px;height:30px;display:inline-flex;color:var(--accent)}.contact-icons svg{width:100%;height:100%}.footer{border-top:1px solid rgba(0,0,0,.06);padding:45px 24px;text-align:center;color:#666;font-size:.95rem}
 @media(max-width:850px){.screenshots-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.demo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.main{padding:22px 17px 60px}.hero{padding:30px 24px}.screenshots-grid,.demo-grid{grid-template-columns:1fr}.screenshot-item img{max-height:520px}}
 </style>
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet"><link href="css/styles.css" rel="stylesheet">
@@ -27,27 +27,14 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Discovery</a><a href="./pathways.html">Learning Pathways</a><a href="./about.html">About</a></div></div></nav>
 <main class="main">
 
-    <div class="hero">
-    <div class="hero-icon">
-    <img src="assets/img/AppIcon.png" alt="BeatMatrix App Icon" style="width: 120px; height: 120px; border-radius: 24px; box-shadow: 0 6px 18px rgba(0,0,0,0.15);">
-</div>
-
-<h1>iOS App: BeatMatrix</h1>
 
 
-<a class="back-link" href="./index.html">← Back</a>
 
-
-<div class="store-badge">
-    <a href="https://apps.apple.com/au/app/beatmatrix/id6757116832" 
-       target="_blank" 
-       rel="noopener noreferrer">
-        <img src="assets/img/AppStore.png" 
-             alt="Download on the App Store" 
-             style="max-width: 180px; width: 80%; height: auto; border-radius: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.12);">
-    </a>
-</div>
-</div>
+    <div class="beatmatrix-banner">
+        <a href="beatmatrix.html" aria-label="Open BeatMatrix web app">
+            <img src="assets/img/BeatMatrixBanner.png" alt="BeatMatrix — now available for web">
+        </a>
+    </div>
 
 <div id="overview" class="section">
     <h3>Overview</h3>
