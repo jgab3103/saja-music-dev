@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Why I'm open-sourcing BeatMatrix and moving towards accessible, open web technologies: reflections on software longevity, privacy and independence." />
+<meta name="author" content="Jamie Gabriel" />
+<title>Software Should Be Built to Last | Jamie Gabriel</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+:root{--accent:#8B2E3C;--paper:#FAFAFA;--panel:#F4F1EB;}
+html{scroll-behavior:smooth;background:var(--paper);}
+body{margin:0;font-family:'Nunito',sans-serif;background:var(--paper);color:#111;line-height:1.75;font-size:16.5px;padding-top:80px;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,46,60,.35);transition:.2s;}
+a:hover{color:#111;border-bottom-color:rgba(139,46,60,.75);}
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.05);min-height:80px;}
+#mainNav a{color:#111!important;text-decoration:none!important;border:none!important;}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{border-bottom:none;}
+.article{max-width:720px;margin:0 auto;padding:60px 24px 120px;}
+h1{font-family:'Varela Round',sans-serif;font-size:1.9rem;font-weight:500;margin:0 0 10px;line-height:1.35;}
+.meta{color:rgba(0,0,0,.55);font-size:.9rem;margin-bottom:40px;}
+p{max-width:65ch;margin-bottom:22px;}
+h2{font-family:'Varela Round',sans-serif;font-size:1.2rem;font-weight:500;margin:38px 0 18px;}
+.info-panel{background:var(--panel);padding:24px 28px;border-radius:4px;margin:38px 0;}
+.info-panel h2{font-size:1.1rem;margin:0 0 14px;}
+.info-panel p{margin-bottom:14px;}
+.info-panel p:last-child{margin-bottom:0;}
+.footer{background:var(--paper);border-top:1px solid rgba(0,0,0,.06);padding:80px 30px;text-align:center;font-size:.95rem;color:rgba(0,0,0,.7);}
+@media(max-width:700px){.nav-links{gap:1.4rem;font-size:.95rem;}h1{font-size:1.55rem;}.info-panel{padding:22px;}}
+@media(max-width:420px){.nav-links{gap:.75rem;font-size:.78rem;}.navbar-brand{font-size:.95rem;}}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand" href="./index.html">SAJA MUSIC</a>
+    <div class="nav-links">
+      <a href="./teaching.html">Discovery</a>
+      <a href="./pathways.html">Learning Pathways</a>
+      <a href="./about.html">About</a>
+    </div>
+  </div>
+</nav>
+<main class="article">
+  <h1>How SAJA Music got started</h1>
+  <div class="meta">Februrary 2026 &nbsp;·&nbsp; Why I'm open-sourcing BeatMatrix and returning to the open web</div>
+
+  <p>Over the last few months of 2025 I developed an iOS App called <a href="./beatmatrix-app.html">BeatMatrix</a>. It was my first mobile app in at least decade, and the first time coding with Swift language (it was all Objective C the last time I checked). It was a little app with limited features but still pretty cool.  I was trying to create something for practising complex rhythm patterns, that did not rely on standard ways of thining about time signatures, which I could easily use for Carnatic rhyhtm excerces. It was certainly fun to code, and when I began I had come out of a long break from this kind of thing, and finally left the burn out of exectuive IT. So the whole experience did remined me that I do in fact being a software devloper (even if it seems there is not many of us left these days). It was also great to work with some amazing talented people (shout out to the graphic designer Amy Tonkin, as well  my partner Sally Howe for being all over requirements). </p>
+
+  <p>But while the experience of doing this was in a sense reinvigrorating, I was surprised that is also seem to leave me a little ambivalent. On the one hand I felt energised by tech again, and it reminded me tinkering with Linux boxes and open source just the fun of it. But it also felt a little like software development on this scale just was not quite the same.</p>
+  <p>
+
+  I should be very clear that this in no way an  opinion piece about the Apply platform and mobile app ecosystem. I am not making the argument that I am somehow being drawn into making poor tech in Apple world. I have not done the research to have that kidn of opinion. And it be complety Because I was there in the early days of WWDC, programming on on those cool shaped Macintosh's back in the day, and celebrated in my computer science department when MacOSX became curated Unix (and I will admit, that it is my most, well, convenient flavour of Unix). I was excited by what was to come. But there was a broader question in my mind about this process leading to give up so much freedom, not being able to control my deployment and testing in such a contrtolled envonrment.</p>
+
+  <h2>My little App started feeling too big </h2>
+  <p>I noticed as I was coding this app that I felt I was coding to a system rather than software design principles. There was alot of working through certificates, provisioning profiles, developer agreements, review processes, distribution requirements and changing platform expectations. This is all good and fine good and I have certainly done the enterprise IT thing ad nauseum at different imes, plus I had spent a nubmer of years using R and working large Django applicatios,  it lead to me to think that I was developing on a very complicated infrastructure that that seemed to have involvedin someone elses a burn rate of its own.</p>
+
+  <p>I suppose for a  commercial development team, navigating  might be the status quo. For someone creating a modest music-learning application, it can feel disproportionate. The problem isn't one particular policy or technical hurdle. It's the cumulative experience of needing permission, tools and ongoing compatibility with somebody else's system simply to share something I was passionate about, and I knew a ton of different ways to build it with more freedom, I had just happen to choose this. </p>
+
+  <p>And the really strange upshot of this (perhaps much to the chagrin of my collaborators) was I found it uncomfortable to prmote it. Admittely, this was partly becomes I was nervous that I did not know all the tooling enough and it seemed full of flux, and I fellign risk of gui based boilerplate and exotic config.  I was not sure if it was really high quality and robust. For the first time in my coding in life I was looking through internet threads to try and understand exactly how it all worked. And there was something else: as a long term advocate of free and open software, I felt strange talking it up to people half of which had different phones OS, so could not use it. And the answer was of course to develop the Android version. BUt it felt weirder and weider. </p>
+
+  <h2>It feels like software has become aspirational</h2>
+<p>
+I have written a tremendous amount of software over the years, much of it of very high quality. I learned to program in the days before the internet, long before vibe coding, and have worked across all kinds of technical and organisational settings. I have always taken considerable pride in the quality of my code. I am the kind of developer who wants to return to a codebase years later and find that it simply works, and that the underlying design still feels elegant and artful. I have also been pretty tough on my staff during code reviews, because I believe that good software engineering involves more than simply producing something that works today.
+</p>
+
+<p>
+When I was writing relatively self-contained programs in C, it was possible to aim for code that would run for years against stable interfaces. That wasn't universally true, and C certainly has its own serious problems, particularly around memory safety. But the ambition to make something durable was real. I wanted to build software that would last.
+</p>
+
+<p>
+We often forget that computer science rests on ideas of extraordinary longevity. It is informed by mathematical principles, algorithms and data structures don't become invalid because a platform releases a new version. Cryptographic protocols and implementations rightly evolve as threats change, but the underlying mathematics illustrates the distinction between fundamental knowledge and a shifting technical environment. Computer science itself, without the noise is pretty immutable. 
+</p>
+
+
+<h2>The Rise of the <s>Machines</s> Maintenance</h2>
+<p>
+But over the the past two decades, however, I have found myself increasingly puzzled by how much maintenance we've come to regard as inevitable. We write software knowing it will work, provided we keep updating the frameworks, libraries, tools and operating systems around it. Today, robustness can seem to mean surviving the next update rather than continuing to work without one.
+</p>
+
+<p>
+Of course, software needs security fixes, accessibility improvements and genuine advances. I'm not arguing against change. I'm arguing that <em>change</em> and <em>progress</em> are not synonyms. Longevity should be a measure of engineering quality too.
+</p>
+
+
+
+<p>
+BeatMatrix was written in Swift, which is itself an open-source language. My concern isn't that Swift is proprietary; it isn't. Rather, developing for iOS naturally draws you into Apple's frameworks, conventions and distribution model. Those choices can be excellent for particular applications, but they also shape what is easy to build, how you build it and where the result can run and, McLuhan might say, we build software without content where, the Medium becomes the Message.
+</p>
+
+<p>
+My choicr of building what was in essense a a simple metronome on iOS was interewsting. I assumed it should be straightforward: generate a sound at precisely timed intervals. It certainly was in a way. Yet using Apple's AVAudioEngine, arguably the right tool for a production-quality app, opens up an extraordinary web of technical complexity. Suddenly you're managing engine lifecycles, starting, stopping and recovering from interruptions; audio sessions, Bluetooth routing and sample-rate changes; scheduling buffers with enough lookahead to maintain accuracy without compromising responsiveness; synchronising musical time with audio playback timelines; coordinating asynchronous tasks, UI updates and transport controls without race conditions; managing buffer lifetimes and completion callbacks; and rebuilding the audio graph when the system changes underneath you. Audio is always annoyting to deal with with programming a synth which needs to take photos and phonecalls and remind you to stand up, it would just be challenging
+</p>
+
+<p>
+All of these mechanisms are interdependent, so a seemingly minor event can cascade into timing errors or unpredictable behaviour. And as I worked through these problems, I was surprised by just how much of my time was being spent navigating the surrounding ecosystem rather than solving the original musical problem.
+</p>
+
+<p>
+When you go deep enough, software development can begin to feel like a series of increasingly complex layers: your code, debugging tools, compilers, profiling tools, frameworks and layers upon layers of abstraction. Despite decades of programming experience, I found myself working through systems that often seemed unnecessarily confusing. It was an interesting experience, particularly because so much of the complexity had very little to do with the underlying problem I was trying to solve.
+</p>
+
+<p>
+Ironically, I've found JavaScript applications can be more robust than native iOS applications, not because JavaScript is inherently more reliable, but because it's often much easier to recover from a failure state. In JavaScript, I can generally isolate a problem, reset some state, restart a process and carry on. In iOS, particularly when dealing with AVAudioEngine, asynchronous tasks, thread management and framework-controlled lifecycles, failures can become deeply entangled. Recovering from one problem can trigger another because so much state is managed implicitly across interconnected systems.
+</p>
+
+<p>
+We've built increasingly sophisticated abstractions to make software safer, yet sometimes made it extraordinarily difficult to understand, control and recover when something goes wrong. A system that fails occasionally but recovers predictably can be more robust in practice than one designed to prevent failure but struggles to recover from it.
+</p>
+
+<p>
+This experience left me thinking about the kind of software we now aspire to build. I have always wanted to create software that is not only functional, but elegant, reliable and durable. Yet increasingly, it feels as though we are building software that depends on the continuous maintenance of an enormous technical ecosystem. I began to wonder whether we have gradually lowered our ambitions for longevity, even as the sophistication of our tools has increased.
+</p>
+
+
+  <p>I've worked in C, C++, Java, Haskell, R, Python and JavaScript, among other languages, and I've always valued the different ways of thinking they encourage. I don't want to tie every new idea to a single vendor's preferred architecture. I want to choose tools because they suit the problem, not because a platform requires them.</p>
+
+  <h2>Returning to the open web</h2>
+  <p>One outcome of this experience has been a renewed enthusiasm for HTML, CSS and JavaScript. JavaScript has plenty of peculiarities, and the modern web can be needlessly complicated. But a small application built on established web standards can be published directly and opened on a phone, tablet or computer without an app-store review or a platform-specific installation.</p>
+  <p>For education, that accessibility matters enormously. A teacher can share a link with a class. A student can practise on the device they already have. Someone elsewhere in the world can use the same resource without creating an account or buying a particular product.</p>
+  <p>And when I fix a bug, I can publish the change myself. Browsers and standards still evolve, of course, but I can keep the application small, avoid unnecessary frameworks and reduce the number of external decisions that determine whether it works.</p>
+
+  <h2>Transparency and privacy</h2>
+  <p>Open code also makes it easier to be transparent about what an application actually does. For a rhythm trainer or an ear-training exercise, I don't see why users should automatically need an account, tracking scripts, analytics or a cloud service. In many cases, the application can run locally in the browser after its files have loaded, without sending a student's answers or practice activity anywhere.</p>
+  <p>That privacy doesn't happen automatically. A website can collect data just as readily as a native application, and open-source code can still contain security mistakes. But I can design for data minimisation, explain any information that is collected, and make the implementation inspectable. I would rather demonstrate those choices than ask users to take them on trust.</p>
+  <p>Particularly in education, privacy should be the starting point, not an optional feature.</p>
+
+  <h2>Why I'm opening up BeatMatrix</h2>
+  <p>Let's face it, no one gives a hoot one is going to care BeatMatrix's source code available. It is a profoudn non event. Its a bout my catharsis unnoticeable. An easily reversible piece of teiny msuic software, but its also for bookending others can study, adapt and improve. Someone may be interested in the rhythmic algorithms, the audio scheduling or the interface. Someone else may want to take the idea in a completely different direction.</p>
+  <p>Publishing the code doesn't remove the application's existing iOS dependencies, and an open repository isn't automatically a cross-platform version. But it makes the work visible and gives others a starting point. Once the repository and licence are published, I'll link them here.</p>
+
+  <div class="info-panel">
+    <h2>BeatMatrix source code</h2>
+    <p>I'm preparing the BeatMatrix source for public release, including its licence and documentation. I'll add the repository link here when it's available.</p>
+  </div>
+
+
+
+
+<h2>And so there was SAJA MUSIC</h2>
+
+  <p>I feel like the whole process has reminded me of something important to me. Software is still a public goodThere's a parallel with music that I keep returning to. A score written centuries ago can still be read and performed today because its notation and musical ideas have endured. Software interacts with changing hardware in ways a score doesn't, but I wonder whether we could be more ambitious about preserving our digital work.</p>
+
+
+<p>
+All of this reminded me of a music software project I began about fifteen years ago. It was an ambitious idea involving music notation, analysis and interactive learning, and over the years I experimented with all kinds of technologies to bring it to life. I had forgotten and my partner Sally showed me allher amazing resources she had developed for students and I wantedI wrote parsers for MusicXML, explored frameworks such as Angular and Django, and worked with languages ranging from C to Python and JavaScript. The project went through numerous iterations, each shaped partly by the technologies available at the time. Looking back, an extraordinary amount of effort went into choosing, learning and maintaining the technology rather than developing the musical ideas themselves. I have a think agout wirting my own code and have strong opinions about my design. But trouble shooting an XML  Parser utility with an LLM is pretty fun
+</p>
+
+<p>
+Returning to these ideas recently, I realised something interesting. Modern computers are now so extraordinarily powerful that many of the things I once approached with complicated software architectures can be accomplished using relatively simple languages and technologies. Applications that might once have required substantial infrastructure can now run directly in a web browser. And perhaps more importantly, they can be built in ways that are understandable, portable and relatively independent of large software ecosystems.
+</p>
+
+<p>
+And so I guess is really where <a href="./index.html">SAJA Music</a> came about. I wanted to return to developing music software, but with a different philosophy. Rather than building large applications around increasingly elaborate frameworks, I wanted to create smaller, self-contained tools that explore interesting musical and educational ideas. Applications that are easy to share, respectful of privacy, freely accessible and, hopefully, still useful long after I've moved on to something else.
+</p>
+
+<p>
+The point isn't to reject modern tools or pretend that older software was perfect. It's to make conscious choices about complexity, dependence and the people our software is meant to serve. There is something appealing about building a small application that does one thing particularly well, using open standards and broadly available technologies, without requiring accounts, subscriptions or an elaborate infrastructure to keep it running.
+</p>
+
+<p>
+I am of a vintage, that I remember keenly before a time before the internet, and then the internet. I was with a dear friend of mine in the University of Sydney Physics department and I saw it, and had this feeling  promised to expand creativity, intellectual freedom and access to knowledge. I still find that vision compelling. SAJA Music is, in many ways, an attempt to return to that original promise and excitement: using technology not as an end in itself, but as a way of exploring music, sharing knowledge and creating things that might have some lasting value.
+</p>
+ 
+</main>
+<footer class="footer"><div>jamie@jamiegabriel.org</div></footer>
+</body>
+</html>
