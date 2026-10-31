@@ -369,6 +369,11 @@ h1{
 @media(max-width:600px){body{padding-top:74px}#mainNav,#mainNav.navbar-shrink{min-height:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
 @media(max-width:370px){#mainNav .site-nav-inner{padding:0 10px}#mainNav .nav-links{gap:8px;font-size:.7rem}#mainNav .navbar-brand{font-size:.83rem}}
 
+
+/* Printable companion worksheet */
+.worksheet-download{display:inline-block;margin:0 0 28px;padding:11px 18px;background:var(--accent);color:#fff!important;border:1px solid var(--accent)!important;border-radius:4px;font-weight:700;text-decoration:none!important;line-height:1.4}
+.worksheet-download:hover{background:#6f2330;color:#fff!important}
+@media print{.worksheet-download{display:none!important}}
 </style>
 </head>
 
@@ -409,6 +414,8 @@ h1{
             A to G.
         </p>
     </div>
+
+    <a class="worksheet-download" href="./assets/pdf-files/find-that-key-worksheet.pdf" download>Download printable worksheet (PDF)</a>
 
     <section class="quiz" aria-label="Piano note quiz">
 
