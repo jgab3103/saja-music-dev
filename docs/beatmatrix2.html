@@ -17,18 +17,22 @@ $('#rows').addEventListener('change',e=>{let x=e.target;if(!x.dataset.field)retu
 $('#addBtn').onclick=()=>{stop();let r=makeRow();r.expanded=true;state.rows.push(r);render();r&&window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})};
 function buildEvents(){const result=[];let t=0;state.rows.forEach((r,ri)=>{cleanRow(r);const count=r.beats*r.subdiv*r.repeats;for(let n=0;n<count;n++){let p=count===1?0:n/(count-1);let bpm=r.change?tempoAt(r.tempo,r.endTempo,p):r.tempo;let bi=Math.floor((n% (r.beats*r.subdiv))/r.subdiv),si=n%r.subdiv;result.push({t,ri,bi,si,bpm,type:r.dots[bi][si]});let delta=60/(bpm*r.subdiv);t+=delta;} });return {result,duration:t}}
 function tempoAt(a,b,p){if(state.curve==='exponential'){return a+(b-a)*(p*p)}if(state.curve==='logarithmic'){return a+(b-a)*(Math.log1p(9*p)/Math.log(10))}return a+(b-a)*p}
-async function ensureAudio(){
- const AudioCtor=window.AudioContext||window.webkitAudioContext;
- if(!AudioCtor)throw Error('Web Audio is not supported');
+function ensureAudio(){
+ const C=window.AudioContext||window.webkitAudioContext;
+ if(!C)throw Error('Web Audio unsupported');
  if(!audio||audio.state==='closed'){
-  audio=new AudioCtor();
+  audio=new C();
   clicks=[220,660,880].map(freq=>{let len=Math.round(audio.sampleRate*.085),buf=audio.createBuffer(1,len,audio.sampleRate),data=buf.getChannelData(0);for(let i=0;i<len;i++){let t=i/audio.sampleRate;data[i]=(Math.sin(2*Math.PI*freq*t)+.2*Math.sin(2*Math.PI*freq*2*t))*Math.exp(-t*48)}return buf});
  }
- // Start a silent source synchronously with the user's tap to unlock iOS Safari.
- const silent=audio.createBuffer(1,1,audio.sampleRate);
- const source=audio.createBufferSource();source.buffer=silent;source.connect(audio.destination);source.start(0);
- if(audio.state!=='running')await audio.resume();
- if(audio.state!=='running')throw Error('Audio context not running');
+ // A real oscillator, started directly inside the Play gesture, primes iOS audio output.
+ // This follows the successful diagnostic Web Audio path; no WAV playback needed.
+ const osc=audio.createOscillator(),gain=audio.createGain();
+ gain.gain.setValueAtTime(0.0001,audio.currentTime);
+ osc.frequency.value=880;
+ osc.connect(gain).connect(audio.destination);
+ osc.start();osc.stop(audio.currentTime+.04);
+ osc.onended=()=>{osc.disconnect();gain.disconnect()};
+ return audio.resume().then(()=>{if(audio.state!=='running')throw Error('Audio context not running')});
 }
 function sound(ev,at){if(ev.type===0)return;let src=audio.createBufferSource(),gain=audio.createGain();src.buffer=clicks[ev.type===2?2:ev.type===3?0:1];gain.gain.value=Math.min(1,state.volume*1.5)*(ev.type===3?.45:ev.type===2?1:.85);src.connect(gain).connect(audio.destination);src.start(at);scheduledClicks++;src.onended=()=>{try{src.disconnect();gain.disconnect()}catch(e){}}}
 let cycle=0,cycleStart=0,duration=0,scheduledClicks=0,startedClicks=0;
