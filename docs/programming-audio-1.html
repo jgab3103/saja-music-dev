@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Technical notes on reliable JavaScript audio playback on iOS and Android using the Web Audio API." />
+<meta name="author" content="Jamie Gabriel" />
+<title>Reliable Web Audio Playback on Mobile Browsers | Jamie Gabriel</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+
+/* Article styling aligned with the Mathematics of Sound page */
+:root{--accent:#8B2E3C;--paper:#FAFAFA;--panel:#F4F1EB;--ink:#111;--muted:#555}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;padding-top:80px;background:var(--paper);color:#111;font-family:'Nunito',sans-serif;line-height:1.75;font-size:16.5px}
+.article{max-width:720px;margin:0 auto;padding:60px 24px 120px}
+.article h1,.article h2,.article h3{font-family:'Varela Round',sans-serif;font-weight:500;line-height:1.35}
+.article h1{font-size:1.9rem;letter-spacing:normal;margin:0 0 10px}
+.article h2{font-size:1.3rem;margin:48px 0 15px}
+.article p{max-width:65ch;margin:0 0 22px}
+.article .lead{font-size:1.08rem;line-height:1.75}
+.eyebrow{font-size:.82rem;color:var(--accent);letter-spacing:.06em;margin-bottom:12px}
+.subtitle{font-size:1rem;color:#555;margin-bottom:10px}
+.meta{color:rgba(0,0,0,.55);font-size:.9rem;margin-bottom:34px}
+.rule{height:1px;background:#e5e5e5;margin:26px 0 34px}
+.article a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,46,60,.35)}
+.article a:hover{color:#111;border-bottom-color:var(--accent)}
+.code{position:relative;margin:24px 0;background:var(--panel);color:#34312f;border:1px solid rgba(0,0,0,.05);border-left:3px solid rgba(139,46,60,.45);border-radius:4px;overflow:hidden}
+.code .label{display:block;padding:13px 20px 0;color:#736c66;font:700 11px 'Nunito',sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.code pre{margin:0;padding:12px 20px 20px;overflow-x:auto;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:2;white-space:pre}
+.code code{color:inherit;background:none}
+.article p code,.article li code{background:var(--panel);padding:1px 5px;border-radius:3px;font-size:.9em}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:18px 22px;margin:24px 0;font-size:.94rem}
+.article ul{margin:4px 0 24px;padding-left:24px}.article li{margin:7px 0}
+.article-footer{margin-top:65px;padding-top:24px;border-top:1px solid #ddd;color:#555;font-size:.9rem}
+.site-footer{background:var(--paper);border-top:1px solid rgba(0,0,0,.06);padding:80px 30px;text-align:center;color:rgba(0,0,0,.7);font-size:.95rem}
+.site-footer a{color:var(--accent)}
+#mainNav,#mainNav.navbar-shrink{position:fixed!important;top:0;left:0;right:0;width:100%;min-height:80px;padding:0!important;margin:0;background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;z-index:1030;box-sizing:border-box}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;min-height:80px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;box-sizing:border-box}
+#mainNav .navbar-brand{display:inline-block;margin:0!important;padding:0!important;font-family:'Nunito',sans-serif;font-size:1.18rem;letter-spacing:.19em;line-height:1.4;white-space:nowrap}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+#mainNav .nav-links a{font-family:'Nunito',sans-serif;font-size:inherit;line-height:1.4;white-space:nowrap}
+#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .nav-links a:hover{color:var(--accent)!important}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:600px){#mainNav,#mainNav.navbar-shrink{min-height:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}.article{padding:40px 20px 80px}.article h1{font-size:1.55rem}.code pre{font-size:12px;padding:12px 15px 18px}}
+@media(max-width:370px){#mainNav .site-nav-inner{padding:0 10px}#mainNav .nav-links{gap:8px;font-size:.7rem}#mainNav .navbar-brand{font-size:.83rem}}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Discovery</a><a href="./pathways.html">Learning Pathways</a><a href="./about.html">About</a></div></div></nav>
+<main class="article">
+<div class="eyebrow">Technical notes · JavaScript &amp; audio</div>
+<h1>Reliable Web Audio Playback on Mobile Browsers</h1>
+<p class="subtitle">Audio activation, context management and scheduling on iOS and Android</p>
+<p class="meta">1 November 2026 · Jamie Gabriel</p>
+<div class="rule"></div>
+<p class="lead">The Web Audio API supports synthesis, audio processing and precisely scheduled playback directly in JavaScript. It is well suited to metronomes, ear-training exercises, synthesisers and other interactive music applications. However, code that produces audio reliably on desktop browsers can be silent on mobile devices, even when the application appears to be running correctly.</p>
+<p>The main implementation concerns are browser autoplay policies, the <code>AudioContext</code> lifecycle and the relationship between audio activation and user interaction.</p>
+
+<h2>1. Audio activation requires user interaction</h2>
+<p>Mobile browsers generally prevent a page from starting audible playback without a user gesture. An <code>AudioContext</code> created during page load may therefore begin in the <code>suspended</code> state.</p>
+<div class="code"><span class="label">JavaScript</span><pre><code>const context = new AudioContext();
+console.log(context.state); // May be "suspended"</code></pre></div>
+<p>Audio activation should be initiated directly from a click or touch-driven control. The simplest implementation resumes the context before scheduling playback:</p>
+<div class="code"><span class="label">JavaScript</span><pre><code>const context = new AudioContext();
+
+playButton.addEventListener('click', async () =&gt; {
+  await context.resume();
+  startPlayback(context);
+});</code></pre></div>
+<p>This is the standard starting point. It is not, however, an end-to-end guarantee of audible output. A context can report <code>running</code> while an application still has a problem with its source nodes, signal routing, timing or platform-specific activation behaviour.</p>
+
+<h2>2. Start activation before unrelated asynchronous work</h2>
+<p>A common mistake is to perform asynchronous setup before requesting audio activation. Browser permissions may depend on a short-lived user-activation state, and an asynchronous operation can separate the request from the original gesture.</p>
+<div class="code"><span class="label">Avoid</span><pre><code>playButton.addEventListener('click', async () =&gt; {
+  await loadSamples();
+  await initialiseInterface();
+  await context.resume();
+  startPlayback(context);
+});</code></pre></div>
+<p>Instead, initiate the activation request immediately and complete other work afterwards. Ideally, load and decode samples before the user presses Play.</p>
+<div class="code"><span class="label">Prefer</span><pre><code>playButton.addEventListener('click', async () =&gt; {
+  const activation = context.resume();
+  await activation;
+  await loadSamples();
+  startPlayback(context);
+});</code></pre></div>
+
+<h2>3. Explicitly initialise the audio output when necessary</h2>
+<p>Some applications benefit from starting a short audio source during the playback gesture, in addition to resuming the context. A silent oscillator is one possible compatibility technique:</p>
+<div class="code"><span class="label">JavaScript</span><pre><code>function primeWebAudio(context) {
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+
+  gain.gain.value = 0;
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+
+  oscillator.start();
+  oscillator.stop(context.currentTime + 0.01);
+}</code></pre></div>
+<p>This technique is not required by the Web Audio specification and is not universally reliable. It should be treated as a tested workaround for particular browser behaviour, rather than as a substitute for correct audio-context management.</p>
+<p>Another approach, useful when diagnosing mobile playback failures, is to compare a Web Audio oscillator with playback through an HTML <code>&lt;audio&gt;</code> element. In some configurations, starting a valid, effectively silent audio element during the same user gesture can help establish a working playback path. If used, that behaviour should be encapsulated and tested on target devices, rather than assumed to work everywhere.</p>
+<div class="note"><strong>Practical point:</strong> If a diagnostic tone works but an application remains silent, compare the complete activation and routing paths. Replacing synthesised audio with WAV files may bypass the symptom without addressing the underlying lifecycle problem.</div>
+
+<h2>4. Reuse the AudioContext</h2>
+<p>An audio context should normally be created once and reused for subsequent playback. Stopping a metronome or an exercise does not require closing the context.</p>
+<div class="code"><span class="label">JavaScript</span><pre><code>let context;
+
+function getAudioContext() {
+  if (!context || context.state === 'closed') {
+    const AudioContextClass =
+      window.AudioContext || window.webkitAudioContext;
+    context = new AudioContextClass();
+  }
+  return context;
+}
+
+function stopPlayback() {
+  cancelScheduledEvents();
+  updateTransport();
+  // Leave the context available for the next Play.
+}</code></pre></div>
+<p>Repeatedly closing and recreating contexts introduces more activation transitions and makes recovery from mobile audio interruptions more complicated.</p>
+
+<h2>5. Handle suspension and interruption</h2>
+<p>Mobile devices can interrupt audio when the browser is backgrounded, the screen is locked, an audio route changes or another application takes control of playback. The application should observe the context state and provide a clear recovery path.</p>
+<div class="code"><span class="label">JavaScript</span><pre><code>context.addEventListener('statechange', () =&gt; {
+  console.log('Audio context:', context.state);
+});
+
+playButton.addEventListener('click', async () =&gt; {
+  const context = getAudioContext();
+  await context.resume();
+  startPlayback(context);
+});</code></pre></div>
+<p>Automatic resumption may be possible, but a further user gesture can be required. For timing-sensitive applications, it is often better to pause the musical transport during an interruption and resynchronise when playback resumes.</p>
+
+<h2>6. Keep musical timing separate from JavaScript timers</h2>
+<p>Once audio is active, precise scheduling should use <code>AudioContext.currentTime</code>, not the execution timing of <code>setInterval()</code> or <code>setTimeout()</code>.</p>
+<div class="code"><span class="label">JavaScript</span><pre><code>function scheduleTone(context, frequency, at) {
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+
+  oscillator.frequency.value = frequency;
+  gain.gain.setValueAtTime(0.3, at);
+  gain.gain.exponentialRampToValueAtTime(0.001, at + 0.1);
+
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+  oscillator.start(at);
+  oscillator.stop(at + 0.1);
+}</code></pre></div>
+<p>A lookahead scheduler can use a JavaScript timer to submit future events, while the audio engine determines when those events actually sound. The user interface should follow the musical clock rather than control it.</p>
+
+<h2>7. Web Audio does not require pre-generated WAV files</h2>
+<p>Generating WAV files can be appropriate for recorded sounds or complex sample-based instruments. It is not generally necessary simply to support mobile browsers.</p>
+<p>Web Audio can generate oscillators, play decoded samples, combine simultaneous notes, schedule melodies and rhythms, and apply effects. For algorithmic music exercises, retaining notes and durations as structured musical data is usually more flexible than rendering a separate file for every possible combination.</p>
+<p>An interval can be represented as two pitches; a chord as a set of pitches; and a rhythm as a sequence of timed events. The audio engine can render these structures directly.</p>
+
+<h2>8. Cross-platform testing</h2>
+<p>The same Web Audio architecture can support iOS Safari, Android Chrome and modern desktop browsers. However, mobile playback should be tested on real devices, particularly for:</p>
+<ul><li>First playback after page load.</li><li>Stopping and restarting playback.</li><li>Switching tabs or backgrounding the browser.</li><li>Screen locking and device interruptions.</li><li>Bluetooth and wired audio output.</li><li>Recovery after an interrupted audio session.</li></ul>
+<p>Bluetooth latency is distinct from scheduling accuracy: audio events can remain evenly spaced while arriving noticeably later than the visual interface.</p>
+
+<h2>9. Use a shared audio layer</h2>
+<p>For a site containing several interactive music applications, context creation, activation, interruption handling and scheduling are better implemented in a common module than repeated independently in every exercise.</p>
+<p>This keeps the application-specific code focused on musical concepts while centralising browser compatibility and testing.</p>
+
+<h2>Conclusion</h2>
+<p>Reliable mobile audio requires explicit activation within a user gesture, careful management of the audio context lifecycle and separation of audio scheduling from interface rendering. Where playback fails, test the audio output path independently before replacing dynamic synthesis with generated files.</p>
+<p><strong>Audio activation, musical scheduling and visual presentation should be separate responsibilities.</strong> This provides a maintainable foundation for interactive music applications across desktop and mobile browsers.</p>
+<div class="article-footer">Jamie Gabriel · Technical notes on music, software and interactive learning</div>
+</main>
+<footer class="site-footer"><div>jamie@jamiegabriel.org</div></footer>
+</body>
+</html>
