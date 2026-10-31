@@ -337,28 +337,40 @@ a:hover{
         margin-top:3px;
     }
 }
+
+/* Match the About page's typography, content width, hero and navigation. */
+.shell{width:100%;max-width:1160px;margin:0 auto;padding:0 32px}
+.hero{margin:40px auto 44px;padding:58px 60px 62px;background:var(--panel);border-radius:8px}
+.eyebrow{font-size:.78rem;letter-spacing:.24em;color:#716964;margin:0 0 14px;font-weight:700}
+.hero h1{font-family:'Varela Round',sans-serif;font-size:clamp(2.1rem,3.6vw,3.1rem);font-weight:500;line-height:1.3;text-align:left;margin:0 0 20px}
+.hero .intro{max-width:790px;margin:0;text-align:left}
+.hero .intro p{max-width:790px;margin:0 0 15px;color:#393532;font-size:1.06rem}
+.hero .intro p:last-child{margin-bottom:0}
+.lessons{max-width:none;margin:0;padding:0 4px 100px}
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.06);min-height:80px}
+#mainNav{display:flex;align-items:center;width:100%;left:0;right:0;top:0;z-index:1030;position:fixed;padding:0}
+#mainNav a{color:#111!important;text-decoration:none!important;border:0!important}
+#mainNav .site-nav-inner{flex:1;width:100%;max-width:1320px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;min-height:80px}
+#mainNav .navbar-brand{display:inline-block;margin:0;padding:0;white-space:nowrap;letter-spacing:.19em;font-size:1.18rem}
+#mainNav .nav-links{margin-left:auto;display:flex;gap:2.5rem;align-items:center;justify-content:flex-end}
+@media(min-width:576px){#mainNav .site-nav-inner{max-width:540px}}
+@media(min-width:768px){#mainNav .site-nav-inner{max-width:720px}}
+@media(min-width:992px){#mainNav .site-nav-inner{max-width:960px}}
+@media(min-width:1200px){#mainNav .site-nav-inner{max-width:1140px}}
+@media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
+@media(max-width:650px){.shell{padding:0 22px}.hero{margin-top:22px;padding:32px 26px}.lessons{padding:0 0 65px}}
+@media(max-width:600px){body{padding-top:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
 </style>
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container px-4 px-lg-5">
-        <a class="navbar-brand" href="./index.html">Jamie Gabriel</a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="site-nav-inner"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Discovery</a><a href="./pathways.html">Learning Pathways</a><a href="./about.html">About</a></div></div></nav>
 
-        <div class="nav-links">
-            <a href="./music.html">Music</a>
-            <a href="./teaching.html">Teaching</a>
-          <a href="./recordings.html">Recordings</a>
-            <a href="./contact.html">Contact</a>
-        </div>
-    </div>
-</nav>
+<main class="shell"><section class="hero"><div class="eyebrow">SAJA MUSIC / LESSONS</div><h1>Music Lessons</h1>
 
-<section class="lessons">
 
-    <h1>Music Lessons</h1>
 
     <div class="intro">
 <p>
@@ -374,7 +386,7 @@ a:hover{
 </p>
     </div>
 
-    <div class="lesson-layout">
+</section><section class="lessons"><div class="lesson-layout">
 
         <div class="panel">
 
@@ -541,7 +553,7 @@ a:hover{
                             30 minutes · weekly during term
                         </div>
                     </div>
-                    <div class="price">$40</div>
+                    <div class="price">$40AUD</div>
                 </div>
 
                 <div class="price-item">
@@ -551,7 +563,7 @@ a:hover{
                             45 minutes
                         </div>
                     </div>
-                    <div class="price">$50</div>
+                    <div class="price">$50AUD</div>
                 </div>
 
             </div>
@@ -571,6 +583,7 @@ a:hover{
     </div>
 
 </section>
+</main>
 
 <footer class="footer">
     <div>jamie@jamiegabriel.org</div>
