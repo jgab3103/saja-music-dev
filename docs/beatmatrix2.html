@@ -22,7 +22,7 @@ async function ensureAudio(){
  if(!AudioCtor)throw Error('Web Audio is not supported');
  if(!audio||audio.state==='closed'){
   audio=new AudioCtor();
-  clicks=[220,660,880].map(freq=>{let len=Math.round(audio.sampleRate*.045),buf=audio.createBuffer(1,len,audio.sampleRate),data=buf.getChannelData(0);for(let i=0;i<len;i++){let t=i/audio.sampleRate;data[i]=(Math.sin(2*Math.PI*freq*t)+.2*Math.sin(2*Math.PI*freq*2*t))*Math.exp(-t*95)}return buf});
+  clicks=[220,660,880].map(freq=>{let len=Math.round(audio.sampleRate*.085),buf=audio.createBuffer(1,len,audio.sampleRate),data=buf.getChannelData(0);for(let i=0;i<len;i++){let t=i/audio.sampleRate;data[i]=(Math.sin(2*Math.PI*freq*t)+.2*Math.sin(2*Math.PI*freq*2*t))*Math.exp(-t*48)}return buf});
  }
  // Start a silent source synchronously with the user's tap to unlock iOS Safari.
  const silent=audio.createBuffer(1,1,audio.sampleRate);
@@ -30,11 +30,11 @@ async function ensureAudio(){
  if(audio.state!=='running')await audio.resume();
  if(audio.state!=='running')throw Error('Audio context not running');
 }
-function sound(ev,at){if(ev.type===0)return;let src=audio.createBufferSource(),gain=audio.createGain();src.buffer=clicks[ev.type===2?2:ev.type===3?0:1];gain.gain.value=state.volume*(ev.type===3?.32:ev.type===2?1:.72);src.connect(gain).connect(audio.destination);src.start(at)}
+function sound(ev,at){if(ev.type===0)return;let src=audio.createBufferSource(),gain=audio.createGain();src.buffer=clicks[ev.type===2?2:ev.type===3?0:1];gain.gain.value=Math.min(1,state.volume*1.5)*(ev.type===3?.45:ev.type===2?1:.85);src.connect(gain).connect(audio.destination);src.start(at);src.onended=()=>{try{src.disconnect();gain.disconnect()}catch(e){}}}
 let cycle=0,cycleStart=0,duration=0;
 function tick(){if(!playing||!audio)return;if(audio.state!=='running'){audio.resume().catch(()=>{});return}const now=audio.currentTime;let horizon=now+.13;let guard=0;while(playing&&guard++<1500){if(idx>=events.length){idx=0;cycle++;cycleStart+=duration}let ev=events[idx],when=cycleStart+ev.t;if(when>horizon)break;if(when>=now-.008)sound(ev,Math.max(when,now+.002));idx++}let elapsed=now-epoch;let within=((elapsed%duration)+duration)%duration;let j=binaryIndex(within);let ev=events[j];if(ev&&lastUi!==`${cycle}-${j}`){lastUi=`${cycle}-${j}`;activeRow=ev.ri;$('#tempoRead').textContent=Math.round(ev.bpm);$('#position').textContent=`Row ${ev.ri+1} · Beat ${ev.bi+1}`;document.querySelectorAll('.row').forEach((el,k)=>el.classList.toggle('active',k===ev.ri));document.querySelectorAll('.beat').forEach(el=>el.classList.remove('now'));document.querySelectorAll('.dot.playing').forEach(el=>el.classList.remove('playing'));let dot=document.querySelector(`[data-i="${ev.ri}"][data-b="${ev.bi}"][data-s="${ev.si}"]`);dot?.classList.add('playing');dot?.closest('.beat')?.classList.add('now')}}
 function binaryIndex(t){let lo=0,hi=events.length-1;while(lo<hi){let m=Math.ceil((lo+hi)/2);if(events[m].t<=t)lo=m;else hi=m-1}return lo}
-async function start(){try{await ensureAudio();let b=buildEvents();events=b.result;duration=b.duration;if(!events.length||!duration)throw Error('No rhythm');idx=0;cycle=0;lastUi=-1;epoch=audio.currentTime+.075;cycleStart=epoch;playing=true;$('#playBtn').textContent='■';$('#status').textContent='Playing';interval=setInterval(tick,25);tick()}catch(e){stop('Unable to start audio');alert(e.message)}}
+async function start(){try{await ensureAudio();let b=buildEvents();events=b.result;duration=b.duration;if(!events.length||!duration)throw Error('No rhythm');idx=0;cycle=0;lastUi=-1;epoch=audio.currentTime+.075;cycleStart=epoch;playing=true;$('#playBtn').textContent='■';$('#status').textContent='Playing · '+events.filter(e=>e.type!==0).length+' audible hits/cycle';interval=setInterval(tick,25);tick()}catch(e){stop('Unable to start audio');alert(e.message)}}
 function stop(reason='Stopped'){playing=false;clearInterval(interval);interval=null;activeRow=-1;$('#playBtn').textContent='▶';$('#position').textContent='Ready';$('#status').textContent=reason;document.querySelectorAll('.row').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.dot.playing').forEach(x=>x.classList.remove('playing'));document.querySelectorAll('.beat.now').forEach(x=>x.classList.remove('now'));$('#tempoRead').textContent=state.rows[0]?.tempo||120;/* Keep AudioContext alive across stops to avoid repeated iOS initialization. */}
 // Diagnostic: direct Web Audio tone vs native HTML audio WAV, both started by a tap.
 function diagnostic(message){$('#audioDiagnostic').textContent=message;}
