@@ -8,7 +8,7 @@
 <meta name="description" content="Listening Diary – Jamie Gabriel"/>
 <meta name="author" content="Jamie Gabriel"/>
 
-<title>Listening Diary | Jamie Gabriel</title>
+<title>Listening Diary</title>
 
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -437,6 +437,17 @@ select,
 @media(min-width:1400px){#mainNav .site-nav-inner{max-width:1320px}}
 @media(max-width:600px){#mainNav,#mainNav.navbar-shrink{min-height:74px}#mainNav .site-nav-inner{min-height:74px;padding:0 16px}#mainNav .navbar-brand{font-size:.94rem;letter-spacing:.12em}#mainNav .nav-links{gap:12px;font-size:.76rem}}
 @media(max-width:370px){#mainNav .site-nav-inner{padding:0 10px}#mainNav .nav-links{gap:8px;font-size:.7rem}#mainNav .navbar-brand{font-size:.83rem}}
+
+/* Mobile-only readable map detail dialog; desktop Leaflet popups unchanged. */
+.mobile-diary-dialog{border:0;border-radius:12px;padding:0;width:min(92vw,480px);max-height:min(82dvh,740px);background:var(--paper);color:#111;box-shadow:0 16px 65px rgba(0,0,0,.25)}
+.mobile-diary-dialog::backdrop{background:rgba(20,17,16,.48)}
+.mobile-diary-dialog-inner{padding:22px 23px 26px;max-height:min(82dvh,740px);overflow-y:auto;overscroll-behavior:contain;font-family:'Nunito',sans-serif;line-height:1.55}
+.mobile-diary-dialog-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.mobile-diary-dialog-top span{font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;font-weight:800;color:var(--accent)}
+.mobile-diary-close{border:1px solid #ded8d4;border-radius:6px;background:#fff;color:#222;font:700 1.35rem/1 'Nunito',sans-serif;cursor:pointer;width:40px;height:40px;flex:none}
+.mobile-diary-dialog-content h3{font-family:'Varela Round',sans-serif;color:var(--accent);font-size:1.15rem;margin:12px 0 8px}
+.mobile-diary-dialog-content p{margin:10px 0;line-height:1.55;overflow-wrap:anywhere}
+@media(min-width:701px){.mobile-diary-dialog{display:none}}
 </style>
 
 </head>
@@ -690,6 +701,15 @@ select,
 
 </footer>
 
+
+<!-- Only used for map-marker details on mobile screens. -->
+<dialog id="mobileDiaryDialog" class="mobile-diary-dialog" aria-label="Listening diary work details">
+  <div class="mobile-diary-dialog-inner">
+    <div class="mobile-diary-dialog-top"><span>Listening diary</span><button type="button" class="mobile-diary-close" id="mobileDiaryClose" aria-label="Close details">×</button></div>
+    <div class="mobile-diary-dialog-content" id="mobileDiaryContent"></div>
+  </div>
+</dialog>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="works.js"></script>
 
@@ -698,6 +718,14 @@ select,
 /* --------------------------------------------------
    Map
 -------------------------------------------------- */
+
+const mobileDiaryDialog = document.getElementById("mobileDiaryDialog");
+const mobileDiaryContent = document.getElementById("mobileDiaryContent");
+const mobileDiaryClose = document.getElementById("mobileDiaryClose");
+mobileDiaryClose.addEventListener("click", () => mobileDiaryDialog.close());
+mobileDiaryDialog.addEventListener("click", event => {
+    if(event.target === mobileDiaryDialog) mobileDiaryDialog.close();
+});
 
 const map = L.map("map", {
     worldCopyJump:true
@@ -1263,7 +1291,7 @@ function draw(changedControl){
 
                 : "—";
 
-        marker.bindPopup(`
+        const popupHTML = `
 
             <p>
                 <strong>${work.composer}</strong>
@@ -1311,7 +1339,16 @@ function draw(changedControl){
                 ${listeningHistory}
             </p>
 
-        `);
+        `;
+
+        marker.bindPopup(popupHTML);
+        marker.on("click", () => {
+            if(window.matchMedia("(max-width:700px)").matches){
+                marker.closePopup();
+                mobileDiaryContent.innerHTML = popupHTML;
+                if(!mobileDiaryDialog.open) mobileDiaryDialog.showModal();
+            }
+        });
 
         marker.addTo(markerLayer);
 
