@@ -64,7 +64,6 @@ body{margin:0;padding-top:80px;background:var(--paper);color:#111;font-family:'N
 <p class="meta">1 November 2026 · Jamie Gabriel</p>
 <div class="rule"></div>
 
-<p>So this is a super dry overview of the issues that come up when programming audio for mobile devices. If you create something that works on desktop, but not mobile, then the problem below is what you will usually be facing.  </p>
 
 <p class="lead">The Web Audio API supports synthesis, audio processing and precisely scheduled playback directly in JavaScript. It is well suited to metronomes, ear-training exercises, synthesisers and other interactive music applications. However, code that produces audio reliably on desktop browsers can be silent on mobile devices, even when the application appears to be running correctly.</p>
 <p>The main implementation concerns are browser autoplay policies, the <code>AudioContext</code> lifecycle and the relationship between audio activation and user interaction.</p>
