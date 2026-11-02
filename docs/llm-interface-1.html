@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="Piano Roll – Visual Music Editor | SAJA Music" />
+<meta name="author" content="Jamie Gabriel" />
+<title>Piano Roll – Visual Music Editor | SAJA Music</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,500,600,700,800,900" rel="stylesheet" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+:root{--accent:#8B2E3C;--paper:#FAFAFA;--panel:#F4F1EB}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;padding-top:80px;background:var(--paper);color:#111;font:16.5px/1.75 'Nunito',sans-serif}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(139,46,60,.35);transition:.2s}
+a:hover{color:#111;border-bottom-color:rgba(139,46,60,.75)}
+#mainNav,#mainNav.navbar-shrink{background:var(--paper)!important;border-bottom:1px solid rgba(0,0,0,.05);min-height:80px;position:fixed;top:0;left:0;right:0;z-index:1030;display:flex;align-items:center}
+#mainNav .container{width:100%;display:flex;align-items:center;justify-content:space-between}
+#mainNav a{color:#111!important;text-decoration:none!important;border:none!important}
+#mainNav .nav-links{display:flex;gap:2.5rem;align-items:center}
+#mainNav .nav-links a:hover{color:var(--accent)!important}
+.editor{max-width:1200px;margin:0 auto;padding:60px 24px 110px}
+h1{font:500 1.9rem/1.35 'Varela Round',sans-serif;margin:0 0 16px}
+.editor-intro{max-width:75ch;color:#625a54;margin:0 0 30px}
+button,select,input{font:inherit}
+button{background:white;border:1px solid #bfb6ae;border-radius:5px;padding:8px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button.active,.primary{background:var(--accent);color:white;border-color:var(--accent)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:16px 0}
+.toolbar label{display:flex;align-items:center;gap:5px}
+.card{background:white;border:1px solid #e2dbd4;border-radius:6px;padding:24px;margin:22px 0}
+.card>strong{font-family:'Varela Round',sans-serif;font-weight:500;font-size:1.08rem}
+.scroll{overflow-x:auto}
+.roll{display:grid;grid-template-columns:65px repeat(32,minmax(27px,1fr));min-width:1000px;user-select:none}
+.cell,.pitch{height:25px;border-right:1px solid #e6e0da;border-bottom:1px solid #eae6e2;position:relative}
+.pitch{position:sticky;left:0;z-index:3;background:var(--panel);font-size:12px;text-align:right;padding:4px 9px 0 0;font-weight:700}
+.cell.black{background:#f5f3f1}.cell.beat{border-left:1px solid #c6bcb4}.cell.bar{border-left:2px solid #897b70}
+.cell.occupied{background:#b57c86!important;cursor:pointer}.cell.start{background:var(--accent)!important}
+.cell:hover{outline:2px solid var(--accent);outline-offset:-2px}
+.rollhead{display:grid;grid-template-columns:65px repeat(32,minmax(27px,1fr));min-width:1000px}
+.rollhead span{font-size:11px;text-align:center;background:#eee9e4;border-right:1px solid #d5cbc3;padding:5px 0}
+.rollhead span:first-child{position:sticky;left:0;z-index:4}.rollhead .barlabel{background:#ded4cc;font-weight:800}
+.help{font-size:.88rem;color:#625a54;margin:12px 0 18px}
+.output{width:100%;height:145px;border:1px solid #d7cec7;border-radius:5px;padding:12px;font:13px/1.5 ui-monospace,monospace;resize:vertical}
+small{color:#655e57}.status{font-size:13px;color:#665a54}
+select,input[type=number]{padding:7px;border:1px solid #c9c0b8;border-radius:5px;background:white}
+.footer{background:var(--paper);border-top:1px solid rgba(0,0,0,.06);padding:80px 30px;text-align:center;font-size:.95rem;color:rgba(0,0,0,.7)}
+@media(max-width:700px){#mainNav .nav-links{gap:1.4rem;font-size:.85rem}h1{font-size:1.55rem}.editor{padding:42px 18px 80px}.card{padding:16px}}
+@media(max-width:430px){#mainNav .container{padding:0 12px!important}#mainNav .nav-links{gap:10px;font-size:.72rem}#mainNav .navbar-brand{font-size:.85rem}}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav"><div class="container px-4 px-lg-5"><a class="navbar-brand" href="./index.html">SAJA MUSIC</a><div class="nav-links"><a href="./teaching.html">Discovery</a><a href="./pathways.html">Learning Pathways</a><a href="./about.html">About</a></div></div></nav>
+<main class="editor">
+<h1>Piano Roll – Visual Music Editor</h1>
+<p class="editor-intro">A simple utility for sketching beginner piano pieces. Click a grid cell to add a note. Copy the resulting string and use it to generate a VexFlow score.</p>
+<div class="toolbar"><label>Editing <select id="hand"><option value="RH">Right hand</option><option value="LH">Left hand</option></select></label><label>Duration <select id="duration"><option value="1">Quarter</option><option value="2">Half</option><option value="4">Whole</option></select></label><label>Tempo <input id="tempo" type="number" value="80" min="30" max="220" style="width:75px"></label><button id="play" class="primary">▶ Play</button><button id="stop">■ Stop</button><button id="undo">Undo</button><button id="clear">Clear</button></div>
+<div class="card"><strong id="rolltitle">Right hand · C4–G4</strong><p class="help">8 bars of 4/4. Each column is a quarter-note beat. Select a duration, then click the starting beat. Click an existing note to remove it. You can switch hands at any time.</p><div class="scroll"><div id="head" class="rollhead"></div><div id="roll" class="roll"></div></div><p class="status" id="status" aria-live="polite"></p></div>
+<div class="card"><strong>Copy this composition</strong><p class="help">The output updates automatically. <code>|</code> separates bars; <code>rest</code> represents silence. Empty beats are exported as rests.</p><textarea id="output" class="output" readonly></textarea><div class="toolbar"><button id="copy" class="primary">Copy string</button><button id="download">Save text</button><button id="example">Load gentle example</button></div></div>
+<small>All editing happens locally in this browser tab. No account or internet connection is required for the editor itself.</small>
+</main><footer class="footer"><div>jamie@jamiegabriel.org</div></footer>
+<script>
+(()=>{'use strict';const $=id=>document.getElementById(id), beats=32, notes={RH:[],LH:[]}, history=[];let audio=null, timers=[],playing=false;const pitches={RH:['G4','F4','E4','D4','C4'],LH:['G3','F3','E3','D3','C3']};
+function snapshot(){history.push(JSON.stringify(notes));if(history.length>100)history.shift()}
+function intersects(a,b){return a.start<b.start+b.len&&b.start<a.start+a.len}
+function render(){const hand=$('hand').value, rows=pitches[hand];$('rolltitle').textContent=(hand==='RH'?'Right hand · C4–G4':'Left hand · C3–G3');const head=$('head'),roll=$('roll');head.replaceChildren();roll.replaceChildren();let corner=document.createElement('span');corner.textContent='Pitch';head.append(corner);for(let i=0;i<beats;i++){let el=document.createElement('span');el.textContent=i%4===0?'Bar '+(Math.floor(i/4)+1):'';if(i%4===0)el.className='barlabel';head.append(el)}for(let p of rows){let label=document.createElement('div');label.className='pitch';label.textContent=p;roll.append(label);for(let i=0;i<beats;i++){const cell=document.createElement('div');cell.className='cell'+(p[0]==='D'||p[0]==='F'?' black':'')+(i%4===0?' bar':' beat');let hit=notes[hand].find(n=>n.pitch===p&&i>=n.start&&i<n.start+n.len);if(hit){cell.classList.add('occupied');if(i===hit.start){cell.classList.add('start');cell.title=p+' '+name(hit.len)}}cell.onclick=()=>{const existing=notes[hand].find(n=>n.pitch===p&&i>=n.start&&i<n.start+n.len);snapshot();if(existing){notes[hand].splice(notes[hand].indexOf(existing),1)}else{let len=+$('duration').value;if(i+len>beats||Math.floor(i/4)!==Math.floor((i+len-1)/4)){history.pop();$('status').textContent='Notes must fit inside one bar.';return}let candidate={pitch:p,start:i,len};for(let n of [...notes[hand]])if(intersects(candidate,n))notes[hand].splice(notes[hand].indexOf(n),1);notes[hand].push(candidate)}$('status').textContent='';render()};roll.append(cell)}}updateOutput()}
+function name(len){return {1:'quarter',2:'half',4:'whole'}[len]}
+function encode(hand){let result=[];for(let bar=0;bar<8;bar++){let tokens=[],i=bar*4;while(i<bar*4+4){let n=notes[hand].find(n=>n.start===i);if(n){tokens.push(n.pitch+'-'+name(n.len));i+=n.len}else{let next=notes[hand].filter(n=>n.start>i&&n.start<bar*4+4).sort((a,b)=>a.start-b.start)[0];let gap=(next?next.start:bar*4+4)-i;while(gap>0){let len=gap>=4?4:gap>=2?2:1;tokens.push('rest-'+name(len));i+=len;gap-=len}}}result.push(tokens.join(' '))}return result.join(' | ')}
+function updateOutput(){$('output').value='Time: 4/4\nTempo: '+$('tempo').value+' bpm\nRH: '+encode('RH')+'\nLH: '+encode('LH')}
+function frequency(p){let m=p.match(/^([A-G])([0-9])$/);let semis={C:0,D:2,E:4,F:5,G:7,A:9,B:11};let midi=(+m[2]+1)*12+semis[m[1]];return 440*Math.pow(2,(midi-69)/12)}
+function stop(){timers.forEach(clearTimeout);timers=[];playing=false;$('play').textContent='▶ Play';if(audio){audio.close().catch(()=>{});audio=null}}
+function play(){stop();audio=new (window.AudioContext||window.webkitAudioContext)();audio.resume();playing=true;$('play').textContent='Playing…';let beat=60/Math.max(30,Math.min(220,+$('tempo').value||80));let start=audio.currentTime+.1;for(let hand of ['RH','LH'])for(let n of notes[hand]){let t=start+n.start*beat,d=n.len*beat;let osc=audio.createOscillator(),gain=audio.createGain();osc.type='sine';osc.frequency.value=frequency(n.pitch);gain.gain.setValueAtTime(0.0001,t);gain.gain.exponentialRampToValueAtTime(hand==='RH'?.13:.10,t+.025);gain.gain.exponentialRampToValueAtTime(.0001,t+Math.max(.08,d*.94));osc.connect(gain).connect(audio.destination);osc.start(t);osc.stop(t+d)}timers.push(setTimeout(stop,(beats*beat+.4)*1000))}
+$('hand').onchange=render;$('tempo').onchange=updateOutput;$('play').onclick=play;$('stop').onclick=stop;$('undo').onclick=()=>{if(history.length){let prev=JSON.parse(history.pop());notes.RH=prev.RH;notes.LH=prev.LH;render()}};$('clear').onclick=()=>{if(confirm('Clear both hands?')){snapshot();notes.RH=[];notes.LH=[];stop();render()}};$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('output').value);$('status').textContent='Copied!'}catch{ $('output').select();document.execCommand('copy');$('status').textContent='Selected text for copying.'}};$('download').onclick=()=>{let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('output').value],{type:'text/plain'}));a.download='piano-exercise.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};$('example').onclick=()=>{snapshot();notes.RH=[];notes.LH=[];let melody=['C4','C4','D4','D4','E4','E4','D4','D4','C4','D4','E4','D4','C4','C4','C4','C4','E4','D4','C4','C4','D4','D4','C4','C4','E4','E4','D4','D4'];melody.forEach((pitch,i)=>notes.RH.push({pitch,start:i,len:1}));notes.RH.push({pitch:'C4',start:28,len:4});for(let i=0;i<32;i+=4)notes.LH.push({pitch:'C3',start:i,len:4});render()};render()})();
+</script>
+</body></html>
